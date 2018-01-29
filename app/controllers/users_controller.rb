@@ -38,17 +38,9 @@ class UsersController < ApplicationController
   private
 
   # BEGIN: private section
-  def correct_user
-    current_user == User.find(params[:id])
-  end
-
-  def admin_or_correct_user
-    correct_user || admin_signed_in?
-  end
-  helper_method :admin_or_correct_user
 
   def may_show_user
-    return redirect_to(root_path) unless admin_or_correct_user
+    return redirect_to(root_path) unless admin_signed_in? || user_signed_in?
   end
   helper_method :may_show_user
 
