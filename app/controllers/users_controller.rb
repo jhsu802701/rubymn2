@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   helper_method :may_show_user
 
   def may_index_user
-    return redirect_to(root_path) unless admin_signed_in?
+    return redirect_to(root_path) unless admin_signed_in? || user_signed_in?
   end
   helper_method :may_index_user
 
