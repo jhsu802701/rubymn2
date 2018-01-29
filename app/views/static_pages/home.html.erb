@@ -1,0 +1,24 @@
+<% provide(:title, '') %>
+
+<h1>Home</h1>
+Welcome to Ruby Users of Minnesota!
+<% # BEGIN: VARIABLE SECTION %>
+<div class="center jumbotron">
+  <% if user_signed_in? %>
+    <% # BEGIN: USER SECTION %>
+    You are logged in as a user (<%= current_user.username %>).
+    <% # END: USER SECTION %>
+  <% elsif admin_signed_in? %>
+    <% # BEGIN: ADMIN SECTION %>
+    You are logged in as an admin (<%= current_admin.username %>).
+    <% # END: ADMIN SECTION %>
+  <% else %>
+    <% # BEGIN: GENERAL PUBLIC %>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    <% # END: GENERAL PUBLIC %>
+  <% end %>
+</div>
+<% # END: VARIABLE SECTION %>
+<%= link_to image_tag("rails.png", alt: "Rails logo"),
+            'http://rubyonrails.org/' %>
+
