@@ -8,9 +8,9 @@ class UserIndexTest < ActionDispatch::IntegrationTest
     assert page.has_css?('h1', text: 'Home', visible: false)
   end
 
-  def check_index_disabled_for_user(u)
+  def check_index_enabled_for_user(u)
     login_as(u, scope: :user)
-    check_index_disabled
+    check_index_enabled
   end
 
   # rubocop:disable Metrics/AbcSize
@@ -63,14 +63,14 @@ class UserIndexTest < ActionDispatch::IntegrationTest
     check_index_disabled
   end
 
-  test 'users index page is not accessible to users' do
-    check_index_disabled_for_user(@u1)
-    check_index_disabled_for_user(@u2)
-    check_index_disabled_for_user(@u3)
-    check_index_disabled_for_user(@u4)
-    check_index_disabled_for_user(@u5)
-    check_index_disabled_for_user(@u6)
-    check_index_disabled_for_user(@u7)
+  test 'users index page is accessible to users' do
+    check_index_enabled_for_user(@u1)
+    check_index_enabled_for_user(@u2)
+    check_index_enabled_for_user(@u3)
+    check_index_enabled_for_user(@u4)
+    check_index_enabled_for_user(@u5)
+    check_index_enabled_for_user(@u6)
+    check_index_enabled_for_user(@u7)
   end
 
   test 'users index page is accessible to super admins' do

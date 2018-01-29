@@ -98,10 +98,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   # END: index public
 
   # BEGIN: index user
-  test 'should redirect index page when logged in as a user' do
+  test 'should not redirect index page when logged in as a user' do
     sign_in @u1, scope: :user
     get users_path
-    assert_redirected_to root_path
+    assert_response :success
   end
   # END: index user
 
