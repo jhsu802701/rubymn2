@@ -25,20 +25,6 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
     assert page.has_css?('small', text: 'Ruby Users of Minnesota by Somebody')
   end
 
-  test 'home page provides access to the about page' do
-    visit root_path
-    click_on 'About'
-    assert page.has_css?('title', text: full_title('About'), visible: false)
-    assert page.has_css?('h1', text: 'About')
-  end
-
-  test 'home page provides access to the contact page' do
-    visit root_path
-    click_on 'Contact'
-    assert page.has_css?('title', text: full_title('Contact'), visible: false)
-    assert page.has_css?('h1', text: 'Contact')
-  end
-
   test 'about page provides access to the home page' do
     visit about_path
     click_on 'Home'
@@ -46,24 +32,10 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
     assert page.has_css?('h1', text: 'Home')
   end
 
-  test 'about page provides access to the contact page' do
-    visit about_path
-    click_on 'Contact'
-    assert page.has_css?('title', text: full_title('Contact'), visible: false)
-    assert page.has_css?('h1', text: 'Contact')
-  end
-
   test 'contact page provides access to the home page' do
     visit contact_path
     click_on 'Home'
     assert page.has_css?('title', text: full_title(''), visible: false)
     assert page.has_css?('h1', text: 'Home')
-  end
-
-  test 'contact page provides access to the about page' do
-    visit contact_path
-    click_on 'About'
-    assert page.has_css?('title', text: full_title('About'), visible: false)
-    assert page.has_css?('h1', text: 'About')
   end
 end

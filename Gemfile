@@ -82,7 +82,7 @@ end
 # END: gems for test_code.sh
 
 # Minitest
-gem 'minitest', '5.11.2', require: false, group: :testing
+gem 'minitest', '5.10.3', require: false, group: :testing
 gem 'minitest-reporters', '1.1.19', require: false, group: :testing # Adds special features to tests
 
 # BEGIN: Capybara enhancements
