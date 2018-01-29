@@ -52,7 +52,6 @@
 #                      user GET    /users/:id(.:format)               users#show
 #                           DELETE /users/:id(.:format)               users#destroy
 #                      root GET    /                                  static_pages#home
-#                   contact GET    /contact(.:format)                 static_pages#contact
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -82,6 +81,5 @@ Rails.application.routes.draw do
 
   # BEGIN: static pages
   root 'static_pages#home'
-  get '/contact', to: 'static_pages#contact'
   # END: static pages
 end
