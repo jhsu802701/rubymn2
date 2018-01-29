@@ -1,0 +1,46 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Weak Hash",
+      "warning_code": 90,
+      "fingerprint": "54fc23d935b5a76b5036758ad9b7bd95197288684b90a076d149b211e2718fa3",
+      "check_name": "WeakHash",
+      "message": "Weak hashing algorithm (MD5) used",
+      "file": "app/helpers/users_helper.rb",
+      "line": 9,
+      "link": "https://brakemanscanner.org/docs/warning_types/weak_hash/",
+      "code": "Digest::MD5.hexdigest(user.gravatar_email.downcase)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UsersHelper",
+        "method": "gravatar_for"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": ""
+    },
+    {
+      "warning_type": "Weak Hash",
+      "warning_code": 90,
+      "fingerprint": "fc14e0fb8a4cf14e5d236c2d3ced03026ab6b30f7c72abd3ed96ee535463c717",
+      "check_name": "WeakHash",
+      "message": "Weak hashing algorithm (MD5) used",
+      "file": "app/helpers/users_helper.rb",
+      "line": 8,
+      "link": "https://brakemanscanner.org/docs/warning_types/weak_hash/",
+      "code": "Digest::MD5.hexdigest(\"default@rubyonracetracks.com\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UsersHelper",
+        "method": "gravatar_for"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": ""
+    }
+  ],
+  "updated": "2018-01-29 21:36:05 +0000",
+  "brakeman_version": "4.1.1"
+}
