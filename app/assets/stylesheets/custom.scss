@@ -77,6 +77,17 @@ p {
   text-decoration: none;
 }
 
+.navbar-inverse {
+  background-color: #660000;
+}
+
+.navbar .nav>li>a {
+  color: #FFFFFF;
+  &:hover {
+    background-color: #000000;
+  }
+}
+
 /* END: header */
 
 /* BEGIN: footer */
