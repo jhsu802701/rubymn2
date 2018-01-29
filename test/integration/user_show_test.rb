@@ -10,7 +10,7 @@ class UserShowTest < ActionDispatch::IntegrationTest
 
   def user_view_other_profile(u1, u2)
     login_as(u1, scope: :user)
-    check_profile_disabled(u2)
+    check_profile_enabled(u2)
   end
 
   # rubocop:disable Metrics/AbcSize
@@ -50,7 +50,7 @@ class UserShowTest < ActionDispatch::IntegrationTest
     check_profile_disabled(@u7)
   end
 
-  test 'user may not view profiles of other users' do
+  test 'user can view profiles of other users' do
     user_view_other_profile(@u1, @u2)
     user_view_other_profile(@u1, @u3)
     user_view_other_profile(@u1, @u4)

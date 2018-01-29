@@ -23,20 +23,20 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   # END: show-public
 
   # BEGIN: show-other_user
-  test 'should redirect users from profiles other than their own' do
+  test 'should not redirect users from the profiles of other users' do
     sign_in @u1, scope: :user
     get user_path(@u2)
-    assert_redirected_to root_path
+    assert_response :success
     get user_path(@u3)
-    assert_redirected_to root_path
+    assert_response :success
     get user_path(@u4)
-    assert_redirected_to root_path
+    assert_response :success
     get user_path(@u5)
-    assert_redirected_to root_path
+    assert_response :success
     get user_path(@u6)
-    assert_redirected_to root_path
+    assert_response :success
     get user_path(@u7)
-    assert_redirected_to root_path
+    assert_response :success
   end
   # END: show-other_user
 
