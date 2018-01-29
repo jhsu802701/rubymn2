@@ -21,13 +21,6 @@ gem 'rails', '5.1.4'
 # END: gems that take a long time to install
 ############################################
 
-# BEGIN: SQLite
-# NOTE: This section is automatically deleted by the pg_setup.rb script
-group :development, :test do
-  gem 'sqlite3', '1.3.13'
-end
-# END: SQLite
-
 # Use Puma as the app server
 gem 'puma', '3.11.2'
 # Use SCSS for stylesheets
