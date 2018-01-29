@@ -64,6 +64,9 @@ end
 # BEGIN: creating users
 #######################
 
+email_random = %w[michael@michaelhartl.com nobu@ruby-lang.org
+                  david@basecamp.com nobody@example.com]
+
 puts '-----------------------------'
 puts 'Creating user (Ellie Arroway)'
 User.create!(last_name: 'Arroway', first_name: 'Ellie',
@@ -78,6 +81,7 @@ puts 'Creating user (Example User)'
 User.create!(last_name: 'User', first_name: 'Example',
              username: 'example_user',
              email: 'example@railstutorial.org',
+             gravatar_email: 'example@railstutorial.org',
              password: 'Daytona 500',
              password_confirmation: 'Daytona 500',
              confirmed_at: Time.now)
@@ -93,6 +97,7 @@ n_users.times do |n|
 
   User.create!(last_name: name_l, first_name: name_f,
                username: "user#{n + 1}", email: email_address,
+               gravatar_email: email_random.sample,
                password: 'Daytona 500',
                password_confirmation: 'Daytona 500',
                confirmed_at: Time.now)

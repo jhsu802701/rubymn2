@@ -81,3 +81,7 @@ Layout/TrailingWhitespace:
   Exclude:
     - config/routes.rb
 # END: Layout/TrailingWhitespace
+
+Metrics/ClassLength:
+  Exclude:
+    - test/models/user_test.rb

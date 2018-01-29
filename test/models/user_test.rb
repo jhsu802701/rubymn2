@@ -25,6 +25,7 @@
 #  last_name              :string
 #  first_name             :string
 #  username               :string
+#  gravatar_email         :string
 #
 
 require 'test_helper'
@@ -146,5 +147,21 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
     @user.password = @user.password_confirmation = 'a' * 10
     assert @user.valid?
+  end
+
+  test 'gravatar_email should not be too long' do
+    @user.gravatar_email = 'a' * 244 + '@example.com'
+    assert_not @user.valid?
+    @user.gravatar_email = 'a' * 243 + '@example.com'
+    assert @user.valid?
+  end
+
+  test 'gravatar_email validation should accept valid addresses' do
+    valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org
+                         first.last@foo.jp alice+bob@baz.cn]
+    valid_addresses.each do |valid_address|
+      @user.gravatar_email = valid_address
+      assert @user.valid?, "#{valid_address.inspect} should be valid"
+    end
   end
 end

@@ -25,6 +25,7 @@
 #  last_name              :string
 #  first_name             :string
 #  username               :string
+#  gravatar_email         :string
 #
 
 #
@@ -66,6 +67,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  validates :gravatar_email, length: { maximum: 255 }
 
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :first_name, presence: true, length: { maximum: 50 }
