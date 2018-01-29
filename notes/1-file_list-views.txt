@@ -58,8 +58,6 @@ config/routes.rb
 #                      user GET    /users/:id(.:format)               users#show
 #                           DELETE /users/:id(.:format)               users#destroy
 #                      root GET    /                                  static_pages#home
-#                     about GET    /about(.:format)                   static_pages#about
-#                   contact GET    /contact(.:format)                 static_pages#contact
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -89,8 +87,6 @@ Rails.application.routes.draw do
 
   # BEGIN: static pages
   root 'static_pages#home'
-  get '/about', to: 'static_pages#about'
-  get '/contact', to: 'static_pages#contact'
   # END: static pages
 end
 ----------------
@@ -150,8 +146,6 @@ app/views
 |   |-- mailer.html.erb
 |   `-- mailer.text.erb
 |-- static_pages
-|   |-- about.html.erb
-|   |-- contact.html.erb
 |   `-- home.html.erb
 `-- users
     |-- _condition_fields.html.erb
@@ -179,4 +173,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-18 directories, 41 files
+18 directories, 39 files
