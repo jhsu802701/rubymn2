@@ -34,6 +34,11 @@ to create much better passwords AND store them in encrypted form.
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :gravatar_email %> (OPTIONAL)<br />
+    <%= f.email_field :gravatar_email %>
+  </div>
+
   NOTE: Leave the "new password" and "new password confirmation" fields blank if you do not
   wish to change your password.
   <div class="field">
@@ -58,6 +63,9 @@ to create much better passwords AND store them in encrypted form.
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
+
+  <%= gravatar_for @user %>
+  <a href="http://gravatar.com/emails" target="_blank">Edit Gravatar</a>
 <% end %>
 
 <h3>Cancel my account</h3>
