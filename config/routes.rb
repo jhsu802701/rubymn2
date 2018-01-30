@@ -48,6 +48,7 @@
 #                           POST   /users/unlock(.:format)            users/unlocks#create
 #                users_root GET    /users(.:format)                   users#index
 #              search_users POST   /users/search(.:format)            users#index
+#            following_user GET    /users/:id/following(.:format)     users#following
 #                     users GET    /users(.:format)                   users#index
 #                      user GET    /users/:id(.:format)               users#show
 #                           DELETE /users/:id(.:format)               users#destroy
@@ -76,6 +77,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index, :destroy] do
     root to: 'users#index'
     collection { post :search, to: 'users#index' }
+    member do
+      get :following
+    end
   end
   # END: user section
 

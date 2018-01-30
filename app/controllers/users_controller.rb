@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :may_show_user, only: [:show]
   before_action :may_index_user, only: [:index]
   before_action :may_destroy_user, only: [:destroy]
+  before_action :may_show_following, only: [:following]
   # END: before_action section
 
   # BEGIN: ACTION SECTION
@@ -33,6 +34,12 @@ class UsersController < ApplicationController
     flash[:success] = 'User deleted'
     redirect_to(users_path)
   end
+
+  def following
+    @user  = User.find(params[:id])
+    @users = @user.following.order('last_name asc')
+    render 'show_follow'
+  end
   # END: ACTION SECTION
 
   private
@@ -53,5 +60,19 @@ class UsersController < ApplicationController
     return redirect_to(root_path) unless admin_signed_in?
   end
   helper_method :may_destroy_user
+
+  def correct_user
+    current_user == User.find(params[:id])
+  end
+
+  def admin_or_correct_user
+    correct_user || admin_signed_in?
+  end
+  helper_method :admin_or_correct_user
+
+  def may_show_following
+    return redirect_to(root_path) unless admin_or_correct_user
+  end
+  helper_method :may_show_following
   # END: private section
 end
