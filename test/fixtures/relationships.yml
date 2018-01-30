@@ -1,0 +1,34 @@
+# == Schema Information
+#
+# Table name: relationships
+#
+#  id          :integer          not null, primary key
+#  follower_id :integer
+#  followed_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+relationship1:
+  follower: lazenby
+  followed: connery
+
+relationship2:
+  follower: connery
+  followed: lazenby
+
+relationship3:
+  follower: moore
+  followed: connery
+
+relationship4:
+  follower: dalton
+  followed: moore
+
+relationship5:
+  follower: brosnan
+  followed: dalton
+
+relationship6:
+  follower: craig
+  followed: brosnan

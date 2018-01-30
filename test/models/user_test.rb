@@ -164,4 +164,15 @@ class UserTest < ActiveSupport::TestCase
       assert @user.valid?, "#{valid_address.inspect} should be valid"
     end
   end
+
+  test 'should be able to follow and unfollow a user' do
+    blofeld = users(:blofeld)
+    connery = users(:connery)
+    assert_not blofeld.following?(connery)
+    blofeld.follow(connery)
+    assert blofeld.following?(connery)
+    assert connery.followers.include?(blofeld)
+    blofeld.unfollow(connery)
+    assert_not blofeld.following?(connery)
+  end
 end
