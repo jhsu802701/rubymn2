@@ -109,6 +109,7 @@ test/integration
 |-- static_pages_test.rb
 |-- user_delete_test.rb
 |-- user_edit_test.rb
+|-- user_following_test.rb
 |-- user_index_test.rb
 |-- user_lock_test.rb
 |-- user_login_test.rb
@@ -118,7 +119,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 22 files
+0 directories, 23 files
 
 app/views
 |-- admins

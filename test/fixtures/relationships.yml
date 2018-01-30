@@ -32,3 +32,31 @@ relationship5:
 relationship6:
   follower: craig
   followed: brosnan
+
+relationship7:
+  follower: needham
+  followed: bandit
+
+relationship8:
+  follower: needham
+  followed: snowman
+
+relationship9:
+  follower: needham
+  followed: frog
+
+relationship10:
+  follower: needham
+  followed: justice
+
+relationship11:
+  follower: needham
+  followed: junior
+
+relationship12:
+  follower: justice
+  followed: bandit
+
+relationship13:
+  follower: junior
+  followed: justice

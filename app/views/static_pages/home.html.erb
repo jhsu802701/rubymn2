@@ -7,6 +7,10 @@ Welcome to Ruby Users of Minnesota!
   <% if user_signed_in? %>
     <% # BEGIN: USER SECTION %>
     You are logged in as a user (<%= current_user.username %>).
+    <br>
+    <% if current_user.following.any? %>
+      <%= link_to "Following: #{current_user.following.count}", following_user_path(current_user) %>
+    <% end %>
     <% # END: USER SECTION %>
   <% elsif admin_signed_in? %>
     <% # BEGIN: ADMIN SECTION %>
