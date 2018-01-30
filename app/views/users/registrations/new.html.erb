@@ -30,6 +30,11 @@ to create much better passwords AND store them in encrypted form.
   </div>
 
   <div class="field">
+    <%= f.label :gravatar_email %> (OPTIONAL)<br />
+    <%= f.email_field :gravatar_email %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
