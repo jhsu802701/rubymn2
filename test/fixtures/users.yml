@@ -96,3 +96,51 @@ user_<%= n %>:
   encrypted_password: <%= User.new.send(:password_digest, 'password1234') %>
   confirmed_at: <%= Time.zone.now %>
 <% end %>
+
+bandit:
+  last_name: 'Reynolds'
+  first_name: 'Burt'
+  username: 'breynolds'
+  email: 'bo_darville@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'Pontiac Trans Am') %>
+  confirmed_at: <%= Time.zone.now %>
+
+snowman:
+  last_name: 'Reed'
+  first_name: 'Jerry'
+  username: 'jreed'
+  email: 'cledus_snow@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'The Blocker') %>
+  confirmed_at: <%= Time.zone.now %>
+
+frog:
+  last_name: 'Sally'
+  first_name: 'Field'
+  username: 'sfield'
+  email: 'carrie@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'runaway bride') %>
+  confirmed_at: <%= Time.zone.now %>
+
+justice:
+  last_name: 'Gleason'
+  first_name: 'Jackie'
+  username: 'jgleason'
+  email: 'smokey@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'attention getter') %>
+  confirmed_at: <%= Time.zone.now %>
+
+junior:
+  last_name: 'Henry'
+  first_name: 'Mike'
+  username: 'mhenry'
+  email: 'junior@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'football game') %>
+  confirmed_at: <%= Time.zone.now %>
+
+needham:
+  last_name: 'Needham'
+  first_name: 'Hal'
+  username: 'hneedham'
+  email: 'director1931@example.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'Smokey and the Bandit') %>
+  confirmed_at: <%= Time.zone.now %>

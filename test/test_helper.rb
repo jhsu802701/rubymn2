@@ -116,6 +116,27 @@ def setup_universal
   @u5 = users(:brosnan)
   @u6 = users(:craig)
   @u7 = users(:blofeld)
+
+  @u8 = users(:bandit)
+  @u9 = users(:snowman)
+  @u10 = users(:frog)
+  @u11 = users(:justice)
+  @u12 = users(:junior)
+  @u13 = users(:needham)
+
+  @r1 = relationships(:relationship1)
+  @r2 = relationships(:relationship2)
+  @r3 = relationships(:relationship3)
+  @r4 = relationships(:relationship4)
+  @r5 = relationships(:relationship5)
+  @r6 = relationships(:relationship6)
+  @r7 = relationships(:relationship7)
+  @r8 = relationships(:relationship8)
+  @r9 = relationships(:relationship9)
+  @r10 = relationships(:relationship10)
+  @r11 = relationships(:relationship11)
+  @r12 = relationships(:relationship12)
+  @r13 = relationships(:relationship13)
 end
 # rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/MethodLength

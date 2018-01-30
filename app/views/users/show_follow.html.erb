@@ -1,0 +1,12 @@
+<% provide(:title, 'Following') %>
+
+<%= gravatar_for @user %>
+<br>
+<% if current_user == @user %>
+  <h1>Users You Are Following:</h1>
+<% elsif admin_signed_in? %>
+  <h1>Users Followed By <%= link_to "#{@user.first_name} #{@user.last_name}", @user %>:</h1>
+<% end %>
+
+<%= render @users %>
+<hr>

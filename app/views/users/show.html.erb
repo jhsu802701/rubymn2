@@ -11,6 +11,14 @@
     <br>
     Email: <%= raw(EmailMunger.encode(@user.email)) %>
     <br>
+
+    <% # BEGIN: link to users followed %>
+    <% if current_user == @user || admin_signed_in? %>
+      <%= link_to "Following: #{@user.following.count}", following_user_path(@user) %>
+      <br>
+    <% end %>
+    <% # END: link to users followed %>
+
     <% # BEGIN: delete button %>
     <% if admin_signed_in? %>
       <%= link_to "Delete #{@user.first_name} #{@user.last_name} (#{@user.username})", @user,
