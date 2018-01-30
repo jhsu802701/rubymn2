@@ -124,3 +124,24 @@ end
 ##########################
 # FINISHED: creating users
 ##########################
+
+###############################
+# BEGIN: creating relationships
+###############################
+
+def create_relationships(u)
+  users = User.all
+  puts '----------------------------------------'
+  puts "creating relationships for #{u.username}"
+  following = users[4..50]
+  followers = users[5..40]
+  following.each { |followed| u.follow(followed) }
+  followers.each { |follower| follower.follow(u) }
+end
+
+create_relationships User.first
+create_relationships User.second
+
+##################################
+# FINISHED: creating relationships
+##################################
