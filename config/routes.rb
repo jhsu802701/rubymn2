@@ -53,6 +53,8 @@
 #                      user GET    /users/:id(.:format)               users#show
 #                           DELETE /users/:id(.:format)               users#destroy
 #                      root GET    /                                  static_pages#home
+#             relationships POST   /relationships(.:format)           relationships#create
+#              relationship DELETE /relationships/:id(.:format)       relationships#destroy
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -86,4 +88,6 @@ Rails.application.routes.draw do
   # BEGIN: static pages
   root 'static_pages#home'
   # END: static pages
+
+  resources :relationships, only: [:create, :destroy]
 end
