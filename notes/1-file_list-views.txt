@@ -59,6 +59,8 @@ config/routes.rb
 #                      user GET    /users/:id(.:format)               users#show
 #                           DELETE /users/:id(.:format)               users#destroy
 #                      root GET    /                                  static_pages#home
+#             relationships POST   /relationships(.:format)           relationships#create
+#              relationship DELETE /relationships/:id(.:format)       relationships#destroy
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -92,6 +94,8 @@ Rails.application.routes.draw do
   # BEGIN: static pages
   root 'static_pages#home'
   # END: static pages
+
+  resources :relationships, only: [:create, :destroy]
 end
 ----------------
 test/integration
@@ -104,6 +108,7 @@ test/integration
 |-- admin_resend_conf_test.rb
 |-- admin_show_test.rb
 |-- admin_signup_test.rb
+|-- following_button_test.rb
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
 |-- static_pages_test.rb
@@ -119,7 +124,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 23 files
+0 directories, 24 files
 
 app/views
 |-- admins
@@ -152,6 +157,7 @@ app/views
 |   |-- application.html.erb
 |   |-- mailer.html.erb
 |   `-- mailer.text.erb
+|-- relationships
 |-- static_pages
 |   `-- home.html.erb
 `-- users
@@ -181,4 +187,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-18 directories, 40 files
+19 directories, 40 files
