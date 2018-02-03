@@ -137,6 +137,11 @@ def setup_universal
   @r11 = relationships(:relationship11)
   @r12 = relationships(:relationship12)
   @r13 = relationships(:relationship13)
+
+  @sponsor1 = sponsors(:blessed_buy)
+  @sponsor2 = sponsors(:sky_store)
+  @sponsor3 = sponsors(:island_hoppers)
+  @sponsor4 = sponsors(:flag)
 end
 # rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/MethodLength

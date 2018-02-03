@@ -1,0 +1,17 @@
+<% provide(:title, @sponsor.name) %>
+
+<% # BEGIN: h1 header section %>
+<% if @sponsor.current == true %>
+  <h1>Current Sponsor: <%= @sponsor.name %></h1>
+<% else %>
+  <h1>Past Sponsor: <%= @sponsor.name %></h1>
+<% end %>
+<% # END: h1 header section %>
+
+Email: <%= raw(EmailMunger.encode(@sponsor.contact_email)) %>
+<br>
+Phone: <%= @sponsor.phone %>
+<br>
+URL: <%= link_to @sponsor.contact_url, @sponsor.contact_url %>
+<br><br>
+<%= @sponsor.description %>

@@ -15,18 +15,34 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  phone: MyString
-  description: MyText
-  contact_email: MyString
-  contact_url: MyString
+blessed_buy:
+  name: 'Blessed Buy'
+  phone: '(612) 555-0101'
+  description: 'THE place to buy the new Galaxy Wars merchandise'
+  contact_email: 'example@blessedbuy.com'
+  contact_url: 'http://www.blessedbuy.com'
+  current: true
+
+sky_store:
+  name: 'Sky Store'
+  phone: '(800) 555-0102'
+  description: 'If you fly, you can buy overpriced junk from our catalog.'
+  contact_email: 'example@skystore.com'
+  contact_url: 'http://www.skystore.com'
+  current: true
+
+island_hoppers:
+  name: 'Island Hoppers'
+  phone: '(808) 555-0103'
+  description: 'I provide helicopter rides around the Hawaiian Islands.'
+  contact_email: 'tc@islandhoppers.com'
+  contact_url: 'http://www.islandhoppers.com'
   current: false
 
-two:
-  name: MyString
-  phone: MyString
-  description: MyText
-  contact_email: MyString
-  contact_url: MyString
+flag:
+  name: 'Foundation for Law and Government'
+  phone: '(800) 555-0104'
+  description: 'We built Kitt.  Michael Knight and Kitt solve crimes.'
+  contact_email: 'devon_miles@flag.org'
+  contact_url: 'http://www.flag.org'
   current: false
