@@ -61,6 +61,7 @@ config/routes.rb
 #                      root GET    /                                  static_pages#home
 #             relationships POST   /relationships(.:format)           relationships#create
 #              relationship DELETE /relationships/:id(.:format)       relationships#destroy
+#                   sponsor GET    /sponsors/:id(.:format)            sponsors#show
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -96,6 +97,8 @@ Rails.application.routes.draw do
   # END: static pages
 
   resources :relationships, only: [:create, :destroy]
+
+  resources :sponsors, only: [:show]
 end
 ----------------
 test/integration
@@ -158,6 +161,8 @@ app/views
 |   |-- mailer.html.erb
 |   `-- mailer.text.erb
 |-- relationships
+|-- sponsors
+|   `-- show.html.erb
 |-- static_pages
 |   `-- home.html.erb
 `-- users
@@ -187,4 +192,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-19 directories, 40 files
+20 directories, 41 files

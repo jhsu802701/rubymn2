@@ -4,10 +4,11 @@ CONTROLLERS
 test/controllers
 |-- admins_controller_test.rb
 |-- relationships_controller_test.rb
+|-- sponsors_controller_test.rb
 |-- static_pages_controller_test.rb
 `-- users_controller_test.rb
 
-0 directories, 4 files
+0 directories, 5 files
 
 app/controllers
 |-- admins
@@ -21,6 +22,7 @@ app/controllers
 |-- application_controller.rb
 |-- concerns
 |-- relationships_controller.rb
+|-- sponsors_controller.rb
 |-- static_pages_controller.rb
 |-- users
 |   |-- confirmations_controller.rb
@@ -31,4 +33,4 @@ app/controllers
 |   `-- unlocks_controller.rb
 `-- users_controller.rb
 
-3 directories, 17 files
+3 directories, 18 files

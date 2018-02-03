@@ -55,6 +55,7 @@
 #                      root GET    /                                  static_pages#home
 #             relationships POST   /relationships(.:format)           relationships#create
 #              relationship DELETE /relationships/:id(.:format)       relationships#destroy
+#                   sponsor GET    /sponsors/:id(.:format)            sponsors#show
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -90,4 +91,6 @@ Rails.application.routes.draw do
   # END: static pages
 
   resources :relationships, only: [:create, :destroy]
+
+  resources :sponsors, only: [:show]
 end
