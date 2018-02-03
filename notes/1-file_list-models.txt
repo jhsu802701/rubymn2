@@ -4,23 +4,26 @@ MODELS
 test/models
 |-- admin_test.rb
 |-- relationship_test.rb
+|-- sponsor_test.rb
 `-- user_test.rb
 
-0 directories, 3 files
+0 directories, 4 files
 
 test/fixtures
 |-- admins.yml
 |-- files
 |-- relationships.yml
+|-- sponsors.yml
 `-- users.yml
 
-1 directory, 3 files
+1 directory, 4 files
 
 app/models
 |-- admin.rb
 |-- application_record.rb
 |-- concerns
 |-- relationship.rb
+|-- sponsor.rb
 `-- user.rb
 
-1 directory, 4 files
+1 directory, 5 files

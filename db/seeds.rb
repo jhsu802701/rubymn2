@@ -145,3 +145,55 @@ create_relationships User.second
 ##################################
 # FINISHED: creating relationships
 ##################################
+
+##########################
+# BEGIN: creating sponsors
+##########################
+
+def create_sponsor(i_sponsor, status_current)
+  n1 = "Sponsor #{i_sponsor}: #{Faker::Company.name}"
+  p1 = Faker::PhoneNumber.phone_number
+  c1 = status_current
+  d1 = "SPONSOR DESCRIPTION #{i_sponsor}: "
+  d1 += Faker::Company.catch_phrase.to_s
+  e1 = Faker::Internet.email
+  u1 = Faker::Internet.url
+  Sponsor.create!(name: n1, phone: p1,
+                  description: d1, contact_email: e1, contact_url: u1,
+                  current: c1)
+end
+
+# Create past sponsors
+puts 'Creating past sponsors'
+n = 0
+5.times do
+  n += 1
+  create_sponsor(n, false)
+end
+
+# Create current sponsors
+puts 'Creating current sponsors'
+5.times do
+  n += 1
+  create_sponsor(n, true)
+end
+
+puts 'Adding Pan Am (past sponsor)'
+Sponsor.create!(name: 'Pan American World Airways',
+                phone: '800-555-GONE',
+                description: 'We used to be the largest air carrier!',
+                contact_email: 'panam@example.com',
+                contact_url: 'http://www.deadairline.com',
+                current: false)
+
+puts 'Adding Cyberdyne Systems (current sponsor)'
+Sponsor.create!(name: 'Cyberdyne Systems',
+                phone: '800-555-SKYN',
+                description: 'We started Skynet!',
+                contact_email: 'skynet@example.com',
+                contact_url: 'http://www.cyberdine.com',
+                current: true)
+
+########################
+# END: creating sponsors
+########################
