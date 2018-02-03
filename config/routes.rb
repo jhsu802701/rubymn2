@@ -55,6 +55,7 @@
 #                      root GET    /                                  static_pages#home
 #             relationships POST   /relationships(.:format)           relationships#create
 #              relationship DELETE /relationships/:id(.:format)       relationships#destroy
+#                  sponsors GET    /sponsors(.:format)                sponsors#index
 #                   sponsor GET    /sponsors/:id(.:format)            sponsors#show
 # 
 
@@ -92,5 +93,5 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  resources :sponsors, only: [:show]
+  resources :sponsors, only: [:show, :index]
 end

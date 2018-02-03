@@ -11,4 +11,9 @@ class SponsorsControllerTest < ActionDispatch::IntegrationTest
     get sponsor_path(@sponsor4)
     assert_response :success
   end
+
+  test 'sponsor index action' do
+    get sponsors_path
+    assert_response :success
+  end
 end

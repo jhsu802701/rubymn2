@@ -61,6 +61,7 @@ config/routes.rb
 #                      root GET    /                                  static_pages#home
 #             relationships POST   /relationships(.:format)           relationships#create
 #              relationship DELETE /relationships/:id(.:format)       relationships#destroy
+#                  sponsors GET    /sponsors(.:format)                sponsors#index
 #                   sponsor GET    /sponsors/:id(.:format)            sponsors#show
 # 
 
@@ -98,7 +99,7 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  resources :sponsors, only: [:show]
+  resources :sponsors, only: [:show, :index]
 end
 ----------------
 test/integration
@@ -114,6 +115,7 @@ test/integration
 |-- following_button_test.rb
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
+|-- sponsor_index_test.rb
 |-- sponsor_show_test.rb
 |-- static_pages_test.rb
 |-- user_delete_test.rb
@@ -128,7 +130,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 25 files
+0 directories, 26 files
 
 app/views
 |-- admins
@@ -163,6 +165,7 @@ app/views
 |   `-- mailer.text.erb
 |-- relationships
 |-- sponsors
+|   |-- index.html.erb
 |   `-- show.html.erb
 |-- static_pages
 |   `-- home.html.erb
@@ -193,4 +196,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-20 directories, 41 files
+20 directories, 42 files

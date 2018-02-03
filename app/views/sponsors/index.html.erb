@@ -1,0 +1,22 @@
+<% provide(:title, 'Sponsor Index') %>
+
+<h1>Sponsor Index</h1>
+
+<h3>Current Sponsors</h3>
+<div class="sponsors_current">
+  <% @sponsors_current.each do |s| %>
+    <li>
+      <%= link_to s.name, s %>
+    </li>
+  <% end %>
+</div>
+
+
+<h3>Past Sponsors</h3>
+<div class="sponsors_past">
+  <% @sponsors_past.each do |s| %>
+    <li>
+      <%= link_to s.name, s %>
+    </li>
+  <% end %>
+</div>
