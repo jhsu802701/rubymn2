@@ -1,6 +1,8 @@
 #
 class SponsorsController < ApplicationController
-  before_action :may_control_sponsor, only: [:create]
+  # rubocop:disable Style/SymbolArray
+  before_action :may_control_sponsor, only: [:create, :update]
+  # rubocop:enable Style/SymbolArray
 
   # BEGIN: action section
   def show
@@ -25,6 +27,20 @@ class SponsorsController < ApplicationController
 
   def new
     @sponsor = Sponsor.new
+  end
+
+  def update
+    @sponsor = Sponsor.find(params[:id])
+    if @sponsor.update_attributes(sponsor_params)
+      flash[:success] = 'Sponsor updated'
+      redirect_to sponsor_path(@sponsor)
+    else
+      render 'edit'
+    end
+  end
+
+  def edit
+    @sponsor = Sponsor.find(params[:id])
   end
   # END: action section
 
