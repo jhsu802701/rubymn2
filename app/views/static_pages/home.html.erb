@@ -43,6 +43,11 @@ You can RSVP to our events on our Meetup page, read our Tweets on our Twitter pa
   <% @sponsors_current.each do |s| %>
     <li>
       <%= link_to s.name, s %>
+      <% if s.picture? %>
+        <br>
+        <p style="margin-left: 40px">
+        <%= image_tag s.picture.url(:thumb) %>
+      <% end %>
     </li>
   <% end %>
 </div>

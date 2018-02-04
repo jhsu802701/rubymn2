@@ -11,6 +11,7 @@
 #  current       :boolean
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  picture       :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

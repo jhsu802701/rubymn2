@@ -29,3 +29,8 @@ Phone: <%= @sponsor.phone %>
 URL: <%= link_to @sponsor.contact_url, @sponsor.contact_url %>
 <br><br>
 <%= @sponsor.description %>
+
+<% if @sponsor.picture? %>
+  <br><br>
+  <%= image_tag @sponsor.picture.url %>
+<% end %>
