@@ -2,6 +2,14 @@
 
 <h1>Sponsor Index</h1>
 
+<% # BEGIN: add sponsor button %>
+<% if admin_signed_in? && current_admin.super %>
+  <%= link_to "Add Sponsor", new_sponsor_path,
+              class: "btn btn-lg btn-primary"
+    %>
+<% end %>
+<% # END: add sponsor button %>
+
 <h3>Current Sponsors</h3>
 <div class="sponsors_current">
   <% @sponsors_current.each do |s| %>
