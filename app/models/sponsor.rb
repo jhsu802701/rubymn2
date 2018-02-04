@@ -21,4 +21,7 @@ class Sponsor < ApplicationRecord
   validates :description, length: { maximum: 4095 }
   validates :contact_email, length: { maximum: 255 }
   validates :contact_url, length: { maximum: 255 }
+
+  # Allows the file uploading process to fill in the picture parameter
+  mount_uploader :picture, PictureUploader
 end
