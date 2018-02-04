@@ -8,6 +8,15 @@
 <% end %>
 <% # END: h1 header section %>
 
+<% # BEGIN: edit and delete sponsor buttons %>
+<% if admin_signed_in? && current_admin.super %>
+  <%= link_to "Edit Sponsor", edit_sponsor_path(@sponsor),
+              class: "btn btn-lg btn-primary"
+    %>
+  <br><br>
+<% end %>
+<% # END: edit and delete sponsor buttons %>
+
 Email: <%= raw(EmailMunger.encode(@sponsor.contact_email)) %>
 <br>
 Phone: <%= @sponsor.phone %>
