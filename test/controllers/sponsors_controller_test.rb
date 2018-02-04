@@ -22,6 +22,17 @@ class SponsorsControllerTest < ActionDispatch::IntegrationTest
     edit_sponsor
     assert_redirected_to root_path
   end
+
+  def delete_sponsor
+    delete sponsor_path(@sponsor1)
+  end
+
+  def delete_sponsor_disabled
+    assert_no_difference 'Admin.count' do
+      delete_sponsor
+      assert_redirected_to root_path
+    end
+  end
   # END: definitions
 
   test 'sponsor show action' do
@@ -79,5 +90,26 @@ class SponsorsControllerTest < ActionDispatch::IntegrationTest
     sign_in @a1, scope: :admin
     edit_sponsor
     assert_redirected_to sponsor_path(@sponsor1)
+  end
+
+  test 'should redirect delete when not logged in' do
+    delete_sponsor_disabled
+  end
+
+  test 'should redirect delete when logged in as a user' do
+    sign_in @u1, scope: :user
+    delete_sponsor_disabled
+  end
+
+  test 'should redirect delete when logged in as a regular admin' do
+    sign_in @a4, scope: :admin
+    delete_sponsor_disabled
+  end
+
+  test 'should not redirect delete when logged in as a super admin' do
+    sign_in @a1, scope: :admin
+    assert_difference 'Sponsor.count', -1 do
+      delete_sponsor
+    end
   end
 end

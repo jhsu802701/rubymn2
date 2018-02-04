@@ -98,5 +98,5 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  resources :sponsors, only: [:show, :index, :create, :new, :update, :edit]
+  resources :sponsors, only: [:show, :index, :create, :new, :update, :edit, :destroy]
 end

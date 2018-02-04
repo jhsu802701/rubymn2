@@ -1,7 +1,7 @@
 #
 class SponsorsController < ApplicationController
   # rubocop:disable Style/SymbolArray
-  before_action :may_control_sponsor, only: [:create, :update]
+  before_action :may_control_sponsor, only: [:create, :update, :destroy]
   # rubocop:enable Style/SymbolArray
 
   # BEGIN: action section
@@ -41,6 +41,12 @@ class SponsorsController < ApplicationController
 
   def edit
     @sponsor = Sponsor.find(params[:id])
+  end
+
+  def destroy
+    Sponsor.find(params[:id]).destroy
+    flash[:success] = 'Sponsor deleted'
+    redirect_to(sponsors_path)
   end
   # END: action section
 
