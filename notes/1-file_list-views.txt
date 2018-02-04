@@ -68,6 +68,7 @@ config/routes.rb
 #                   sponsor GET    /sponsors/:id(.:format)            sponsors#show
 #                           PATCH  /sponsors/:id(.:format)            sponsors#update
 #                           PUT    /sponsors/:id(.:format)            sponsors#update
+#                           DELETE /sponsors/:id(.:format)            sponsors#destroy
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -104,7 +105,7 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  resources :sponsors, only: [:show, :index, :create, :new, :update, :edit]
+  resources :sponsors, only: [:show, :index, :create, :new, :update, :edit, :destroy]
 end
 ----------------
 test/integration
@@ -121,6 +122,7 @@ test/integration
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
 |-- sponsor_create_test.rb
+|-- sponsor_delete_test.rb
 |-- sponsor_edit_test.rb
 |-- sponsor_index_test.rb
 |-- sponsor_show_test.rb
@@ -137,7 +139,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 28 files
+0 directories, 29 files
 
 app/views
 |-- admins

@@ -62,6 +62,7 @@
 #                   sponsor GET    /sponsors/:id(.:format)            sponsors#show
 #                           PATCH  /sponsors/:id(.:format)            sponsors#update
 #                           PUT    /sponsors/:id(.:format)            sponsors#update
+#                           DELETE /sponsors/:id(.:format)            sponsors#destroy
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
