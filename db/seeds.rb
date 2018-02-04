@@ -160,7 +160,7 @@ def create_sponsor(i_sponsor, status_current)
   u1 = Faker::Internet.url
   Sponsor.create!(name: n1, phone: p1,
                   description: d1, contact_email: e1, contact_url: u1,
-                  current: c1)
+                  current: c1, remote_picture_url: Faker::Company.logo)
 end
 
 # Create past sponsors
