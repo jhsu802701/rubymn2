@@ -12,6 +12,16 @@ class SponsorsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_path
   end
+
+  def edit_sponsor
+    patch sponsor_path(@sponsor1),
+          params: { sponsor: { description: 'parody of Best Buy' } }
+  end
+
+  def edit_sponsor_disabled
+    edit_sponsor
+    assert_redirected_to root_path
+  end
   # END: definitions
 
   test 'sponsor show action' do
@@ -49,5 +59,25 @@ class SponsorsControllerTest < ActionDispatch::IntegrationTest
     assert_difference 'Sponsor.count', 1 do
       create_sponsor
     end
+  end
+
+  test 'should redirect edit to root when not logged in' do
+    edit_sponsor_disabled
+  end
+
+  test 'should redirect edit to root when logged in as a user' do
+    sign_in @u1, scope: :user
+    edit_sponsor_disabled
+  end
+
+  test 'should redirect edit to root when logged in as a regular admin' do
+    sign_in @a4, scope: :admin
+    edit_sponsor_disabled
+  end
+
+  test 'should redirect edit to show when logged in as a super admin' do
+    sign_in @a1, scope: :admin
+    edit_sponsor
+    assert_redirected_to sponsor_path(@sponsor1)
   end
 end

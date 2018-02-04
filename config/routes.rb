@@ -58,7 +58,10 @@
 #                  sponsors GET    /sponsors(.:format)                sponsors#index
 #                           POST   /sponsors(.:format)                sponsors#create
 #               new_sponsor GET    /sponsors/new(.:format)            sponsors#new
+#              edit_sponsor GET    /sponsors/:id/edit(.:format)       sponsors#edit
 #                   sponsor GET    /sponsors/:id(.:format)            sponsors#show
+#                           PATCH  /sponsors/:id(.:format)            sponsors#update
+#                           PUT    /sponsors/:id(.:format)            sponsors#update
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -95,5 +98,5 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  resources :sponsors, only: [:show, :index, :create, :new]
+  resources :sponsors, only: [:show, :index, :create, :new, :update, :edit]
 end
