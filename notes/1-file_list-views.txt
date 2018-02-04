@@ -117,6 +117,7 @@ test/integration
 |-- following_button_test.rb
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
+|-- sponsor_create_test.rb
 |-- sponsor_index_test.rb
 |-- sponsor_show_test.rb
 |-- static_pages_test.rb
@@ -132,7 +133,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 26 files
+0 directories, 27 files
 
 app/views
 |-- admins
@@ -165,8 +166,11 @@ app/views
 |   |-- application.html.erb
 |   |-- mailer.html.erb
 |   `-- mailer.text.erb
+|-- shared
+|   `-- _error_messages.html.erb
 |-- sponsors
 |   |-- index.html.erb
+|   |-- new.html.erb
 |   `-- show.html.erb
 |-- static_pages
 |   `-- home.html.erb
@@ -197,4 +201,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-19 directories, 42 files
+20 directories, 44 files
