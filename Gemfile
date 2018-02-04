@@ -139,3 +139,8 @@ gem 'kaminari', '1.1.1' # For pagination
 
 # Search engine for objects (such as users)
 gem 'ransack', '1.8.6'
+
+# BEGIN: for sponsor logos
+gem 'carrierwave' # For uploading files
+gem 'mini_magick' # For resizing images
+# END: for sponsor logos
