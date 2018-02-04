@@ -120,3 +120,6 @@ test/html_reports/
 
 # Ignore application configuration
 /config/application.yml
+
+# Keep uploaded and seeded pictures out of the source code
+public/uploads/
