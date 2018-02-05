@@ -125,6 +125,7 @@ test/integration
 |-- sponsor_delete_test.rb
 |-- sponsor_edit_test.rb
 |-- sponsor_index_test.rb
+|-- sponsor_logo_upload_test.rb
 |-- sponsor_show_test.rb
 |-- static_pages_test.rb
 |-- user_delete_test.rb
@@ -139,7 +140,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 29 files
+0 directories, 30 files
 
 app/views
 |-- admins
