@@ -40,6 +40,13 @@
         <% end %>
       </div>
 
+      <div class="field">
+        <span class="picture">
+          <b>OPTIONAL: Upload sponsor logo</b>
+          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+        </span>
+      </div>
+
       <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
