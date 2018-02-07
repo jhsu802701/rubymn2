@@ -14,4 +14,8 @@
 #
 class Forhire < ApplicationRecord
   belongs_to :user
+  validates :user_id, presence: true
+  validates :description, presence: true, length: { maximum: 4095 }
+  validates :email, presence: true, length: { maximum: 255 }
+  validates :title, presence: true, length: { maximum: 255 }
 end

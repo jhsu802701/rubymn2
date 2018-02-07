@@ -103,6 +103,8 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
   # END: relationship section
+
+  has_many :forhires, dependent: :destroy
   # END: public section
 
   private
