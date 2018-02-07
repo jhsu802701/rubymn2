@@ -197,3 +197,35 @@ Sponsor.create!(name: 'Cyberdyne Systems',
 ########################
 # END: creating sponsors
 ########################
+
+# DEFINE USERS
+user1 = User.first # First user
+users = User.all # All users
+
+##########################
+# BEGIN: creating forhires
+##########################
+puts 'Creating forhires'
+def create_forhire(user_n, n)
+  t = "Title #{n}: #{Faker::Name.title}"
+  e = Faker::Internet.email
+  d = "Description #{n}: #{Faker::Lorem.paragraph(10)}"
+  @fh = user_n.forhires.create(title: t, email: e, description: d)
+end
+
+title1 = 'Galactic Traveler'
+email1 = 'ellie_arroway@projectargus.org'
+desc1 = 'I traveled around the galaxy in a dodecahedron.'
+user1.forhires.create(title: title1, email: email1, description: desc1)
+
+# Other users
+n = 0
+users.each do |u|
+  n += 1
+  next if rand < 0.7 || u == users.first
+  @fh1 = create_forhire(u, n)
+end
+
+########################
+# END: creating forhires
+########################
