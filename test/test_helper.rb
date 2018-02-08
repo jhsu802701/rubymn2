@@ -1,5 +1,6 @@
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require File.expand_path('../../test/setup_objects.rb', __FILE__)
 
 # BEGIN: use minitest-reporters
 require 'minitest/reporters'
@@ -142,6 +143,8 @@ def setup_universal
   @sponsor2 = sponsors(:sky_store)
   @sponsor3 = sponsors(:island_hoppers)
   @sponsor4 = sponsors(:flag)
+
+  add_user_objects
 end
 # rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/MethodLength
