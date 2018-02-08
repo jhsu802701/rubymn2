@@ -124,6 +124,7 @@ test/integration
 |-- admin_show_test.rb
 |-- admin_signup_test.rb
 |-- following_button_test.rb
+|-- forhire_show_test.rb
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
 |-- sponsor_create_test.rb
@@ -145,7 +146,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 30 files
+0 directories, 31 files
 
 app/views
 |-- admins

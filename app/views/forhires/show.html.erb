@@ -1,0 +1,15 @@
+<% provide(:title, "#{@user.first_name} #{@user.last_name}: #{@forhire.title}") %>
+
+<h1>For Hire</h1>
+
+<% # BEGIN: name and title of user %>
+<% if admin_signed_in? || user_signed_in? %>
+  <%= link_to "#{@user.first_name} #{@user.last_name}", @user %>, <%= @forhire.title %>
+<% else %>
+  <%= @user.first_name %> <%= @user.last_name %>, <%= @forhire.title %>
+<% end %>
+<% # END: name and title of user %>
+<br><br>
+Email: <%= raw(EmailMunger.encode(@forhire.email)) %>
+<br><br>
+<%= @forhire.description %>
