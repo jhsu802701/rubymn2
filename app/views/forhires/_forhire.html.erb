@@ -1,0 +1,9 @@
+<% require 'email_munger' %>
+
+<hr>
+<% user_f = User.where(id: "#{forhire.user_id}").first %>
+<%= user_f.first_name %> <%= user_f.last_name %>
+<br>
+<%= link_to forhire.title, forhire %>, <%= raw(EmailMunger.encode(forhire.email)) %>
+<br>
+<%= forhire.description[0..140] %>

@@ -15,4 +15,9 @@ class ForhiresControllerTest < ActionDispatch::IntegrationTest
     get forhire_path(@fh_craig)
     assert_response :success
   end
+
+  test 'forhire index action' do
+    get forhires_path
+    assert_response :success
+  end
 end

@@ -63,6 +63,7 @@
 #                           PATCH  /sponsors/:id(.:format)            sponsors#update
 #                           PUT    /sponsors/:id(.:format)            sponsors#update
 #                           DELETE /sponsors/:id(.:format)            sponsors#destroy
+#                  forhires GET    /forhires(.:format)                forhires#index
 #                   forhire GET    /forhires/:id(.:format)            forhires#show
 # 
 
@@ -103,6 +104,6 @@ Rails.application.routes.draw do
   resources :sponsors, only: [:show, :index, :create, :new, :update, :edit, :destroy]
 
   # BEGIN: forhire section
-  resources :forhires, only: [:show]
+  resources :forhires, only: [:show, :index]
   # END: forhire section
 end
