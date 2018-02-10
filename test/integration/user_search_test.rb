@@ -17,8 +17,22 @@ class UserSearchTest < ActionDispatch::IntegrationTest
     assert page.has_css?('title', text: full_title('User Index'),
                                   visible: false)
     assert page.has_css?('h1', text: 'User Index')
-    puts @users_count
   end
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
+
+  test 'user can search user index' do
+    login_as(@u1, scope: :user)
+    search_users
+  end
+
+  test 'regular admin can search user index' do
+    login_as(@a4, scope: :admin)
+    search_users
+  end
+
+  test 'super admin can search user index' do
+    login_as(@a1, scope: :admin)
+    search_users
+  end
 end

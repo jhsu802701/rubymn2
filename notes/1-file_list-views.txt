@@ -69,11 +69,15 @@ config/routes.rb
 #                           PATCH  /sponsors/:id(.:format)            sponsors#update
 #                           PUT    /sponsors/:id(.:format)            sponsors#update
 #                           DELETE /sponsors/:id(.:format)            sponsors#destroy
+#             forhires_root GET    /forhires(.:format)                forhires#index
+#           search_forhires POST   /forhires/search(.:format)         forhires#index
 #                  forhires GET    /forhires(.:format)                forhires#index
 #                   forhire GET    /forhires/:id(.:format)            forhires#show
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+# rubocop:disable Metrics/BlockLength
 Rails.application.routes.draw do
   # BEGIN: admin section
   devise_for :admins,
@@ -110,9 +114,13 @@ Rails.application.routes.draw do
   resources :sponsors, only: [:show, :index, :create, :new, :update, :edit, :destroy]
 
   # BEGIN: forhire section
-  resources :forhires, only: [:show, :index]
+  resources :forhires, only: [:show, :index] do
+    root to: 'forhires#index'
+    collection { post :search, to: 'forhires#index' }
+  end
   # END: forhire section
 end
+# rubocop:enable Metrics/BlockLength
 ----------------
 test/integration
 |-- admin_delete_test.rb
@@ -126,6 +134,7 @@ test/integration
 |-- admin_signup_test.rb
 |-- following_button_test.rb
 |-- forhire_index_test.rb
+|-- forhire_search_test.rb
 |-- forhire_show_test.rb
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
@@ -148,7 +157,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 32 files
+0 directories, 33 files
 
 app/views
 |-- admins
@@ -175,6 +184,7 @@ app/views
 |   `-- unlocks
 |       `-- new.html.erb
 |-- forhires
+|   |-- _condition_fields.html.erb
 |   |-- _forhire.html.erb
 |   |-- index.html.erb
 |   `-- show.html.erb
@@ -221,4 +231,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-21 directories, 48 files
+21 directories, 49 files

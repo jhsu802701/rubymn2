@@ -13,7 +13,7 @@ MoveCodeIntoControllerCheck: { }
 MoveCodeIntoHelperCheck: { array_count: 3 }
 MoveCodeIntoModelCheck: { use_count: 2 }
 MoveFinderToNamedScopeCheck: { }
-MoveModelLogicIntoModelCheck: { ignored_files: ['app/controllers/users_controller.rb'] }
+MoveModelLogicIntoModelCheck: { ignored_files: ['app/controllers/users_controller.rb', 'app/controllers/forhires_controller.rb'] }
 NeedlessDeepNestingCheck: { nested_count: 2 }
 NotRescueExceptionCheck: { }
 NotUseDefaultRouteCheck: { }
