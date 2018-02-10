@@ -18,4 +18,10 @@ class Forhire < ApplicationRecord
   validates :description, presence: true, length: { maximum: 4095 }
   validates :email, presence: true, length: { maximum: 255 }
   validates :title, presence: true, length: { maximum: 255 }
+
+  # Limit the parameters available for searching the forhire database
+  RANSACKABLE_ATTRIBUTES = %w[title description email].freeze
+  def self.ransackable_attributes(_auth_object = nil)
+    RANSACKABLE_ATTRIBUTES + _ransackers.keys
+  end
 end

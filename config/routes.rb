@@ -63,11 +63,15 @@
 #                           PATCH  /sponsors/:id(.:format)            sponsors#update
 #                           PUT    /sponsors/:id(.:format)            sponsors#update
 #                           DELETE /sponsors/:id(.:format)            sponsors#destroy
+#             forhires_root GET    /forhires(.:format)                forhires#index
+#           search_forhires POST   /forhires/search(.:format)         forhires#index
 #                  forhires GET    /forhires(.:format)                forhires#index
 #                   forhire GET    /forhires/:id(.:format)            forhires#show
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+# rubocop:disable Metrics/BlockLength
 Rails.application.routes.draw do
   # BEGIN: admin section
   devise_for :admins,
@@ -104,6 +108,10 @@ Rails.application.routes.draw do
   resources :sponsors, only: [:show, :index, :create, :new, :update, :edit, :destroy]
 
   # BEGIN: forhire section
-  resources :forhires, only: [:show, :index]
+  resources :forhires, only: [:show, :index] do
+    root to: 'forhires#index'
+    collection { post :search, to: 'forhires#index' }
+  end
   # END: forhire section
 end
+# rubocop:enable Metrics/BlockLength
