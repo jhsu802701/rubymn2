@@ -23,8 +23,8 @@ class UsersController < ApplicationController
     @search.build_condition if @search.conditions.empty?
     @search.build_sort if @search.sorts.empty?
     @users = @search.result
-    @users = @users.order('last_name asc').page(params[:page]).per(50)
-    @users_count = User.count
+    @users_count = @users.count
+    @users = @users.page(params[:page]).per(50)
   end
   # rubocop:enable Metrics/AbcSize
   # END: index
