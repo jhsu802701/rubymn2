@@ -135,6 +135,7 @@ test/integration
 |-- admin_show_test.rb
 |-- admin_signup_test.rb
 |-- following_button_test.rb
+|-- forhire_create_test.rb
 |-- forhire_index_test.rb
 |-- forhire_search_test.rb
 |-- forhire_show_test.rb
@@ -159,7 +160,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 33 files
+0 directories, 34 files
 
 app/views
 |-- admins
@@ -189,6 +190,7 @@ app/views
 |   |-- _condition_fields.html.erb
 |   |-- _forhire.html.erb
 |   |-- index.html.erb
+|   |-- new.html.erb
 |   `-- show.html.erb
 |-- layouts
 |   |-- _footer.html.erb
@@ -233,4 +235,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-21 directories, 49 files
+21 directories, 50 files
