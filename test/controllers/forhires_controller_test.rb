@@ -17,6 +17,18 @@ class ForhiresControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_path
   end
+
+  def edit_forhire
+    patch forhire_path(@fh_connery),
+          params: { forhire: { description: 'I stopped Largo twice!',
+                               email: 'bond1983@rubyonracetracks.com',
+                               title: 'James Bond 1983' } }
+  end
+
+  def edit_forhire_disabled
+    edit_forhire
+    assert_redirected_to root_path
+  end
   # END: definitions
 
   test 'forhire show action' do
@@ -64,5 +76,32 @@ class ForhiresControllerTest < ActionDispatch::IntegrationTest
   test 'should redirect create for super admin' do
     sign_in @a1, scope: :admin
     create_forhire_disabled
+  end
+
+  test 'should redirect edit to root when not logged in' do
+    edit_forhire_disabled
+  end
+
+  # rubocop:disable Metrics/LineLength
+  test 'should not redirect edit to root when logged in as the user with the forhire' do
+    sign_in @u1, scope: :user
+    edit_forhire
+    assert_redirected_to forhire_path(@fh_connery)
+  end
+  # rubocop:enable Metrics/LineLength
+
+  test 'should redirect edit to root when logged in as a different user' do
+    sign_in @u2, scope: :user
+    edit_forhire_disabled
+  end
+
+  test 'should redirect edit to root when logged in as a regular admin' do
+    sign_in @a4, scope: :admin
+    edit_forhire_disabled
+  end
+
+  test 'should redirect edit to root when logged in as a super admin' do
+    sign_in @a1, scope: :admin
+    edit_forhire_disabled
   end
 end

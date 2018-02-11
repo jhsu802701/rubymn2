@@ -2,6 +2,7 @@
 class ForhiresController < ApplicationController
   # BEGIN: before_action section
   before_action :may_create_forhire, only: [:create]
+  before_action :may_edit_forhire, only: [:update]
   # END: before_action section
 
   # BEGIN: action section
@@ -38,6 +39,20 @@ class ForhiresController < ApplicationController
   def new
     @forhire = Forhire.new
   end
+
+  def update
+    @forhire = Forhire.find(params[:id])
+    if @forhire.update_attributes(forhire_params)
+      flash[:success] = 'Forhire updated'
+      redirect_to forhire_path(@forhire)
+    else
+      render 'edit'
+    end
+  end
+
+  def edit
+    @forhire = Forhire.find(params[:id])
+  end
   # END: action section
 
   # BEGIN: private section
@@ -48,6 +63,12 @@ class ForhiresController < ApplicationController
   end
   helper_method :may_create_forhire
   # rubocop:enable Metrics/LineLength
+
+  def may_edit_forhire
+    return redirect_to root_url unless user_signed_in?
+    @forhire = current_user.forhires.find_by(id: params[:id])
+    return redirect_to root_url if @forhire.nil?
+  end
 
   def forhire_params
     params.require(:forhire).permit(:title, :email, :description)
