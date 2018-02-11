@@ -21,7 +21,7 @@ class ForhiresController < ApplicationController
     @search.build_sort if @search.sorts.empty?
     @forhires = @search.result
     @forhires_count = @forhires.count
-    @forhires = @forhires.page(params[:page]).per(50)
+    @forhires = @forhires.order('updated_at desc').page(params[:page]).per(50)
   end
   # rubocop:enable Metrics/AbcSize
 
