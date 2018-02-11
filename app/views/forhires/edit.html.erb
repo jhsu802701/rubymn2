@@ -1,0 +1,28 @@
+<% provide(:title, 'Edit For Hire Profile') %>
+
+<h1>Edit For Hire Profile</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@forhire) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <div class="field">
+        <%= f.label :title %><br />
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email, 'Email' %><br />
+        <%= f.text_field :email %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description, 'Background Statement' %><br />
+        <%= f.text_area :description, rows: 15 %>
+      </div>
+
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

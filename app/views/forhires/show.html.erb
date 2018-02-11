@@ -2,6 +2,15 @@
 
 <h1>For Hire</h1>
 
+<% # BEGIN: edit forhire button %>
+<% if user_signed_in? && current_user == @user %>
+  <%= link_to "Edit For Hire Profile", edit_forhire_path(@forhire),
+              class: "btn btn-lg btn-primary"
+    %>
+  <br><br>
+<% end %>
+<% # END: edit forhire button %>
+
 <% # BEGIN: name and title of user %>
 <% if admin_signed_in? || user_signed_in? %>
   <%= link_to "#{@user.first_name} #{@user.last_name}", @user %>, <%= @forhire.title %>
