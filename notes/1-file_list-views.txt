@@ -72,6 +72,8 @@ config/routes.rb
 #             forhires_root GET    /forhires(.:format)                forhires#index
 #           search_forhires POST   /forhires/search(.:format)         forhires#index
 #                  forhires GET    /forhires(.:format)                forhires#index
+#                           POST   /forhires(.:format)                forhires#create
+#               new_forhire GET    /forhires/new(.:format)            forhires#new
 #                   forhire GET    /forhires/:id(.:format)            forhires#show
 # 
 
@@ -114,7 +116,7 @@ Rails.application.routes.draw do
   resources :sponsors, only: [:show, :index, :create, :new, :update, :edit, :destroy]
 
   # BEGIN: forhire section
-  resources :forhires, only: [:show, :index] do
+  resources :forhires, only: [:show, :index, :create, :new] do
     root to: 'forhires#index'
     collection { post :search, to: 'forhires#index' }
   end
@@ -133,6 +135,7 @@ test/integration
 |-- admin_show_test.rb
 |-- admin_signup_test.rb
 |-- following_button_test.rb
+|-- forhire_create_test.rb
 |-- forhire_index_test.rb
 |-- forhire_search_test.rb
 |-- forhire_show_test.rb
@@ -157,7 +160,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 33 files
+0 directories, 34 files
 
 app/views
 |-- admins
@@ -187,6 +190,7 @@ app/views
 |   |-- _condition_fields.html.erb
 |   |-- _forhire.html.erb
 |   |-- index.html.erb
+|   |-- new.html.erb
 |   `-- show.html.erb
 |-- layouts
 |   |-- _footer.html.erb
@@ -231,4 +235,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-21 directories, 49 files
+21 directories, 50 files

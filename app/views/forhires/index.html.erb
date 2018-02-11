@@ -19,6 +19,15 @@
 <h1>For Hire Index</h1>
 Number of for hire profiles: <%= @forhires_count %>
 <br>
+<% # BEGIN: add forhire button %>
+<% if user_signed_in? && current_user.forhires.count < 1 %>
+  <%= link_to "Add For Hire Profile", new_forhire_path,
+              class: "btn btn-lg btn-primary"
+    %>
+    <br>
+<% end %>
+<% # END: add forhire button %>
+
 <%= paginate @forhires %>
 
 <%= render @forhires %>
