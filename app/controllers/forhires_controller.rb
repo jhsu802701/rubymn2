@@ -3,6 +3,7 @@ class ForhiresController < ApplicationController
   # BEGIN: before_action section
   before_action :may_create_forhire, only: [:create]
   before_action :may_edit_forhire, only: [:update]
+  before_action :may_destroy_forhire, only: [:destroy]
   # END: before_action section
 
   # BEGIN: action section
@@ -53,6 +54,13 @@ class ForhiresController < ApplicationController
   def edit
     @forhire = Forhire.find(params[:id])
   end
+
+  def destroy
+    uid = Forhire.find(params[:id]).user_id
+    Forhire.find(params[:id]).destroy
+    flash[:success] = 'For hire profile deleted'
+    redirect_to user_path(uid)
+  end
   # END: action section
 
   # BEGIN: private section
@@ -69,6 +77,17 @@ class ForhiresController < ApplicationController
     @forhire = current_user.forhires.find_by(id: params[:id])
     return redirect_to root_url if @forhire.nil?
   end
+
+  def correct_user
+    return false unless user_signed_in?
+    current_user.id == Forhire.find(params[:id]).user_id
+  end
+  helper_method :correct_user
+
+  def may_destroy_forhire
+    return redirect_to(root_path) unless correct_user || admin_signed_in?
+  end
+  helper_method :may_destroy_forhire
 
   def forhire_params
     params.require(:forhire).permit(:title, :email, :description)
