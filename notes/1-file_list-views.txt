@@ -72,6 +72,8 @@ config/routes.rb
 #             forhires_root GET    /forhires(.:format)                forhires#index
 #           search_forhires POST   /forhires/search(.:format)         forhires#index
 #                  forhires GET    /forhires(.:format)                forhires#index
+#                           POST   /forhires(.:format)                forhires#create
+#               new_forhire GET    /forhires/new(.:format)            forhires#new
 #                   forhire GET    /forhires/:id(.:format)            forhires#show
 # 
 
@@ -114,7 +116,7 @@ Rails.application.routes.draw do
   resources :sponsors, only: [:show, :index, :create, :new, :update, :edit, :destroy]
 
   # BEGIN: forhire section
-  resources :forhires, only: [:show, :index] do
+  resources :forhires, only: [:show, :index, :create, :new] do
     root to: 'forhires#index'
     collection { post :search, to: 'forhires#index' }
   end

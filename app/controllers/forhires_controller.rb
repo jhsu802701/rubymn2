@@ -1,5 +1,9 @@
 #
 class ForhiresController < ApplicationController
+  # BEGIN: before_action section
+  before_action :may_create_forhire, only: [:create]
+  # END: before_action section
+
   # BEGIN: action section
   def show
     @forhire = Forhire.find(params[:id])
@@ -20,5 +24,33 @@ class ForhiresController < ApplicationController
     @forhires = @forhires.page(params[:page]).per(50)
   end
   # rubocop:enable Metrics/AbcSize
+
+  def create
+    @forhire = current_user.forhires.build(forhire_params)
+    if @forhire.save
+      flash[:info] = 'For hire profile added'
+      redirect_to user_path(current_user)
+    else
+      render 'new'
+    end
+  end
+
+  def new
+    @forhire = Forhire.new
+  end
   # END: action section
+
+  # BEGIN: private section
+  # rubocop:disable Metrics/LineLength
+  def may_create_forhire
+    return redirect_to(root_path) unless user_signed_in?
+    return redirect_to(root_path) unless Forhire.where("user_id=#{current_user.id}").empty?
+  end
+  helper_method :may_create_forhire
+  # rubocop:enable Metrics/LineLength
+
+  def forhire_params
+    params.require(:forhire).permit(:title, :email, :description)
+  end
+  # END: private section
 end
