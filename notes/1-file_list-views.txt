@@ -140,6 +140,7 @@ test/integration
 |-- admin_signup_test.rb
 |-- following_button_test.rb
 |-- forhire_create_test.rb
+|-- forhire_delete_test.rb
 |-- forhire_edit_test.rb
 |-- forhire_index_test.rb
 |-- forhire_search_test.rb
@@ -165,7 +166,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 35 files
+0 directories, 36 files
 
 app/views
 |-- admins
