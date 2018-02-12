@@ -1,5 +1,6 @@
 require 'test_helper'
 
+# rubocop:disable Metrics/ClassLength
 class ForhiresControllerTest < ActionDispatch::IntegrationTest
   # BEGIN: definitions
   def create_forhire
@@ -28,6 +29,17 @@ class ForhiresControllerTest < ActionDispatch::IntegrationTest
   def edit_forhire_disabled
     edit_forhire
     assert_redirected_to root_path
+  end
+
+  def delete_forhire
+    delete forhire_path(@fh_lazenby)
+  end
+
+  def delete_forhire_disabled
+    assert_no_difference 'Forhire.count' do
+      delete_forhire
+      assert_redirected_to root_path
+    end
   end
   # END: definitions
 
@@ -104,4 +116,38 @@ class ForhiresControllerTest < ActionDispatch::IntegrationTest
     sign_in @a1, scope: :admin
     edit_forhire_disabled
   end
+
+  test 'should redirect delete when not logged in' do
+    delete_forhire_disabled
+  end
+
+  test 'should redirect delete when logged in as the wrong user' do
+    sign_in @u1, scope: :user
+    delete_forhire_disabled
+  end
+
+  test 'should not redirect delete when logged in as the right user' do
+    sign_in @u2, scope: :user
+    assert_difference 'Forhire.count', -1 do
+      delete_forhire
+      assert_redirected_to user_path(@u2)
+    end
+  end
+
+  test 'should not redirect delete when logged in as a regular admin' do
+    sign_in @a4, scope: :admin
+    assert_difference 'Forhire.count', -1 do
+      delete_forhire
+      assert_redirected_to user_path(@u2)
+    end
+  end
+
+  test 'should not redirect delete when logged in as a super admin' do
+    sign_in @a1, scope: :admin
+    assert_difference 'Forhire.count', -1 do
+      delete_forhire
+      assert_redirected_to user_path(@u2)
+    end
+  end
 end
+# rubocop:enable Metrics/ClassLength

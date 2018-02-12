@@ -11,6 +11,20 @@
 <% end %>
 <% # END: edit forhire button %>
 
+<% # BEGIN: delete forhire button %>
+<% @correct_user = false %>
+<% if user_signed_in? %>
+<%   @correct_user = true if current_user.id == Forhire.find(params[:id]).user_id %>
+<% end %>
+<% if @correct_user || admin_signed_in? %>
+  <%= link_to "Delete For Hire Profile", @forhire, method: :delete,
+                                         data: { confirm: "Are you sure you wish to delete this for hire profile?" },
+                                         class: "btn btn-danger"
+  %>
+  <br><br>
+<% end %>
+<% # END: delete forhire button %>
+
 <% # BEGIN: name and title of user %>
 <% if admin_signed_in? || user_signed_in? %>
   <%= link_to "#{@user.first_name} #{@user.last_name}", @user %>, <%= @forhire.title %>

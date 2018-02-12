@@ -78,6 +78,7 @@ config/routes.rb
 #                   forhire GET    /forhires/:id(.:format)            forhires#show
 #                           PATCH  /forhires/:id(.:format)            forhires#update
 #                           PUT    /forhires/:id(.:format)            forhires#update
+#                           DELETE /forhires/:id(.:format)            forhires#destroy
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -119,7 +120,7 @@ Rails.application.routes.draw do
   resources :sponsors, only: [:show, :index, :create, :new, :update, :edit, :destroy]
 
   # BEGIN: forhire section
-  resources :forhires, only: [:show, :index, :create, :new, :update, :edit] do
+  resources :forhires, only: [:show, :index, :create, :new, :update, :edit, :destroy] do
     root to: 'forhires#index'
     collection { post :search, to: 'forhires#index' }
   end
@@ -139,6 +140,7 @@ test/integration
 |-- admin_signup_test.rb
 |-- following_button_test.rb
 |-- forhire_create_test.rb
+|-- forhire_delete_test.rb
 |-- forhire_edit_test.rb
 |-- forhire_index_test.rb
 |-- forhire_search_test.rb
@@ -164,7 +166,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 35 files
+0 directories, 36 files
 
 app/views
 |-- admins

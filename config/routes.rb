@@ -72,6 +72,7 @@
 #                   forhire GET    /forhires/:id(.:format)            forhires#show
 #                           PATCH  /forhires/:id(.:format)            forhires#update
 #                           PUT    /forhires/:id(.:format)            forhires#update
+#                           DELETE /forhires/:id(.:format)            forhires#destroy
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -113,7 +114,7 @@ Rails.application.routes.draw do
   resources :sponsors, only: [:show, :index, :create, :new, :update, :edit, :destroy]
 
   # BEGIN: forhire section
-  resources :forhires, only: [:show, :index, :create, :new, :update, :edit] do
+  resources :forhires, only: [:show, :index, :create, :new, :update, :edit, :destroy] do
     root to: 'forhires#index'
     collection { post :search, to: 'forhires#index' }
   end
