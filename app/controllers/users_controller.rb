@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # BEGIN: ACTION SECTION
   def show
     @user = User.find(params[:id])
+    @forhire = Forhire.where("user_id=#{@user.id}").first
+    @correct_user = correct_user
   end
 
   # BEGIN: index
@@ -64,6 +66,7 @@ class UsersController < ApplicationController
   def correct_user
     current_user == User.find(params[:id])
   end
+  helper_method :correct_user
 
   def admin_or_correct_user
     correct_user || admin_signed_in?
