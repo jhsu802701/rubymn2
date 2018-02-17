@@ -145,6 +145,7 @@ test/integration
 |-- forhire_index_test.rb
 |-- forhire_search_test.rb
 |-- forhire_show_test.rb
+|-- forhire_user_profile_test.rb
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
 |-- sponsor_create_test.rb
@@ -166,7 +167,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 36 files
+0 directories, 37 files
 
 app/views
 |-- admins
