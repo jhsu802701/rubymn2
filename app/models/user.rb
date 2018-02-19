@@ -105,6 +105,7 @@ class User < ApplicationRecord
   # END: relationship section
 
   has_many :forhires, dependent: :destroy
+  has_many :projects, dependent: :destroy
   # END: public section
 
   private
