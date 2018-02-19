@@ -229,3 +229,48 @@ end
 ########################
 # END: creating forhires
 ########################
+
+##########################
+# BEGIN: creating projects
+##########################
+puts 'Creating projects'
+def create_project(user_n, n)
+  t = "Title #{n}: #{Faker::Name.title}"
+  url_s = Faker::Internet.url
+  url_d = Faker::Internet.url
+  d = "Description #{n}: #{Faker::Lorem.paragraph(10)}"
+  @p = user_n.projects.create(title: t,
+                              source_code_url: url_s,
+                              deployed_url: url_d,
+                              description: d)
+end
+
+title1 = 'Project Argus'
+url_1a = 'https://github.com/argus/find_aliens'
+url_1b = 'http://www.projectargus.org'
+d1 = 'Finding radio signals from alien beings'
+user1.projects.create(title: title1, source_code_url: url_1a,
+                      deployed_url: url_1b, description: d1)
+
+title2 = 'Dodecahedron'
+url_2a = 'https://github.com/argus/dodecahedron'
+url_2b = 'http://www.dodecahedron.org'
+d2 = 'Building the spacecraft with the instructions from the aliens'
+user1.projects.create(title: title2, source_code_url: url_2a,
+                      deployed_url: url_2b, description: d2)
+
+# Other users
+n = 0
+users.each do |u|
+  n += 1
+  next if rand < 0.2 || u == user1
+  n_projects = rand(1..3)
+  n_projects.times do
+    @p = create_project(u, n)
+    n += 1
+  end
+end
+
+########################
+# END: creating projects
+########################
