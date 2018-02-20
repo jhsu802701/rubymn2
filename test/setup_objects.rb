@@ -1,5 +1,6 @@
 # rubocop:disable Metrics/MethodLength
 # rubocop:disable Metrics/LineLength
+# rubocop:disable Metrics/AbcSize
 
 def add_user_objects
   @fh_connery = @u1.forhires.create(description: 'I stopped Blofeld 4 times!',
@@ -20,7 +21,28 @@ def add_user_objects
   @fh_craig = @u6.forhires.create(description: 'I rebooted James Bond.',
                                   email: 'daniel_craig@rubyonracetracks.com',
                                   title: 'James Bond 2006-')
+
+  @p1 = @u3.projects.create(title: 'Live and Let Die',
+                            description: 'Investigate Kananga.',
+                            source_code_url: 'https://github.com/rmoore/kananga',
+                            deployed_url: 'http://www.kananga.com')
+  @p2 = @u3.projects.create(title: 'The Man with the Golden Gun',
+                            description: 'Get the Solex Agitator from Scaramanga.',
+                            source_code_url: 'https://github.com/rmoore/scaramanga',
+                            deployed_url: 'http://www.scaramanga.com')
+  @p3 = @u5.projects.create(title: 'GoldenEye',
+                            description: 'Stop the hijacking of the GoldenEye satellite.',
+                            source_code_url: 'https://github.com/pbrosnan/goldeneye',
+                            deployed_url: 'http://www.goldeneye.com')
+  @p4 = @u5.projects.create(title: 'Tomorrow Never Dies',
+                            description: 'Prevent war between China and the UK.',
+                            source_code_url: 'https://github.com/pbrosnan/carver',
+                            deployed_url: 'http://www.carvernewsnetwork.com')
+  @p5 = @u6.projects.create(title: 'Quantum of Solace',
+                            description: 'Get revenge for the death of Vesper Lynd.')
 end
+
+# rubocop:enable Metrics/AbcSize
 
 def add_extra_forhires
   users = User.all
