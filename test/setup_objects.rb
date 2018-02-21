@@ -59,3 +59,24 @@ def add_extra_forhires
 end
 # rubocop:enable Metrics/MethodLength
 # rubocop:enable Metrics/LineLength
+
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/LineLength
+def add_extra_projects
+  users = User.all
+  n = 0
+  users.each do |u|
+    n += 1
+    next if n < 20 || rand < 0.2 || u.projects.count > 0
+    u.projects.create(title: "Project #{n}: #{Faker::Company.catch_phrase}",
+                      source_code_url: Faker::Internet.url,
+                      deployed_url: Faker::Internet.url,
+                      description: "Description #{n}: #{Faker::Lorem.paragraph(10)}",
+                      created_at: 11.minutes.ago,
+                      updated_at: 10.minutes.ago)
+  end
+end
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/LineLength
