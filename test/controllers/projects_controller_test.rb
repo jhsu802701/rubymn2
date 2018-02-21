@@ -13,4 +13,9 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     get project_path(@p5)
     assert_response :success
   end
+
+  test 'project index action' do
+    get projects_path
+    assert_response :success
+  end
 end
