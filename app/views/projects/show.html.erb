@@ -1,0 +1,24 @@
+<% provide(:title, "Project: #{@project.title}") %>
+
+<h1>Project: <%= @project.title %></h1>
+
+<% # BEGIN: name and title of user %>
+<% if admin_signed_in? || user_signed_in? %>
+  Author: <%= link_to "#{@user.first_name} #{@user.last_name}", @user %>
+<% else %>
+  Author: <%= @user.first_name %> <%= @user.last_name %>
+<% end %>
+<% # END: name and title of user %>
+<br><br>
+Description: <%= @project.description %>
+<br><br>
+
+<% if @project.source_code_url.nil? == false %>
+  Source Code URL: <%= link_to "#{@project.source_code_url}", @project.source_code_url %>
+  <br><br>
+<% end %>
+
+<% if @project.deployed_url.nil? == false %>
+  Deployed URL: <%= link_to "#{@project.deployed_url}", @project.deployed_url %>
+  <br><br>
+<% end %>
