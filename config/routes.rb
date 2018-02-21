@@ -73,6 +73,8 @@
 #                           PATCH  /forhires/:id(.:format)            forhires#update
 #                           PUT    /forhires/:id(.:format)            forhires#update
 #                           DELETE /forhires/:id(.:format)            forhires#destroy
+#             projects_root GET    /projects(.:format)                projects#index
+#           search_projects POST   /projects/search(.:format)         projects#index
 #                  projects GET    /projects(.:format)                projects#index
 #                   project GET    /projects/:id(.:format)            projects#show
 # 
@@ -123,7 +125,10 @@ Rails.application.routes.draw do
   # END: forhire section
 
   # BEGIN: project section
-  resources :projects, only: [:show, :index]
+  resources :projects, only: [:show, :index] do
+    root to: 'projects#index'
+    collection { post :search, to: 'projects#index' }
+  end
   # END: project section
 end
 # rubocop:enable Metrics/BlockLength
