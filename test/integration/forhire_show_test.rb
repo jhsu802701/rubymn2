@@ -43,15 +43,18 @@ class ForhireShowTest < ActionDispatch::IntegrationTest
   test 'user sees the expected content on pages' do
     login_as(@u1, scope: :user)
     check_forhire_pages
+    check_forhire_for_link
   end
 
   test 'regular admin sees the expected content on pages' do
     login_as(@a4, scope: :admin)
     check_forhire_pages
+    check_forhire_for_link
   end
 
   test 'super admin sees the expected content on pages' do
     login_as(@a1, scope: :admin)
     check_forhire_pages
+    check_forhire_for_link
   end
 end
