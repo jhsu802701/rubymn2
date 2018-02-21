@@ -73,6 +73,7 @@
 #                           PATCH  /forhires/:id(.:format)            forhires#update
 #                           PUT    /forhires/:id(.:format)            forhires#update
 #                           DELETE /forhires/:id(.:format)            forhires#destroy
+#                   project GET    /projects/:id(.:format)            projects#show
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -119,5 +120,9 @@ Rails.application.routes.draw do
     collection { post :search, to: 'forhires#index' }
   end
   # END: forhire section
+
+  # BEGIN: project section
+  resources :projects, only: [:show]
+  # END: project section
 end
 # rubocop:enable Metrics/BlockLength
