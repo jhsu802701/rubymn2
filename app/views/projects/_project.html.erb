@@ -1,0 +1,14 @@
+<hr>
+<h4><%= link_to "#{project.title}", project_path(project) %></h4>
+<% user_f = User.where(id: "#{project.user_id}").first %>
+<%= user_f.first_name %> <%= user_f.last_name %>
+<br>
+<% if project.source_code_url.nil? == false %>
+  Source Code URL: <%= link_to "#{project.source_code_url}", project.source_code_url %>
+  <br>
+<% end %>
+<% if project.deployed_url.nil? == false %>
+  Deployed URL: <%= link_to "#{project.deployed_url}", project.deployed_url %>
+  <br>
+<% end %>
+<%= project.description[0..140] %>

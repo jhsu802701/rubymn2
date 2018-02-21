@@ -154,6 +154,7 @@ test/integration
 |-- forhire_user_profile_test.rb
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
+|-- project_index_test.rb
 |-- project_show_test.rb
 |-- sponsor_create_test.rb
 |-- sponsor_delete_test.rb
@@ -174,7 +175,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 38 files
+0 directories, 39 files
 
 app/views
 |-- admins
@@ -215,6 +216,7 @@ app/views
 |   |-- mailer.html.erb
 |   `-- mailer.text.erb
 |-- projects
+|   |-- _project.html.erb
 |   |-- index.html.erb
 |   `-- show.html.erb
 |-- shared
@@ -253,4 +255,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-22 directories, 53 files
+22 directories, 54 files

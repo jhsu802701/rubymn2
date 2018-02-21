@@ -1,0 +1,11 @@
+<% provide(:title, 'Project Index') %>
+
+<h1>Project Index</h1>
+Number of projects: <%= @projects_count %>
+<br>
+<%= paginate @projects %>
+
+<%= render @projects %>
+<hr>
+
+<%= paginate @projects %>
