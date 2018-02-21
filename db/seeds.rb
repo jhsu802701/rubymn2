@@ -235,7 +235,7 @@ end
 ##########################
 puts 'Creating projects'
 def create_project(user_n, n)
-  t = "Title #{n}: #{Faker::Name.title}"
+  t = "Project #{n}: #{Faker::Company.catch_phrase}"
   url_s = Faker::Internet.url
   url_d = Faker::Internet.url
   d = "Description #{n}: #{Faker::Lorem.paragraph(10)}"
