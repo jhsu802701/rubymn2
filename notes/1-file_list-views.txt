@@ -82,6 +82,8 @@ config/routes.rb
 #             projects_root GET    /projects(.:format)                projects#index
 #           search_projects POST   /projects/search(.:format)         projects#index
 #                  projects GET    /projects(.:format)                projects#index
+#                           POST   /projects(.:format)                projects#create
+#               new_project GET    /projects/new(.:format)            projects#new
 #                   project GET    /projects/:id(.:format)            projects#show
 # 
 
@@ -131,7 +133,7 @@ Rails.application.routes.draw do
   # END: forhire section
 
   # BEGIN: project section
-  resources :projects, only: [:show, :index] do
+  resources :projects, only: [:show, :index, :create, :new] do
     root to: 'projects#index'
     collection { post :search, to: 'projects#index' }
   end
@@ -159,6 +161,7 @@ test/integration
 |-- forhire_user_profile_test.rb
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
+|-- project_create_test.rb
 |-- project_index_test.rb
 |-- project_search_test.rb
 |-- project_show_test.rb
@@ -181,7 +184,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 40 files
+0 directories, 41 files
 
 app/views
 |-- admins
@@ -225,6 +228,7 @@ app/views
 |   |-- _condition_fields.html.erb
 |   |-- _project.html.erb
 |   |-- index.html.erb
+|   |-- new.html.erb
 |   `-- show.html.erb
 |-- shared
 |   `-- _error_messages.html.erb
@@ -262,4 +266,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-22 directories, 55 files
+22 directories, 56 files

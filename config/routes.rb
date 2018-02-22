@@ -76,6 +76,8 @@
 #             projects_root GET    /projects(.:format)                projects#index
 #           search_projects POST   /projects/search(.:format)         projects#index
 #                  projects GET    /projects(.:format)                projects#index
+#                           POST   /projects(.:format)                projects#create
+#               new_project GET    /projects/new(.:format)            projects#new
 #                   project GET    /projects/:id(.:format)            projects#show
 # 
 
@@ -125,7 +127,7 @@ Rails.application.routes.draw do
   # END: forhire section
 
   # BEGIN: project section
-  resources :projects, only: [:show, :index] do
+  resources :projects, only: [:show, :index, :create, :new] do
     root to: 'projects#index'
     collection { post :search, to: 'projects#index' }
   end
