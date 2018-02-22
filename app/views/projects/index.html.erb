@@ -19,6 +19,15 @@
 <h1>Project Index</h1>
 Number of projects: <%= @projects_count %>
 <br>
+<% # BEGIN: add project button %>
+<% if user_signed_in? %>
+  <%= link_to "Add Project", new_project_path,
+              class: "btn btn-lg btn-primary"
+    %>
+    <br>
+<% end %>
+<% # END: add project button %>
+
 <%= paginate @projects %>
 
 <%= render @projects %>
