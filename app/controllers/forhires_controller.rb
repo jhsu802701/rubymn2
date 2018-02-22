@@ -63,6 +63,8 @@ class ForhiresController < ApplicationController
   end
   # END: action section
 
+  private
+
   # BEGIN: private section
   # rubocop:disable Metrics/LineLength
   def may_create_forhire
