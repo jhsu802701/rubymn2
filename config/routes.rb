@@ -82,6 +82,7 @@
 #                   project GET    /projects/:id(.:format)            projects#show
 #                           PATCH  /projects/:id(.:format)            projects#update
 #                           PUT    /projects/:id(.:format)            projects#update
+#                           DELETE /projects/:id(.:format)            projects#destroy
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -130,7 +131,7 @@ Rails.application.routes.draw do
   # END: forhire section
 
   # BEGIN: project section
-  resources :projects, only: [:show, :index, :create, :new, :update, :edit] do
+  resources :projects, only: [:show, :index, :create, :new, :update, :edit, :destroy] do
     root to: 'projects#index'
     collection { post :search, to: 'projects#index' }
   end

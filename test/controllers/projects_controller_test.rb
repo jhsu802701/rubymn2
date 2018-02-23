@@ -1,5 +1,6 @@
 require 'test_helper'
 
+# rubocop:disable Metrics/ClassLength
 class ProjectsControllerTest < ActionDispatch::IntegrationTest
   # BEGIN: definitions
   def create_project
@@ -35,6 +36,17 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   def edit_project_disabled
     edit_project
     assert_redirected_to root_path
+  end
+
+  def delete_project
+    delete project_path(@p2)
+  end
+
+  def delete_project_disabled
+    assert_no_difference 'Project.count' do
+      delete_project
+      assert_redirected_to root_path
+    end
   end
   # END: definitions
 
@@ -104,4 +116,38 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     sign_in @a1, scope: :admin
     edit_project_disabled
   end
+
+  test 'should redirect delete when not logged in' do
+    delete_project_disabled
+  end
+
+  test 'should redirect delete when logged in as the wrong user' do
+    sign_in @u1, scope: :user
+    delete_project_disabled
+  end
+
+  test 'should not redirect delete when logged in as the right user' do
+    sign_in @u3, scope: :user
+    assert_difference 'Project.count', -1 do
+      delete_project
+      assert_redirected_to user_path(@u3)
+    end
+  end
+
+  test 'should not redirect delete when logged in as a regular admin' do
+    sign_in @a4, scope: :admin
+    assert_difference 'Project.count', -1 do
+      delete_project
+      assert_redirected_to user_path(@u3)
+    end
+  end
+
+  test 'should not redirect delete when logged in as a super admin' do
+    sign_in @a1, scope: :admin
+    assert_difference 'Project.count', -1 do
+      delete_project
+      assert_redirected_to user_path(@u3)
+    end
+  end
 end
+# rubocop:enable Metrics/ClassLength

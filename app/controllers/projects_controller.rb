@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
   # BEGIN: before_action section
   before_action :may_create_project, only: [:create]
   before_action :may_edit_project, only: [:update]
+  before_action :may_destroy_project, only: [:destroy]
   # END: before_action section
 
   # BEGIN: action section
@@ -53,6 +54,13 @@ class ProjectsController < ApplicationController
   def edit
     @project = Project.find(params[:id])
   end
+
+  def destroy
+    uid = Project.find(params[:id]).user_id
+    Project.find(params[:id]).destroy
+    flash[:success] = 'Project deleted'
+    redirect_to user_path(uid)
+  end
   # END: action section
 
   private
@@ -68,6 +76,17 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.find_by(id: params[:id])
     return redirect_to root_url if @project.nil?
   end
+
+  def correct_user
+    return false unless user_signed_in?
+    current_user.id == Project.find(params[:id]).user_id
+  end
+  helper_method :correct_user
+
+  def may_destroy_project
+    return redirect_to(root_path) unless correct_user || admin_signed_in?
+  end
+  helper_method :may_destroy_project
 
   def project_params
     params.require(:project).permit(:title, :source_code_url,
