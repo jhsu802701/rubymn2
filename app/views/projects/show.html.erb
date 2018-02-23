@@ -11,6 +11,20 @@
 <% end %>
 <% # END: edit project button %>
 
+<% # BEGIN: delete project button %>
+<% @correct_user = false %>
+<% if user_signed_in? %>
+  <% @correct_user = true if current_user.id == Project.find(params[:id]).user_id %>
+<% end %>
+<% if @correct_user || admin_signed_in? %>
+  <%= link_to "Delete Project", @project, method: :delete,
+                                         data: { confirm: "Are you sure you wish to delete this project?" },
+                                         class: "btn btn-danger"
+  %>
+  <br><br>
+<% end %>
+<% # END: delete project button %>
+
 <% # BEGIN: name and title of user %>
 <% if admin_signed_in? || user_signed_in? %>
   Author: <%= link_to "#{@user.first_name} #{@user.last_name}", @user %>

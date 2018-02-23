@@ -88,6 +88,7 @@ config/routes.rb
 #                   project GET    /projects/:id(.:format)            projects#show
 #                           PATCH  /projects/:id(.:format)            projects#update
 #                           PUT    /projects/:id(.:format)            projects#update
+#                           DELETE /projects/:id(.:format)            projects#destroy
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -136,7 +137,7 @@ Rails.application.routes.draw do
   # END: forhire section
 
   # BEGIN: project section
-  resources :projects, only: [:show, :index, :create, :new, :update, :edit] do
+  resources :projects, only: [:show, :index, :create, :new, :update, :edit, :destroy] do
     root to: 'projects#index'
     collection { post :search, to: 'projects#index' }
   end
@@ -165,6 +166,7 @@ test/integration
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
 |-- project_create_test.rb
+|-- project_delete_test.rb
 |-- project_edit_test.rb
 |-- project_index_test.rb
 |-- project_search_test.rb
@@ -188,7 +190,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 42 files
+0 directories, 43 files
 
 app/views
 |-- admins
