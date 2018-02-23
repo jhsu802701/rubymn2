@@ -2,6 +2,7 @@
 class ProjectsController < ApplicationController
   # BEGIN: before_action section
   before_action :may_create_project, only: [:create]
+  before_action :may_edit_project, only: [:update]
   # END: before_action section
 
   # BEGIN: action section
@@ -38,6 +39,20 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
   end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(project_params)
+      flash[:success] = 'Project updated'
+      redirect_to project_path(@project)
+    else
+      render 'edit'
+    end
+  end
+
+  def edit
+    @project = Project.find(params[:id])
+  end
   # END: action section
 
   private
@@ -47,6 +62,12 @@ class ProjectsController < ApplicationController
     return redirect_to(root_path) unless user_signed_in?
   end
   helper_method :may_create_project
+
+  def may_edit_project
+    return redirect_to root_url unless user_signed_in?
+    @project = current_user.projects.find_by(id: params[:id])
+    return redirect_to root_url if @project.nil?
+  end
 
   def project_params
     params.require(:project).permit(:title, :source_code_url,

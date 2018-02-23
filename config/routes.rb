@@ -78,7 +78,10 @@
 #                  projects GET    /projects(.:format)                projects#index
 #                           POST   /projects(.:format)                projects#create
 #               new_project GET    /projects/new(.:format)            projects#new
+#              edit_project GET    /projects/:id/edit(.:format)       projects#edit
 #                   project GET    /projects/:id(.:format)            projects#show
+#                           PATCH  /projects/:id(.:format)            projects#update
+#                           PUT    /projects/:id(.:format)            projects#update
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -127,7 +130,7 @@ Rails.application.routes.draw do
   # END: forhire section
 
   # BEGIN: project section
-  resources :projects, only: [:show, :index, :create, :new] do
+  resources :projects, only: [:show, :index, :create, :new, :update, :edit] do
     root to: 'projects#index'
     collection { post :search, to: 'projects#index' }
   end

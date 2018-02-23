@@ -19,6 +19,23 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_path
   end
+
+  def edit_project
+    title1 = 'For Your Eyes Only'
+    desc1 = 'Retrieve ATAC'
+    url_s = 'https://github.com/rmoore/fyeo'
+    url_d = 'http://www.fyeo1981.com'
+    patch project_path(@p2),
+          params: { project: { title: title1,
+                               description: desc1,
+                               source_code_url: url_s,
+                               deployed_url: url_d } }
+  end
+
+  def edit_project_disabled
+    edit_project
+    assert_redirected_to root_path
+  end
   # END: definitions
 
   test 'project show action' do
@@ -59,5 +76,32 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   test 'should redirect create for super admin' do
     sign_in @a1, scope: :admin
     create_project_disabled
+  end
+
+  test 'should redirect edit to root when not logged in' do
+    edit_project_disabled
+  end
+
+  # rubocop:disable Metrics/LineLength
+  test 'should not redirect edit to root when logged in as the user with the project' do
+    sign_in @u3, scope: :user
+    edit_project
+    assert_redirected_to project_path(@p2)
+  end
+  # rubocop:enable Metrics/LineLength
+
+  test 'should redirect edit to root when logged in as a different user' do
+    sign_in @u2, scope: :user
+    edit_project_disabled
+  end
+
+  test 'should redirect edit to root when logged in as a regular admin' do
+    sign_in @a4, scope: :admin
+    edit_project_disabled
+  end
+
+  test 'should redirect edit to root when logged in as a super admin' do
+    sign_in @a1, scope: :admin
+    edit_project_disabled
   end
 end

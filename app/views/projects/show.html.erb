@@ -2,6 +2,15 @@
 
 <h1>Project: <%= @project.title %></h1>
 
+<% # BEGIN: edit project button %>
+<% if user_signed_in? && current_user == @user %>
+  <%= link_to "Edit Project", edit_project_path(@project),
+              class: "btn btn-lg btn-primary"
+    %>
+  <br><br>
+<% end %>
+<% # END: edit project button %>
+
 <% # BEGIN: name and title of user %>
 <% if admin_signed_in? || user_signed_in? %>
   Author: <%= link_to "#{@user.first_name} #{@user.last_name}", @user %>

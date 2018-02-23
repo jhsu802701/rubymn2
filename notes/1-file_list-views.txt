@@ -84,7 +84,10 @@ config/routes.rb
 #                  projects GET    /projects(.:format)                projects#index
 #                           POST   /projects(.:format)                projects#create
 #               new_project GET    /projects/new(.:format)            projects#new
+#              edit_project GET    /projects/:id/edit(.:format)       projects#edit
 #                   project GET    /projects/:id(.:format)            projects#show
+#                           PATCH  /projects/:id(.:format)            projects#update
+#                           PUT    /projects/:id(.:format)            projects#update
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -133,7 +136,7 @@ Rails.application.routes.draw do
   # END: forhire section
 
   # BEGIN: project section
-  resources :projects, only: [:show, :index, :create, :new] do
+  resources :projects, only: [:show, :index, :create, :new, :update, :edit] do
     root to: 'projects#index'
     collection { post :search, to: 'projects#index' }
   end
@@ -162,6 +165,7 @@ test/integration
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
 |-- project_create_test.rb
+|-- project_edit_test.rb
 |-- project_index_test.rb
 |-- project_search_test.rb
 |-- project_show_test.rb
@@ -184,7 +188,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 41 files
+0 directories, 42 files
 
 app/views
 |-- admins
@@ -227,6 +231,7 @@ app/views
 |-- projects
 |   |-- _condition_fields.html.erb
 |   |-- _project.html.erb
+|   |-- edit.html.erb
 |   |-- index.html.erb
 |   |-- new.html.erb
 |   `-- show.html.erb
@@ -266,4 +271,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-22 directories, 56 files
+22 directories, 57 files
