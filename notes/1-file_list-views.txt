@@ -171,6 +171,7 @@ test/integration
 |-- project_index_test.rb
 |-- project_search_test.rb
 |-- project_show_test.rb
+|-- project_user_profile_test.rb
 |-- sponsor_create_test.rb
 |-- sponsor_delete_test.rb
 |-- sponsor_edit_test.rb
@@ -190,7 +191,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 43 files
+0 directories, 44 files
 
 app/views
 |-- admins

@@ -63,5 +63,36 @@
       <br>
     <% end %>
     <% # END: add forhire button %>
+
+    <% # BEGIN: project display %>
+    <% if Project.where("user_id=#{@user.id}").any? %>
+      <h3>Projects</h3>
+      <ul>
+      <% @projects.each do |project| %>
+        <li>
+        <%= link_to project.title, project_path(project) %>
+        <br>
+        <% if project.source_code_url.nil? == false %>
+          Source Code URL: <%= link_to "#{project.source_code_url}", project.source_code_url %>
+          <br>
+        <% end %>
+        <% if project.deployed_url.nil? == false %>
+          Deployed URL: <%= link_to "#{project.deployed_url}", project.deployed_url %>
+          <br>
+        <% end %>
+        <%= project.description[0..140] %>
+        </li>
+      <% end %>
+      </ul>
+    <% end %>
+    <% # END: project display %>
+
+    <% # BEGIN: add project button %>
+    <% if @correct_user == true %>
+      <%= link_to "Add Project", new_project_path,
+                  class: "btn btn-lg btn-primary" %>
+      <br>
+    <% end %>
+    <% # END: add project button %>
   </section>
 </div>

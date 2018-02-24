@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @forhire = Forhire.where("user_id=#{@user.id}").first
     @correct_user = correct_user
+    @projects = Project.where("user_id=#{@user.id}")
   end
 
   # BEGIN: index
