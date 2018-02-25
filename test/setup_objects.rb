@@ -40,6 +40,17 @@ def add_user_objects
                             deployed_url: 'http://www.carvernewsnetwork.com')
   @p5 = @u6.projects.create(title: 'Quantum of Solace',
                             description: 'Get revenge for the death of Vesper Lynd.')
+
+  @op1 = @u7.openings.create(title: 'Spacecraft Hijacker',
+                             description: 'Hijack American and Soviet spacecraft')
+  @op2 = @u7.openings.create(title: 'Head of Unione Corse',
+                             description: 'Run a European crime syndicate')
+  @op3 = @u7.openings.create(title: 'Plastic Surgeon',
+                             description: 'Create fake versions of Blofeld to foil 007')
+  @op4 = @u11.openings.create(title: 'Deputy',
+                              description: 'Catch that black Trans Am!')
+  @op5 = @u11.openings.create(title: 'Body Repair Technician',
+                              description: 'Fix those police cars I keep wrecking')
 end
 
 # rubocop:enable Metrics/AbcSize

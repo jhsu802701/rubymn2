@@ -83,6 +83,7 @@
 #                           PATCH  /projects/:id(.:format)            projects#update
 #                           PUT    /projects/:id(.:format)            projects#update
 #                           DELETE /projects/:id(.:format)            projects#destroy
+#                   opening GET    /openings/:id(.:format)            openings#show
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -136,5 +137,9 @@ Rails.application.routes.draw do
     collection { post :search, to: 'projects#index' }
   end
   # END: project section
+
+  # BEGIN: opening section
+  resources :openings, only: [:show]
+  # END: opening section
 end
 # rubocop:enable Metrics/BlockLength
