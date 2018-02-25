@@ -4,12 +4,13 @@ MODELS
 test/models
 |-- admin_test.rb
 |-- forhire_test.rb
+|-- opening_test.rb
 |-- project_test.rb
 |-- relationship_test.rb
 |-- sponsor_test.rb
 `-- user_test.rb
 
-0 directories, 6 files
+0 directories, 7 files
 
 test/fixtures
 |-- admins.yml
@@ -25,9 +26,10 @@ app/models
 |-- application_record.rb
 |-- concerns
 |-- forhire.rb
+|-- opening.rb
 |-- project.rb
 |-- relationship.rb
 |-- sponsor.rb
 `-- user.rb
 
-1 directory, 7 files
+1 directory, 8 files
