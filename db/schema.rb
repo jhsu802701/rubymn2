@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219221926) do
+ActiveRecord::Schema.define(version: 20180225033153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 20180219221926) do
     t.datetime "updated_at", null: false
     t.index ["user_id", "created_at"], name: "index_forhires_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_forhires_on_user_id"
+  end
+
+  create_table "openings", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_openings_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_openings_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -123,5 +133,6 @@ ActiveRecord::Schema.define(version: 20180219221926) do
   end
 
   add_foreign_key "forhires", "users"
+  add_foreign_key "openings", "users"
   add_foreign_key "projects", "users"
 end

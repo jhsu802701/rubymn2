@@ -274,3 +274,37 @@ end
 ########################
 # END: creating projects
 ########################
+
+##########################
+# BEGIN: creating openings
+##########################
+puts 'Creating openings'
+def create_opening(user_n, n)
+  t = "Opening #{n}: #{Faker::Job.title}"
+  d = "Description #{n}: #{Faker::Lorem.paragraph(10)}"
+  @op = user_n.openings.create(title: t, description: d)
+end
+
+title1 = 'Radio signal analysis engineer'
+d1 = 'Find the information in received radio waves'
+user1.openings.create(title: title1, description: d1)
+
+title2 = 'Computational engineer'
+d2 = 'Calculate pi with increasingly perfect accuracy'
+user1.openings.create(title: title2, description: d2)
+
+# Other users
+n = 0
+users.each do |u|
+  n += 1
+  next if rand < 0.2 || u == user1
+  n_openings = rand(1..3)
+  n_openings.times do
+    @op = create_opening(u, n)
+    n += 1
+  end
+end
+
+########################
+# END: creating openings
+########################
