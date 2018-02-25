@@ -106,6 +106,7 @@ class User < ApplicationRecord
 
   has_many :forhires, dependent: :destroy
   has_many :projects, dependent: :destroy
+  has_many :openings, dependent: :destroy
   # END: public section
 
   private
