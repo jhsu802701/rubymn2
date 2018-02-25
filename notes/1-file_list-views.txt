@@ -170,6 +170,7 @@ test/integration
 |-- forhire_user_profile_test.rb
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
+|-- opening_show_test.rb
 |-- project_create_test.rb
 |-- project_delete_test.rb
 |-- project_edit_test.rb
@@ -196,7 +197,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 44 files
+0 directories, 45 files
 
 app/views
 |-- admins

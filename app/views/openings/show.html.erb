@@ -1,0 +1,7 @@
+<% provide(:title, "Job Opening: #{@opening.title}") %>
+
+<h1>Job Opening: <%= @opening.title %></h1>
+
+Posted by: <%= link_to "#{@user.first_name} #{@user.last_name}", @user %>
+<br><br>
+Description: <%= @opening.description %>
