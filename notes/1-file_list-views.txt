@@ -188,6 +188,7 @@ test/integration
 |-- opening_index_test.rb
 |-- opening_search_test.rb
 |-- opening_show_test.rb
+|-- opening_user_profile_test.rb
 |-- project_create_test.rb
 |-- project_delete_test.rb
 |-- project_edit_test.rb
@@ -214,7 +215,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 50 files
+0 directories, 51 files
 
 app/views
 |-- admins
