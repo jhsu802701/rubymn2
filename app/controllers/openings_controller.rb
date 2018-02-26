@@ -12,10 +12,20 @@ class OpeningsController < ApplicationController
     @user = User.where("id=#{@opening.user_id}").first
   end
 
+  # rubocop:disable Metrics/AbcSize
   def index
-    @openings = Opening.order('updated_at DESC').page(params[:page]).per(50)
-    @openings_count = Opening.count
+    @search = Opening.search(params[:q].presence)
+    # NOTE: The following line specifies the sort order.
+    # This is reflected in the default sort criteria shown.
+    # The user is free to remove these default criteria.
+    @search.sorts = 'updated_at desc' if @search.sorts.empty?
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
+    @openings = @search.result
+    @openings_count = @openings.count
+    @openings = @openings.order('updated_at desc').page(params[:page]).per(50)
   end
+  # rubocop:enable Metrics/AbcSize
   # END: action section
 
   private
