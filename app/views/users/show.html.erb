@@ -94,5 +94,28 @@
       <br>
     <% end %>
     <% # END: add project button %>
+
+    <% # BEGIN: opening display %>
+    <% if Opening.where("user_id=#{@user.id}").any? %>
+      <h3>Job Openings</h3>
+      <ul>
+      <% @openings.each do |opening| %>
+        <li>
+        <%= link_to opening.title, opening_path(opening) %>
+        <br>
+        <%= opening.description[0..140] %>
+        </li>
+      <% end %>
+      </ul>
+    <% end %>
+    <% # END: opening display %>
+
+    <% # BEGIN: add opening button %>
+    <% if @correct_user == true %>
+      <%= link_to "Add Job Opening", new_opening_path,
+                  class: "btn btn-lg btn-primary" %>
+      <br>
+    <% end %>
+    <% # END: add opening button %>
   </section>
 </div>

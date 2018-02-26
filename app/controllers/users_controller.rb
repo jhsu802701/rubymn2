@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @forhire = Forhire.where("user_id=#{@user.id}").first
     @correct_user = correct_user
     @projects = Project.where("user_id=#{@user.id}")
+    @openings = Opening.where("user_id=#{@user.id}")
   end
 
   # BEGIN: index
