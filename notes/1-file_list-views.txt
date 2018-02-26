@@ -178,6 +178,7 @@ test/integration
 |-- forhire_user_profile_test.rb
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
+|-- opening_create_test.rb
 |-- opening_index_test.rb
 |-- opening_search_test.rb
 |-- opening_show_test.rb
@@ -207,7 +208,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 47 files
+0 directories, 48 files
 
 app/views
 |-- admins
@@ -251,6 +252,7 @@ app/views
 |   |-- _condition_fields.html.erb
 |   |-- _opening.html.erb
 |   |-- index.html.erb
+|   |-- new.html.erb
 |   `-- show.html.erb
 |-- projects
 |   |-- _condition_fields.html.erb
@@ -295,4 +297,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-23 directories, 61 files
+23 directories, 62 files
