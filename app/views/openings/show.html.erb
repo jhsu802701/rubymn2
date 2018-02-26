@@ -11,6 +11,20 @@
 <% end %>
 <% # END: edit opening button %>
 
+<% # BEGIN: delete opening button %>
+<% @correct_user = false %>
+<% if user_signed_in? %>
+  <% @correct_user = true if current_user.id == Opening.find(params[:id]).user_id %>
+<% end %>
+<% if @correct_user || admin_signed_in? %>
+  <%= link_to "Delete Job Opening", @opening, method: :delete,
+                                              data: { confirm: "Are you sure you wish to delete this opening?" },
+                                              class: "btn btn-danger"
+  %>
+  <br><br>
+<% end %>
+<% # END: delete opening button %>
+
 Posted by: <%= link_to "#{@user.first_name} #{@user.last_name}", @user %>
 <br><br>
 Description: <%= @opening.description %>

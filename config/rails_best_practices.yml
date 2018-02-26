@@ -9,7 +9,7 @@ IsolateSeedDataCheck: { }
 KeepFindersOnTheirOwnModelCheck: { }
 LawOfDemeterCheck: { }
 #LongLineCheck: { max_line_length: 80 }
-MoveCodeIntoControllerCheck: { ignored_files: ['app/views/forhires/show.html.erb', 'app/views/projects/show.html.erb'] }
+MoveCodeIntoControllerCheck: { ignored_files: ['app/views/forhires/show.html.erb', 'app/views/projects/show.html.erb', 'app/views/openings/show.html.erb'] }
 MoveCodeIntoHelperCheck: { array_count: 3 }
 MoveCodeIntoModelCheck: { use_count: 2 }
 MoveFinderToNamedScopeCheck: { }

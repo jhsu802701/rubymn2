@@ -183,6 +183,7 @@ test/integration
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
 |-- opening_create_test.rb
+|-- opening_delete_test.rb
 |-- opening_edit_test.rb
 |-- opening_index_test.rb
 |-- opening_search_test.rb
@@ -213,7 +214,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 49 files
+0 directories, 50 files
 
 app/views
 |-- admins
