@@ -6,6 +6,7 @@ class OpeningsController < ApplicationController
   # rubocop:enable Style/SymbolArray
   before_action :may_create_opening, only: [:create]
   before_action :may_edit_opening, only: [:update]
+  before_action :may_destroy_opening, only: [:destroy]
   # END: before_action section
 
   # BEGIN: action section
@@ -56,6 +57,13 @@ class OpeningsController < ApplicationController
   def edit
     @opening = Opening.find(params[:id])
   end
+
+  def destroy
+    uid = Opening.find(params[:id]).user_id
+    Opening.find(params[:id]).destroy
+    flash[:success] = 'Job opening deleted'
+    redirect_to user_path(uid)
+  end
   # END: action section
 
   private
@@ -78,6 +86,17 @@ class OpeningsController < ApplicationController
     @opening = current_user.openings.find_by(id: params[:id])
     return redirect_to root_url if @opening.nil?
   end
+
+  def correct_user
+    return false unless user_signed_in?
+    current_user.id == Opening.find(params[:id]).user_id
+  end
+  helper_method :correct_user
+
+  def may_destroy_opening
+    return redirect_to(root_path) unless correct_user || admin_signed_in?
+  end
+  helper_method :may_destroy_opening
 
   def opening_params
     params.require(:opening).permit(:title, :source_code_url,

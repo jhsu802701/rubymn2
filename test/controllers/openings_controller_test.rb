@@ -42,6 +42,17 @@ class OpeningsControllerTest < ActionDispatch::IntegrationTest
     edit_opening
     assert_redirected_to root_path
   end
+
+  def delete_opening
+    delete opening_path(@op4)
+  end
+
+  def delete_opening_disabled
+    assert_no_difference 'Opening.count' do
+      delete_opening
+      assert_redirected_to root_path
+    end
+  end
   # END: definitions
 
   test 'unregistered visitor redirected from opening profile page' do
@@ -142,6 +153,39 @@ class OpeningsControllerTest < ActionDispatch::IntegrationTest
   test 'should redirect edit to root when logged in as a super admin' do
     sign_in @a1, scope: :admin
     edit_opening_disabled
+  end
+
+  test 'should redirect delete when not logged in' do
+    delete_opening_disabled
+  end
+
+  test 'should redirect delete when logged in as the wrong user' do
+    sign_in @u1, scope: :user
+    delete_opening_disabled
+  end
+
+  test 'should not redirect delete when logged in as the right user' do
+    sign_in @u11, scope: :user
+    assert_difference 'Opening.count', -1 do
+      delete_opening
+      assert_redirected_to user_path(@u11)
+    end
+  end
+
+  test 'should not redirect delete when logged in as a regular admin' do
+    sign_in @a4, scope: :admin
+    assert_difference 'Opening.count', -1 do
+      delete_opening
+      assert_redirected_to user_path(@u11)
+    end
+  end
+
+  test 'should not redirect delete when logged in as a super admin' do
+    sign_in @a1, scope: :admin
+    assert_difference 'Opening.count', -1 do
+      delete_opening
+      assert_redirected_to user_path(@u11)
+    end
   end
 end
 # rubocop:enable Metrics/ClassLength

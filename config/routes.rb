@@ -92,6 +92,7 @@
 #                   opening GET    /openings/:id(.:format)            openings#show
 #                           PATCH  /openings/:id(.:format)            openings#update
 #                           PUT    /openings/:id(.:format)            openings#update
+#                           DELETE /openings/:id(.:format)            openings#destroy
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -147,7 +148,7 @@ Rails.application.routes.draw do
   # END: project section
 
   # BEGIN: opening section
-  resources :openings, only: [:show, :index, :create, :new, :update, :edit] do
+  resources :openings, only: [:show, :index, :create, :new, :update, :edit, :destroy] do
     root to: 'openings#index'
     collection { post :search, to: 'openings#index' }
   end
