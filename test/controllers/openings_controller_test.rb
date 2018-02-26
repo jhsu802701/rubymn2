@@ -1,5 +1,6 @@
 require 'test_helper'
 
+# rubocop:disable Metrics/ClassLength
 class OpeningsControllerTest < ActionDispatch::IntegrationTest
   # BEGIN: definitions
   def opening_show_enabled
@@ -26,6 +27,19 @@ class OpeningsControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Opening.count' do
       create_opening
     end
+    assert_redirected_to root_path
+  end
+
+  def edit_opening
+    title1 = 'Deputy of Texarkana'
+    desc1 = 'Apprehend those punks while I am busy chasing the Bandit!'
+    patch opening_path(@op4),
+          params: { opening: { title: title1,
+                               description: desc1 } }
+  end
+
+  def edit_opening_disabled
+    edit_opening
     assert_redirected_to root_path
   end
   # END: definitions
@@ -102,4 +116,32 @@ class OpeningsControllerTest < ActionDispatch::IntegrationTest
     sign_in @a1, scope: :admin
     create_opening_disabled
   end
+
+  test 'should redirect edit to root when not logged in' do
+    edit_opening_disabled
+  end
+
+  # rubocop:disable Metrics/LineLength
+  test 'should not redirect edit to root when logged in as the user with the opening' do
+    sign_in @u11, scope: :user
+    edit_opening
+    assert_redirected_to opening_path(@op4)
+  end
+  # rubocop:enable Metrics/LineLength
+
+  test 'should redirect edit to root when logged in as a different user' do
+    sign_in @u2, scope: :user
+    edit_opening_disabled
+  end
+
+  test 'should redirect edit to root when logged in as a regular admin' do
+    sign_in @a4, scope: :admin
+    edit_opening_disabled
+  end
+
+  test 'should redirect edit to root when logged in as a super admin' do
+    sign_in @a1, scope: :admin
+    edit_opening_disabled
+  end
 end
+# rubocop:enable Metrics/ClassLength

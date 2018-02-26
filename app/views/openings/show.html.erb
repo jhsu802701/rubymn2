@@ -2,6 +2,15 @@
 
 <h1>Job Opening: <%= @opening.title %></h1>
 
+<% # BEGIN: edit opening button %>
+<% if user_signed_in? && current_user == @user %>
+  <%= link_to "Edit Job Opening", edit_opening_path(@opening),
+              class: "btn btn-lg btn-primary"
+    %>
+  <br><br>
+<% end %>
+<% # END: edit opening button %>
+
 Posted by: <%= link_to "#{@user.first_name} #{@user.last_name}", @user %>
 <br><br>
 Description: <%= @opening.description %>
