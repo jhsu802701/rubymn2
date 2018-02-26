@@ -89,6 +89,7 @@ config/routes.rb
 #                           PATCH  /projects/:id(.:format)            projects#update
 #                           PUT    /projects/:id(.:format)            projects#update
 #                           DELETE /projects/:id(.:format)            projects#destroy
+#                  openings GET    /openings(.:format)                openings#index
 #                   opening GET    /openings/:id(.:format)            openings#show
 # 
 
@@ -145,7 +146,7 @@ Rails.application.routes.draw do
   # END: project section
 
   # BEGIN: opening section
-  resources :openings, only: [:show]
+  resources :openings, only: [:show, :index]
   # END: opening section
 end
 # rubocop:enable Metrics/BlockLength
@@ -238,6 +239,7 @@ app/views
 |   |-- mailer.html.erb
 |   `-- mailer.text.erb
 |-- openings
+|   |-- index.html.erb
 |   `-- show.html.erb
 |-- projects
 |   |-- _condition_fields.html.erb
@@ -282,4 +284,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-23 directories, 58 files
+23 directories, 59 files

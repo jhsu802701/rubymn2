@@ -1,13 +1,20 @@
 #
 class OpeningsController < ApplicationController
   # BEGIN: before_action section
-  before_action :may_view_opening, only: [:show]
+  # rubocop:disable Style/SymbolArray
+  before_action :may_view_opening, only: [:show, :index]
+  # rubocop:enable Style/SymbolArray
   # END: before_action section
 
   # BEGIN: action section
   def show
     @opening = Opening.find(params[:id])
     @user = User.where("id=#{@opening.user_id}").first
+  end
+
+  def index
+    @openings = Opening.order('updated_at DESC').page(params[:page]).per(50)
+    @openings_count = Opening.count
   end
   # END: action section
 
