@@ -1,0 +1,11 @@
+<% provide(:title, 'Job Opening Index') %>
+
+<h1>Job Opening Index</h1>
+Number of openings: <%= @openings_count %>
+<br>
+<%= paginate @openings %>
+
+<%= render @openings %>
+<hr>
+
+<%= paginate @openings %>
