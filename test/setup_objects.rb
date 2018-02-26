@@ -91,3 +91,20 @@ end
 # rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/MethodLength
 # rubocop:enable Metrics/LineLength
+
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/LineLength
+def add_extra_openings
+  users = User.all
+  n = 0
+  users.each do |u|
+    n += 1
+    next if n < 20 || rand < 0.2 || u.openings.count > 0
+    u.openings.create(title: "Opening #{n}: #{Faker::Job.title}",
+                      description: "Description #{n}: #{Faker::Lorem.paragraph(10)}",
+                      created_at: 11.minutes.ago,
+                      updated_at: 10.minutes.ago)
+  end
+end
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/LineLength

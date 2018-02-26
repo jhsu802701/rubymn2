@@ -43,4 +43,27 @@ class OpeningsControllerTest < ActionDispatch::IntegrationTest
     sign_in @a1, scope: :admin
     opening_show_enabled
   end
+
+  test 'unregistered visitor redirected from opening index page' do
+    get openings_path
+    assert_redirected_to new_user_session_path
+  end
+
+  test 'user can access opening index page' do
+    sign_in @u1, scope: :user
+    get openings_path
+    assert_response :success
+  end
+
+  test 'regular admin can access opening index page' do
+    sign_in @a4, scope: :admin
+    get openings_path
+    assert_response :success
+  end
+
+  test 'super admin can access opening index page' do
+    sign_in @a1, scope: :admin
+    get openings_path
+    assert_response :success
+  end
 end

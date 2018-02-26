@@ -83,6 +83,7 @@
 #                           PATCH  /projects/:id(.:format)            projects#update
 #                           PUT    /projects/:id(.:format)            projects#update
 #                           DELETE /projects/:id(.:format)            projects#destroy
+#                  openings GET    /openings(.:format)                openings#index
 #                   opening GET    /openings/:id(.:format)            openings#show
 # 
 
@@ -139,7 +140,7 @@ Rails.application.routes.draw do
   # END: project section
 
   # BEGIN: opening section
-  resources :openings, only: [:show]
+  resources :openings, only: [:show, :index]
   # END: opening section
 end
 # rubocop:enable Metrics/BlockLength
