@@ -98,6 +98,7 @@ config/routes.rb
 #                   opening GET    /openings/:id(.:format)            openings#show
 #                           PATCH  /openings/:id(.:format)            openings#update
 #                           PUT    /openings/:id(.:format)            openings#update
+#                           DELETE /openings/:id(.:format)            openings#destroy
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -153,7 +154,7 @@ Rails.application.routes.draw do
   # END: project section
 
   # BEGIN: opening section
-  resources :openings, only: [:show, :index, :create, :new, :update, :edit] do
+  resources :openings, only: [:show, :index, :create, :new, :update, :edit, :destroy] do
     root to: 'openings#index'
     collection { post :search, to: 'openings#index' }
   end
@@ -182,6 +183,7 @@ test/integration
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
 |-- opening_create_test.rb
+|-- opening_delete_test.rb
 |-- opening_edit_test.rb
 |-- opening_index_test.rb
 |-- opening_search_test.rb
@@ -212,7 +214,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 49 files
+0 directories, 50 files
 
 app/views
 |-- admins
