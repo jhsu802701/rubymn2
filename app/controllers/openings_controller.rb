@@ -4,6 +4,7 @@ class OpeningsController < ApplicationController
   # rubocop:disable Style/SymbolArray
   before_action :may_view_opening, only: [:show, :index]
   # rubocop:enable Style/SymbolArray
+  before_action :may_create_opening, only: [:create]
   # END: before_action section
 
   # BEGIN: action section
@@ -26,6 +27,20 @@ class OpeningsController < ApplicationController
     @openings = @openings.order('updated_at desc').page(params[:page]).per(50)
   end
   # rubocop:enable Metrics/AbcSize
+
+  def create
+    @opening = current_user.openings.build(opening_params)
+    if @opening.save
+      flash[:info] = 'Job opening added'
+      redirect_to user_path(current_user)
+    else
+      render 'new'
+    end
+  end
+
+  def new
+    @opening = Opening.new
+  end
   # END: action section
 
   private
@@ -37,5 +52,15 @@ class OpeningsController < ApplicationController
     redirect_to(new_user_session_path)
   end
   helper_method :may_view_opening
+
+  def may_create_opening
+    return redirect_to(root_path) unless user_signed_in?
+  end
+  helper_method :may_create_opening
+
+  def opening_params
+    params.require(:opening).permit(:title, :source_code_url,
+                                    :deployed_url, :description)
+  end
   # END: private section
 end

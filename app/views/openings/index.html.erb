@@ -19,6 +19,16 @@
 <h1>Job Opening Index</h1>
 Number of openings: <%= @openings_count %>
 <br>
+
+<% # BEGIN: add opening button %>
+<% if user_signed_in? %>
+  <%= link_to "Add Job Opening", new_opening_path,
+              class: "btn btn-lg btn-primary"
+    %>
+    <br>
+<% end %>
+<% # END: add opening button %>
+
 <%= paginate @openings %>
 
 <%= render @openings %>

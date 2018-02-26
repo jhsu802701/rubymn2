@@ -86,6 +86,8 @@
 #             openings_root GET    /openings(.:format)                openings#index
 #           search_openings POST   /openings/search(.:format)         openings#index
 #                  openings GET    /openings(.:format)                openings#index
+#                           POST   /openings(.:format)                openings#create
+#               new_opening GET    /openings/new(.:format)            openings#new
 #                   opening GET    /openings/:id(.:format)            openings#show
 # 
 
@@ -142,7 +144,7 @@ Rails.application.routes.draw do
   # END: project section
 
   # BEGIN: opening section
-  resources :openings, only: [:show, :index] do
+  resources :openings, only: [:show, :index, :create, :new] do
     root to: 'openings#index'
     collection { post :search, to: 'openings#index' }
   end
