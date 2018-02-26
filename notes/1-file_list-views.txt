@@ -182,6 +182,7 @@ test/integration
 |-- gravatar_edit_test.rb
 |-- gravatar_new_test.rb
 |-- opening_create_test.rb
+|-- opening_edit_test.rb
 |-- opening_index_test.rb
 |-- opening_search_test.rb
 |-- opening_show_test.rb
@@ -211,7 +212,7 @@ test/integration
 |-- user_show_test.rb
 `-- user_signup_test.rb
 
-0 directories, 48 files
+0 directories, 49 files
 
 app/views
 |-- admins
@@ -254,6 +255,7 @@ app/views
 |-- openings
 |   |-- _condition_fields.html.erb
 |   |-- _opening.html.erb
+|   |-- edit.html.erb
 |   |-- index.html.erb
 |   |-- new.html.erb
 |   `-- show.html.erb
@@ -300,4 +302,4 @@ app/views
     `-- unlocks
         `-- new.html.erb
 
-23 directories, 62 files
+23 directories, 63 files

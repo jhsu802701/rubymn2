@@ -1,0 +1,23 @@
+<% provide(:title, 'Edit Job Opening') %>
+
+<h1>Edit Job Opening</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@opening) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <div class="field">
+        <%= f.label :title %><br />
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description %><br />
+        <%= f.text_area :description, placeholder: "Enter description here...", rows: 15 %>
+      </div>
+
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
