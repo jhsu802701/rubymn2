@@ -5,6 +5,7 @@ class OpeningsController < ApplicationController
   before_action :may_view_opening, only: [:show, :index]
   # rubocop:enable Style/SymbolArray
   before_action :may_create_opening, only: [:create]
+  before_action :may_edit_opening, only: [:update]
   # END: before_action section
 
   # BEGIN: action section
@@ -41,6 +42,20 @@ class OpeningsController < ApplicationController
   def new
     @opening = Opening.new
   end
+
+  def update
+    @opening = Opening.find(params[:id])
+    if @opening.update_attributes(opening_params)
+      flash[:success] = 'Job opening updated'
+      redirect_to opening_path(@opening)
+    else
+      render 'edit'
+    end
+  end
+
+  def edit
+    @opening = Opening.find(params[:id])
+  end
   # END: action section
 
   private
@@ -57,6 +72,12 @@ class OpeningsController < ApplicationController
     return redirect_to(root_path) unless user_signed_in?
   end
   helper_method :may_create_opening
+
+  def may_edit_opening
+    return redirect_to root_url unless user_signed_in?
+    @opening = current_user.openings.find_by(id: params[:id])
+    return redirect_to root_url if @opening.nil?
+  end
 
   def opening_params
     params.require(:opening).permit(:title, :source_code_url,

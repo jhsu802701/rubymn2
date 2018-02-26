@@ -94,7 +94,10 @@ config/routes.rb
 #                  openings GET    /openings(.:format)                openings#index
 #                           POST   /openings(.:format)                openings#create
 #               new_opening GET    /openings/new(.:format)            openings#new
+#              edit_opening GET    /openings/:id/edit(.:format)       openings#edit
 #                   opening GET    /openings/:id(.:format)            openings#show
+#                           PATCH  /openings/:id(.:format)            openings#update
+#                           PUT    /openings/:id(.:format)            openings#update
 # 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -150,7 +153,7 @@ Rails.application.routes.draw do
   # END: project section
 
   # BEGIN: opening section
-  resources :openings, only: [:show, :index, :create, :new] do
+  resources :openings, only: [:show, :index, :create, :new, :update, :edit] do
     root to: 'openings#index'
     collection { post :search, to: 'openings#index' }
   end
