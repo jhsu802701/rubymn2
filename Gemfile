@@ -16,7 +16,7 @@ end
 ##############################################
 # Please pre-install the proper versions in the Docker image.
 gem 'ffi', '1.9.18'
-gem 'nokogiri', '1.8.1'
+gem 'nokogiri', '1.8.2'
 gem 'pg', '0.21.0'
 gem 'rails', '5.1.4'
 ############################################

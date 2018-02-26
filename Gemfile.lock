@@ -170,7 +170,7 @@ GEM
     mixlib-cli (1.7.0)
     multi_json (1.13.1)
     nio4r (2.2.0)
-    nokogiri (1.8.1)
+    nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     parallel (1.12.1)
@@ -341,7 +341,7 @@ DEPENDENCIES
   mini_magick
   minitest (= 5.10.3)
   minitest-reporters (= 1.1.19)
-  nokogiri (= 1.8.1)
+  nokogiri (= 1.8.2)
   pg (= 0.21.0)
   pry-rails (= 0.3.6)
   puma (= 3.11.2)
