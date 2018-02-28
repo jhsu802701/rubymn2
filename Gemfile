@@ -138,7 +138,7 @@ gem 'timecop', '0.9.1', group: :testing # Changes current time, needed for testi
 gem 'kaminari', '1.1.1' # For pagination
 
 # Search engine for objects (such as users)
-gem 'ransack', '1.8.6'
+gem 'ransack', '1.8.7'
 
 # BEGIN: for sponsor logos
 gem 'carrierwave' # For uploading files
