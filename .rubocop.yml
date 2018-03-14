@@ -4,9 +4,7 @@ Layout/EmptyComment:
 # BEGIN: AllCops
 AllCops:
   Exclude:
-    - bin/setup
-    - bin/spring
-    - bin/yarn
+    - bin/*
     - config/spring.rb
     - db/migrate/*
     - db/schema.rb
