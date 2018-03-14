@@ -1,6 +1,6 @@
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 require 'rails/test_help'
-require File.expand_path('../../test/setup_objects.rb', __FILE__)
+require File.expand_path('../test/setup_objects.rb', __dir__)
 
 # BEGIN: use minitest-reporters
 require 'minitest/reporters'
@@ -55,6 +55,7 @@ def teardown_universal
 end
 
 # rubocop:disable Metrics/ParameterLists
+# rubocop:disable Naming/UncommunicativeMethodParamName
 def sign_up_user(name_u, name_l, name_f, e, p1, p2)
   visit root_path
   click_on 'Sign up now!'
@@ -67,6 +68,7 @@ def sign_up_user(name_u, name_l, name_f, e, p1, p2)
   click_button('Sign up')
 end
 # rubocop:enable Metrics/ParameterLists
+# rubocop:enable Naming/UncommunicativeMethodParamName
 
 def login_user(str_login, str_pwd, status_remember)
   visit root_path
@@ -149,11 +151,11 @@ end
 # rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/MethodLength
 
-def begin_user_password_reset(e)
+def begin_user_password_reset(email1)
   visit root_path
   click_on 'Login'
   click_on 'Forgot your password?'
-  fill_in('Email', with: e)
+  fill_in('Email', with: email1)
   click_on 'Send me reset password instructions'
 end
 
@@ -179,11 +181,11 @@ def edit_admin_start(admin1)
   click_on 'Edit Settings'
 end
 
-def begin_admin_password_reset(e)
+def begin_admin_password_reset(email1)
   visit root_path
   click_on 'Login'
   click_on 'Admin Login'
   click_on 'Forgot your password?'
-  fill_in('Email', with: e)
+  fill_in('Email', with: email1)
   click_on 'Send me reset password instructions'
 end
