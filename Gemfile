@@ -144,3 +144,6 @@ gem 'ransack', '1.8.7'
 gem 'carrierwave' # For uploading files
 gem 'mini_magick' # For resizing images
 # END: for sponsor logos
+
+# rails_best_practices 1.19.0 does not work with require_all 2.0.0
+gem 'require_all', '1.5.0'
