@@ -213,13 +213,13 @@ GEM
       ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails_best_practices (1.19.0)
+    rails_best_practices (1.19.1)
       activesupport
       code_analyzer (>= 0.4.8)
       erubis
       i18n
       json
-      require_all
+      require_all (~> 1.5.0)
       ruby-progressbar
     railties (5.1.5)
       actionpack (= 5.1.5)
@@ -348,7 +348,7 @@ DEPENDENCIES
   railroady (= 1.5.3)
   rails (= 5.1.5)
   rails-erd (= 1.5.2)
-  rails_best_practices (= 1.19.0)
+  rails_best_practices (= 1.19.1)
   ransack (= 1.8.7)
   remove_double_blank (= 0.0.0)
   require_all (= 1.5.0)
