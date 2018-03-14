@@ -351,7 +351,6 @@ DEPENDENCIES
   rails_best_practices (= 1.19.1)
   ransack (= 1.8.7)
   remove_double_blank (= 0.0.0)
-  require_all (= 1.5.0)
   rubocop (= 0.52.1)
   ruby-progressbar (= 1.9.0)
   sandi_meter (= 1.2.0)
