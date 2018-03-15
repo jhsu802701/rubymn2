@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class AdminShowTest < ActionDispatch::IntegrationTest
-  def check_profile_disabled(a)
-    visit admin_path(a)
+  def check_profile_disabled(admin1)
+    visit admin_path(admin1)
     assert page.has_css?('title', text: full_title(''),
                                   visible: false)
     assert page.has_css?('h1', text: 'Home', visible: false)
@@ -10,19 +10,19 @@ class AdminShowTest < ActionDispatch::IntegrationTest
 
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
-  def check_own_profile(a)
-    login_as(a, scope: :admin)
+  def check_own_profile(admin1)
+    login_as(admin1, scope: :admin)
     visit root_path
-    assert page.has_link?('Your Profile', href: admin_path(a))
+    assert page.has_link?('Your Profile', href: admin_path(admin1))
     click_on 'Logout'
   end
 
-  def check_profile_enabled(a)
-    fn = a.first_name
-    ln = a.last_name
-    un = a.username
-    e = a.email
-    visit admin_path(a)
+  def check_profile_enabled(admin1)
+    fn = admin1.first_name
+    ln = admin1.last_name
+    un = admin1.username
+    e = admin1.email
+    visit admin_path(admin1)
     assert page.has_css?('title', text: full_title("Admin: #{fn} #{ln}"),
                                   visible: false)
     assert page.has_css?('h1', text: "Admin: #{fn} #{ln}",
