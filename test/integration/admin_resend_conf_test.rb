@@ -4,10 +4,10 @@
 require 'test_helper'
 
 class AdminResendConfTest < ActionDispatch::IntegrationTest
-  def edit(a, uname, e, fname, lname, password_n, password_c)
-    edit_admin_start(a)
+  def edit(admin1, uname, email1, fname, lname, password_n, password_c)
+    edit_admin_start(admin1)
     fill_in('Username', with: uname)
-    fill_in('Email', with: e)
+    fill_in('Email', with: email1)
     fill_in('First name', with: fname)
     fill_in('Last name', with: lname)
     fill_in('admin_password', with: password_n)
@@ -30,11 +30,11 @@ class AdminResendConfTest < ActionDispatch::IntegrationTest
     assert page.has_css?('title', text: full_title('Admin: Resend Confirmation'),
                                   visible: false)
     assert page.has_css?('h1', text: 'Admin: Resend Confirmation')
-    fill_in('Email', with: e)
+    fill_in('Email', with: email1)
     click_on 'Resend confirmation instructions'
 
     # Open and follow instructions
-    open_email(e)
+    open_email(email1)
     assert current_email.subject.include?('Ruby Users of Minnesota: Confirmation instructions')
     assert current_email.body.include?('message from Ruby Users of Minnesota')
     assert current_email.body.include?('your ADMIN account')
