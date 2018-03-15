@@ -1,26 +1,26 @@
 require 'test_helper'
 
 class UserShowTest < ActionDispatch::IntegrationTest
-  def check_profile_disabled(u)
-    visit user_path(u)
+  def check_profile_disabled(user1)
+    visit user_path(user1)
     assert page.has_css?('title', text: full_title(''),
                                   visible: false)
     assert page.has_css?('h1', text: 'Home', visible: false)
   end
 
-  def user_view_other_profile(u1, u2)
-    login_as(u1, scope: :user)
-    check_profile_enabled(u2)
+  def user_view_other_profile(user1, user2)
+    login_as(user1, scope: :user)
+    check_profile_enabled(user2)
   end
 
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
-  def check_profile_enabled(u)
-    fn = u.first_name
-    ln = u.last_name
-    un = u.username
-    e = u.email
-    visit user_path(u)
+  def check_profile_enabled(user1)
+    fn = user1.first_name
+    ln = user1.last_name
+    un = user1.username
+    e = user1.email
+    visit user_path(user1)
     assert page.has_css?('title', text: full_title("User: #{fn} #{ln}"),
                                   visible: false)
     assert page.has_css?('h1', text: "User: #{fn} #{ln}",
@@ -31,13 +31,13 @@ class UserShowTest < ActionDispatch::IntegrationTest
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
 
-  def check_own_page(u)
-    login_as(u, scope: :user)
-    check_profile_enabled(u)
+  def check_own_page(user1)
+    login_as(user1, scope: :user)
+    check_profile_enabled(user1)
 
     # Can access profile page from menu bar
     visit root_path
-    assert page.has_link?('Your Profile', href: user_path(u))
+    assert page.has_link?('Your Profile', href: user_path(user1))
   end
 
   test 'unregistered visitors may not view user profile pages' do

@@ -5,8 +5,8 @@ require 'test_helper'
 
 class UserEditTest < ActionDispatch::IntegrationTest
   # Edit all parameters except email
-  def edit_all_but_email(u, uname, fname, lname, password_n, password_c)
-    edit_user_start(u)
+  def edit_all_but_email(user1, uname, fname, lname, password_n, password_c)
+    edit_user_start(user1)
     fill_in('Username', with: uname)
     fill_in('First name', with: fname)
     fill_in('Last name', with: lname)
@@ -26,10 +26,10 @@ class UserEditTest < ActionDispatch::IntegrationTest
   end
 
   # Edit all parameters, including email
-  def edit_all(u, uname, e, fname, lname, password_n, password_c)
-    edit_user_start(u)
+  def edit_all(user1, uname, email1, fname, lname, password_n, password_c)
+    edit_user_start(user1)
     fill_in('Username', with: uname)
-    fill_in('Email', with: e)
+    fill_in('Email', with: email1)
     fill_in('First name', with: fname)
     fill_in('Last name', with: lname)
     fill_in('user_password', with: password_n)
@@ -42,7 +42,7 @@ class UserEditTest < ActionDispatch::IntegrationTest
     assert page.has_text?('to confirm your new email address.')
 
     # Confirm new email address
-    open_email(e)
+    open_email(email1)
     assert current_email.subject.include?('Ruby Users of Minnesota: Confirmation instructions')
     assert current_email.body.include?('message from Ruby Users of Minnesota')
     current_email.click_link 'Confirm my account'

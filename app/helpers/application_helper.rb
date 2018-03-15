@@ -12,6 +12,7 @@ module ApplicationHelper
   end
   # END: full_title
 
+  # rubocop:disable Naming/UncommunicativeMethodParamName
   def link_to_add_fields(name, f, type)
     new_object = f.object.send "build_#{type}"
     id = "new_#{type}"
@@ -21,4 +22,5 @@ module ApplicationHelper
     link_to(name, '#', class: 'add_fields',
                        data: { id: id, fields: fields.delete("\n") })
   end
+  # rubocop:enable Naming/UncommunicativeMethodParamName
 end

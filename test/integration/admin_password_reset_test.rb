@@ -3,11 +3,11 @@
 require 'test_helper'
 
 class AdminPasswordResetTest < ActionDispatch::IntegrationTest
-  def password_reset(u, e, p)
-    begin_admin_password_reset(e)
+  def password_reset(user1, email1, password1)
+    begin_admin_password_reset(email1)
 
     # Open and follow instructions
-    open_email(e)
+    open_email(email1)
     assert current_email.subject.include?('Ruby Users of Minnesota: Reset password instructions')
     assert current_email.body.include?('message from Ruby Users of Minnesota')
     assert current_email.body.include?('your ADMIN account')
@@ -21,16 +21,16 @@ class AdminPasswordResetTest < ActionDispatch::IntegrationTest
     assert page.has_text?('password management program')
     assert page.has_text?('create much better passwords')
     assert page.has_link?('KeePassX', href: 'http://www.keepassx.org')
-    fill_in('admin_password', with: p)
-    fill_in('admin_password_confirmation', with: p)
+    fill_in('admin_password', with: password1)
+    fill_in('admin_password_confirmation', with: password1)
     click_on 'Change my password'
     assert page.has_text?('Your password has been changed successfully.')
     assert page.has_text?('You are now signed in.')
-    assert page.has_text?("You are logged in as an admin (#{u}).")
+    assert page.has_text?("You are logged in as an admin (#{user1}).")
     click_on 'Logout'
 
     # Log in under the normal method
-    login_admin(u, p, false)
+    login_admin(user1, password1, false)
     click_on 'Logout'
   end
 
