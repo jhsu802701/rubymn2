@@ -8,8 +8,8 @@ class UserIndexTest < ActionDispatch::IntegrationTest
     assert page.has_css?('h1', text: 'Home', visible: false)
   end
 
-  def check_index_enabled_for_user(u)
-    login_as(u, scope: :user)
+  def check_index_enabled_for_user(user1)
+    login_as(user1, scope: :user)
     check_index_enabled
   end
 
