@@ -1,16 +1,16 @@
 require 'test_helper'
 
 class UserDeleteTest < ActionDispatch::IntegrationTest
-  def delete_user(u)
-    visit user_path(u)
+  def delete_user(user1)
+    visit user_path(user1)
     assert_difference 'User.count', -1 do
       click_on 'Delete'
     end
     assert_text 'User deleted'
   end
 
-  def check_delete(a)
-    login_as(a, scope: :admin)
+  def check_delete(admin1)
+    login_as(admin1, scope: :admin)
     delete_user(@u1)
     delete_user(@u2)
     delete_user(@u3)
