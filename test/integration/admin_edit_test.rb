@@ -5,6 +5,7 @@
 require 'test_helper'
 
 class AdminEditTest < ActionDispatch::IntegrationTest
+  # rubocop:disable Naming/UncommunicativeMethodParamName
   # Edit all parameters except email
   def edit_all_but_email(a, uname, fname, lname, password_n, password_c)
     edit_admin_start(a)
@@ -63,6 +64,7 @@ class AdminEditTest < ActionDispatch::IntegrationTest
     assert page.has_text?('Signed in successfully.')
     click_on 'Logout'
   end
+  # rubocop:enable Naming/UncommunicativeMethodParamName
 
   test 'super admin can access the page for editing settings' do
     login_as(@a1, scope: :admin)
