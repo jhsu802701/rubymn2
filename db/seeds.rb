@@ -40,7 +40,7 @@ n_admins.times do |n|
 end
 
 n_admins = 51
-puts '------------------------------------'
+puts '---------------------------------------------'
 puts "Creating the second #{n_admins} random admins"
 pbar = ProgressBar.create(total: n_admins)
 n_admins.times do |n|
@@ -129,14 +129,14 @@ end
 # BEGIN: creating relationships
 ###############################
 
-def create_relationships(u)
+def create_relationships(user1)
   users = User.all
-  puts '----------------------------------------'
-  puts "creating relationships for #{u.username}"
+  puts '--------------------------------------------'
+  puts "creating relationships for #{user1.username}"
   following = users[4..50]
   followers = users[5..40]
-  following.each { |followed| u.follow(followed) }
-  followers.each { |follower| follower.follow(u) }
+  following.each { |followed| user1.follow(followed) }
+  followers.each { |follower| follower.follow(user1) }
 end
 
 create_relationships User.first
@@ -206,10 +206,10 @@ users = User.all # All users
 # BEGIN: creating forhires
 ##########################
 puts 'Creating forhires'
-def create_forhire(user_n, n)
-  t = "Title #{n}: #{Faker::Name.title}"
+def create_forhire(user_n, num)
+  t = "Title #{num}: #{Faker::Name.title}"
   e = Faker::Internet.email
-  d = "Description #{n}: #{Faker::Lorem.paragraph(10)}"
+  d = "Description #{num}: #{Faker::Lorem.paragraph(10)}"
   @fh = user_n.forhires.create(title: t, email: e, description: d)
 end
 
@@ -234,11 +234,11 @@ end
 # BEGIN: creating projects
 ##########################
 puts 'Creating projects'
-def create_project(user_n, n)
-  t = "Project #{n}: #{Faker::Company.catch_phrase}"
+def create_project(user_n, num)
+  t = "Project #{num}: #{Faker::Company.catch_phrase}"
   url_s = Faker::Internet.url
   url_d = Faker::Internet.url
-  d = "Description #{n}: #{Faker::Lorem.paragraph(10)}"
+  d = "Description #{num}: #{Faker::Lorem.paragraph(10)}"
   @p = user_n.projects.create(title: t,
                               source_code_url: url_s,
                               deployed_url: url_d,
@@ -279,9 +279,9 @@ end
 # BEGIN: creating openings
 ##########################
 puts 'Creating openings'
-def create_opening(user_n, n)
-  t = "Opening #{n}: #{Faker::Job.title}"
-  d = "Description #{n}: #{Faker::Lorem.paragraph(10)}"
+def create_opening(user_n, num)
+  t = "Opening #{num}: #{Faker::Job.title}"
+  d = "Description #{num}: #{Faker::Lorem.paragraph(10)}"
   @op = user_n.openings.create(title: t, description: d)
 end
 

@@ -2,8 +2,8 @@
 
 sh pg-start.sh
 
-echo '--------------------------------------------'
-echo 'View page at http://localhost:<PORT NUMBER>/'
+echo '----------------------------------'
+echo 'View page at http://localhost:3000'
 echo 'If you are using Docker or Vagrant, the port'
 echo 'number may be different from 3000.'
 
