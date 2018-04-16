@@ -123,7 +123,7 @@ gem 'email_munger', '0.0.0' # Encodes email address to prevent harvesting by bot
 
 gem 'bootstrap-sass', '3.3.7' # Bootstrap styling
 
-gem 'devise', '4.4.1' # Provides admin/user authentication
+gem 'devise', '4.4.3' # Provides admin/user authentication
 
 # BEGIN: gems used in db/seeds.rb
 group :test, :development do
@@ -138,7 +138,7 @@ gem 'timecop', '0.9.1', group: :testing # Changes current time, needed for testi
 gem 'kaminari', '1.1.1' # For pagination
 
 # Search engine for objects (such as users)
-gem 'ransack', '1.8.7'
+gem 'ransack', '1.8.8'
 
 # BEGIN: for sponsor logos
 gem 'carrierwave' # For uploading files
