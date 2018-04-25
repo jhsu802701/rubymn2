@@ -11,4 +11,4 @@ Welcome to Ruby Users of Minnesota!
 https://rubymn2.herokuapp.com/
 
 ## How do I set up this app on my local machine?
-Go to [https://gist.github.com/jhsu802701/0b5806b62659c5ffa8be5514224a740e](https://gist.github.com/jhsu802701/0b5806b62659c5ffa8be5514224a740e) for further instructions.
+Go to the [Short Ruby.MN Tutorial](https://github.com/rubyonracetracks/tutorials-rails-short/blob/master/specific_projects/rubymn2.md) for instructions.
