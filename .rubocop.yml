@@ -1,6 +1,9 @@
 Layout/EmptyComment:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 # BEGIN: AllCops
 AllCops:
   Exclude:

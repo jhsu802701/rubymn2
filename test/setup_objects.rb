@@ -60,7 +60,7 @@ def add_extra_forhires
   n = 0
   users.each do |u|
     n += 1
-    next if rand < 0.2 || u.forhires.count > 0
+    next if rand < 0.2 || u.forhires.count.positive?
     u.forhires.create(description: "I report on the day's stock market action.",
                       email: "forhire#{n}@example.com",
                       title: "Daily stock market guru #{n}",
@@ -79,7 +79,7 @@ def add_extra_projects
   n = 0
   users.each do |u|
     n += 1
-    next if n < 20 || rand < 0.2 || u.projects.count > 0
+    next if n < 20 || rand < 0.2 || u.projects.count.positive?
     u.projects.create(title: "Project #{n}: #{Faker::Company.catch_phrase}",
                       source_code_url: Faker::Internet.url,
                       deployed_url: Faker::Internet.url,
@@ -99,7 +99,7 @@ def add_extra_openings
   n = 0
   users.each do |u|
     n += 1
-    next if n < 20 || rand < 0.2 || u.openings.count > 0
+    next if n < 20 || rand < 0.2 || u.openings.count.positive?
     u.openings.create(title: "Opening #{n}: #{Faker::Job.title}",
                       description: "Description #{n}: #{Faker::Lorem.paragraph(10)}",
                       created_at: 11.minutes.ago,
