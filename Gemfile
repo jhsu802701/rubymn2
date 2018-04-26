@@ -28,7 +28,7 @@ gem 'puma', '3.11.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.7'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '4.1.9'
+gem 'uglifier', '4.1.10'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -103,7 +103,7 @@ gem 'string_in_file', '1.0.0'
 
 # BEGIN: for outline.sh
 group :development do
-  gem 'annotate', '2.7.2' # Adds comments listing parameters and the output of "rails routes"
+  gem 'annotate', '2.7.3' # Adds comments listing parameters and the output of "rails routes"
   gem 'railroady', '1.5.3' # Generates block diagrams
   gem 'rails-erd', '1.5.2' # Generates block diagrams
 end
@@ -132,7 +132,7 @@ group :test, :development do
 end
 # END: gems used in db/seeds.rb
 
-gem 'jquery-rails', '4.3.1' # Needed for dropdown menus
+gem 'jquery-rails', '4.3.3' # Needed for dropdown menus
 gem 'timecop', '0.9.1', group: :testing # Changes current time, needed for testing the lock duration
 
 gem 'kaminari', '1.1.1' # For pagination

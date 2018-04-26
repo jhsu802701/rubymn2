@@ -2,10 +2,10 @@
 #
 # Table name: openings
 #
-#  id          :integer          not null, primary key
+#  id          :bigint(8)        not null, primary key
 #  title       :string
 #  description :text
-#  user_id     :integer
+#  user_id     :bigint(8)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

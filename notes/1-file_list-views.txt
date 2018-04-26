@@ -99,7 +99,6 @@ config/routes.rb
 #                           PATCH  /openings/:id(.:format)            openings#update
 #                           PUT    /openings/:id(.:format)            openings#update
 #                           DELETE /openings/:id(.:format)            openings#destroy
-# 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
