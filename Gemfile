@@ -28,7 +28,7 @@ gem 'puma', '3.11.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.7'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '4.1.10'
+gem 'uglifier', '4.1.12'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -56,7 +56,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '3.6.1'
+  gem 'web-console', '3.6.2'
   gem 'listen', '3.1.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '2.0.2'
@@ -75,7 +75,7 @@ group :development, :testing do
   gem 'brakeman', '4.2.1'
   gem 'bundler-audit', '0.6.0'
   gem 'gemsurance', '0.9.0'
-  gem 'rails_best_practices', '1.19.1'
+  gem 'rails_best_practices', '1.19.2'
   gem 'rubocop', '0.55.0' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
   gem 'sandi_meter', '1.2.0'
 end
@@ -103,7 +103,7 @@ gem 'string_in_file', '1.0.0'
 
 # BEGIN: for outline.sh
 group :development do
-  gem 'annotate', '2.7.3' # Adds comments listing parameters and the output of "rails routes"
+  gem 'annotate', '2.7.4' # Adds comments listing parameters and the output of "rails routes"
   gem 'railroady', '1.5.3' # Generates block diagrams
   gem 'rails-erd', '1.5.2' # Generates block diagrams
 end
