@@ -87,7 +87,7 @@ gem 'minitest-reporters', '1.3.0', require: false, group: :testing # Adds specia
 
 # BEGIN: Capybara enhancements
 group :test do
-  gem 'capybara-email', '2.5.0'
+  gem 'capybara-email', '3.0.1'
   gem 'capybara-slow_finder_errors', '0.1.4'
 end
 # END: Capybara enhancements

@@ -76,8 +76,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
-    capybara-email (2.5.0)
-      capybara (~> 2.4)
+    capybara-email (3.0.1)
+      capybara (>= 2.4, < 4.0)
       mail
     capybara-slow_finder_errors (0.1.4)
       capybara (~> 2.5)
@@ -333,7 +333,7 @@ DEPENDENCIES
   bundler-audit (= 0.6.0)
   byebug
   capybara (= 2.18.0)
-  capybara-email (= 2.5.0)
+  capybara-email (= 3.0.1)
   capybara-slow_finder_errors (= 0.1.4)
   carrierwave
   coffee-rails (= 4.2.2)
