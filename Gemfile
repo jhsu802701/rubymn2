@@ -51,7 +51,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '2.18.0'
-  gem 'selenium-webdriver', '3.11.0'
+  gem 'selenium-webdriver', '3.13.0'
 end
 
 group :development do
@@ -72,18 +72,18 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # BEGIN: gems for test_code.sh
 group :development, :testing do
-  gem 'brakeman', '4.2.1'
+  gem 'brakeman', '4.3.1'
   gem 'bundler-audit', '0.6.0'
   gem 'gemsurance', '0.9.0'
   gem 'rails_best_practices', '1.19.2'
-  gem 'rubocop', '0.55.0' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
+  gem 'rubocop', '0.57.2' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
   gem 'sandi_meter', '1.2.0'
 end
 # END: gems for test_code.sh
 
 # Minitest
 gem 'minitest', '5.10.3', require: false, group: :testing
-gem 'minitest-reporters', '1.1.19', require: false, group: :testing # Adds special features to tests
+gem 'minitest-reporters', '1.3.0', require: false, group: :testing # Adds special features to tests
 
 # BEGIN: Capybara enhancements
 group :test do
