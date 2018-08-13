@@ -222,7 +222,7 @@ GEM
       ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
-    rails_best_practices (1.19.2)
+    rails_best_practices (1.19.3)
       activesupport
       code_analyzer (>= 0.4.8)
       erubis
@@ -358,7 +358,7 @@ DEPENDENCIES
   railroady (= 1.5.3)
   rails (= 5.2.0)
   rails-erd (= 1.5.2)
-  rails_best_practices (= 1.19.2)
+  rails_best_practices (= 1.19.3)
   ransack (= 1.8.8)
   remove_double_blank (= 0.0.0)
   rubocop (= 0.57.2)
