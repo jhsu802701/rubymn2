@@ -207,7 +207,7 @@ users = User.all # All users
 ##########################
 puts 'Creating forhires'
 def create_forhire(user_n, num)
-  t = "Title #{num}: #{Faker::Name.title}"
+  t = "Title #{num}: #{Faker::Job.title}"
   e = Faker::Internet.email
   d = "Description #{num}: #{Faker::Lorem.paragraph(10)}"
   @fh = user_n.forhires.create(title: t, email: e, description: d)
