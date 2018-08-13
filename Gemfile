@@ -50,7 +50,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '2.18.0'
+  gem 'capybara', '3.5.1'
   gem 'selenium-webdriver', '3.14.0'
 end
 
@@ -88,7 +88,7 @@ gem 'minitest-reporters', '1.3.1', require: false, group: :testing # Adds specia
 # BEGIN: Capybara enhancements
 group :test do
   gem 'capybara-email', '3.0.1'
-  gem 'capybara-slow_finder_errors', '0.1.4'
+  gem 'capybara-slow_finder_errors', '0.1.5'
 end
 # END: Capybara enhancements
 

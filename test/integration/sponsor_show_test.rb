@@ -31,7 +31,7 @@ class SponsorShowTest < ActionDispatch::IntegrationTest
     assert page.has_css?('title', text: full_title('Foundation for Law and Government'), visible: false)
     assert page.has_css?('h1', text: 'Past Sponsor: Foundation for Law and Government')
     assert_text '(800) 555-0104'
-    assert_text 'We built Kitt.  Michael Knight and Kitt solve crimes.'
+    assert_text 'We built Kitt. Michael Knight and Kitt solve crimes.'
     assert_text 'devon_miles@flag.org'
     assert page.has_link?('http://www.flag.org', href: 'http://www.flag.org')
   end
