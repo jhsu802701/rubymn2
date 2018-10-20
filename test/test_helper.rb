@@ -6,8 +6,6 @@ end
 if ENV['CI'] == 'true'
   require 'codecov'
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
-  require 'coveralls'
-  Coveralls.wear!
 end
 
 require File.expand_path('../config/environment', __dir__)
