@@ -3,6 +3,9 @@ SimpleCov.start :rails do
   add_filter '/test/'
 end
 
+require 'codecov'
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
+
 require File.expand_path('../config/environment', __dir__)
 require 'rails/test_help'
 require File.expand_path('../test/setup_objects.rb', __dir__)
