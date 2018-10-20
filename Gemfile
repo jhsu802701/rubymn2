@@ -103,7 +103,7 @@ gem 'simplecov', '0.16.1', require: false, group: :test
 gem 'figaro', '1.1.1'
 gem 'line_containing', '0.1.1'
 gem 'remove_double_blank', '0.0.0'
-gem 'string_in_file', '1.0.0'
+gem 'string_in_file', '1.0.2'
 # END: gems used for setting up PostgreSQL in the development environment
 
 # BEGIN: for outline.sh
