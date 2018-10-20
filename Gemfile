@@ -93,8 +93,9 @@ end
 # END: Capybara enhancements
 
 # BEGIN: test coverage
-gem 'simplecov', '0.16.1', require: false, group: :test
 gem 'codecov', '0.1.13', require: false, group: :test
+gem 'coveralls', '0.7.1', require: false, group: :test
+gem 'simplecov', '0.16.1', require: false, group: :test
 # END: test coverage
 
 # BEGIN: gems used for setting up PostgreSQL in the development environment
