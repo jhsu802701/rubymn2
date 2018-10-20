@@ -123,3 +123,6 @@ test/html_reports/
 
 # Keep uploaded and seeded pictures out of the source code
 public/uploads/
+
+# Keep SimpleCov test results out of the source code
+coverage

@@ -92,6 +92,10 @@ group :test do
 end
 # END: Capybara enhancements
 
+# BEGIN: test coverage
+gem 'simplecov', '0.16.1', require: false, group: :test
+# END: test coverage
+
 # BEGIN: gems used for setting up PostgreSQL in the development environment
 # You do not need these gems if you use SQLite in the development environment.
 # NOTE: Attempts to use "gem install" in the PostgreSQL setup scripts did not pan out.
