@@ -4,6 +4,7 @@
 [![security](https://hakiri.io/github/jhsu802701/rubymn2/master.svg)](https://hakiri.io/github/jhsu802701/rubymn2/master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/14e118799467367be0aa/maintainability)](https://codeclimate.com/github/jhsu802701/rubymn2/maintainability)
 [![codecov](https://codecov.io/gh/jhsu802701/rubymn2/branch/master/graph/badge.svg)](https://codecov.io/gh/jhsu802701/rubymn2)
+[![Coverage Status](https://coveralls.io/repos/github/jhsu802701/rubymn2/badge.svg?branch=master)](https://coveralls.io/github/jhsu802701/rubymn2?branch=master)
 
 Welcome to Ruby Users of Minnesota!
 
