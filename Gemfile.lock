@@ -91,7 +91,7 @@ GEM
     choice (0.2.0)
     code_analyzer (0.4.8)
       sexp_processor
-    codecov (0.1.13)
+    codecov (0.1.14)
       json
       simplecov
       url
@@ -346,7 +346,7 @@ DEPENDENCIES
   capybara-email (= 3.0.1)
   capybara-slow_finder_errors (= 0.1.5)
   carrierwave
-  codecov (= 0.1.13)
+  codecov (= 0.1.14)
   coffee-rails (= 4.2.2)
   devise (= 4.5.0)
   email_munger (= 0.0.0)
