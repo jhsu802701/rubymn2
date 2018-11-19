@@ -55,7 +55,7 @@ class Admin < ApplicationRecord
   # BEGIN: constraints section
   before_save :downcase_email, :downcase_username
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
@@ -63,7 +63,7 @@ class Admin < ApplicationRecord
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :first_name, presence: true, length: { maximum: 50 }
 
-  VALID_USERNAME_REGEX = /\A[\w+\-.]+\z/i
+  VALID_USERNAME_REGEX = /\A[\w+\-.]+\z/i.freeze
   validates :username, presence: true, length: { maximum: 255 },
                        format: { with: VALID_USERNAME_REGEX },
                        uniqueness: { case_sensitive: false }

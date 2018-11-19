@@ -76,12 +76,14 @@ class ForhiresController < ApplicationController
 
   def may_edit_forhire
     return redirect_to root_url unless user_signed_in?
+
     @forhire = current_user.forhires.find_by(id: params[:id])
     return redirect_to root_url if @forhire.nil?
   end
 
   def correct_user
     return false unless user_signed_in?
+
     current_user.id == Forhire.find(params[:id]).user_id
   end
   helper_method :correct_user

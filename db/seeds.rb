@@ -223,6 +223,7 @@ n = 0
 users.each do |u|
   n += 1
   next if rand < 0.2 || u == users.first
+
   @fh1 = create_forhire(u, n)
 end
 
@@ -264,6 +265,7 @@ n = 0
 users.each do |u|
   n += 1
   next if rand < 0.2 || u == user1
+
   n_projects = rand(1..3)
   n_projects.times do
     @p = create_project(u, n)
@@ -298,6 +300,7 @@ n = 0
 users.each do |u|
   n += 1
   next if rand < 0.2 || u == user1
+
   n_openings = rand(1..3)
   n_openings.times do
     @op = create_opening(u, n)

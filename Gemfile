@@ -17,7 +17,7 @@ end
 # Please pre-install the proper versions in the Docker image.
 gem 'ffi', '1.9.25'
 gem 'nokogiri', '1.8.5'
-gem 'pg', '1.0.0'
+gem 'pg', '1.1.3'
 gem 'rails', '5.2.1'
 ############################################
 # END: gems that take a long time to install
@@ -28,7 +28,7 @@ gem 'puma', '3.12.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.7'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '4.1.19'
+gem 'uglifier', '4.1.20'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -37,7 +37,7 @@ gem 'coffee-rails', '4.2.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '5.2.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '2.7.0'
+gem 'jbuilder', '2.8.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -50,13 +50,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '3.10.0'
-  gem 'selenium-webdriver', '3.14.1'
+  gem 'capybara', '3.11.1'
+  gem 'selenium-webdriver', '3.141.0'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '3.6.2'
+  gem 'web-console', '3.7.0'
   gem 'listen', '3.1.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '2.0.2'
@@ -75,15 +75,15 @@ group :development, :testing do
   gem 'brakeman', '4.3.1'
   gem 'bundler-audit', '0.6.0'
   gem 'gemsurance', '0.9.0'
-  gem 'rails_best_practices', '1.19.3'
-  gem 'rubocop', '0.58.2' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
+  gem 'rails_best_practices', '1.19.4'
+  gem 'rubocop', '0.60.0' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
   gem 'sandi_meter', '1.2.0'
 end
 # END: gems for test_code.sh
 
 # Minitest
 gem 'minitest', '5.10.3', require: false, group: :testing
-gem 'minitest-reporters', '1.3.1', require: false, group: :testing # Adds special features to tests
+gem 'minitest-reporters', '1.3.5', require: false, group: :testing # Adds special features to tests
 
 # BEGIN: Capybara enhancements
 group :test do
@@ -93,7 +93,7 @@ end
 # END: Capybara enhancements
 
 # BEGIN: test coverage
-gem 'codecov', '0.1.13', require: false, group: :test
+gem 'codecov', '0.1.14', require: false, group: :test
 gem 'simplecov', '0.16.1', require: false, group: :test
 # END: test coverage
 
@@ -101,9 +101,9 @@ gem 'simplecov', '0.16.1', require: false, group: :test
 # You do not need these gems if you use SQLite in the development environment.
 # NOTE: Attempts to use "gem install" in the PostgreSQL setup scripts did not pan out.
 gem 'figaro', '1.1.1'
-gem 'line_containing', '0.1.1'
+gem 'line_containing', '0.1.2'
 gem 'remove_double_blank', '0.0.0'
-gem 'string_in_file', '1.0.0'
+gem 'string_in_file', '1.0.2'
 # END: gems used for setting up PostgreSQL in the development environment
 
 # BEGIN: for outline.sh
@@ -117,12 +117,12 @@ end
 # BEGIN: Better Errors
 # Provides more and better information in error pages
 group :development do
-  gem 'better_errors', '2.4.0'
+  gem 'better_errors', '2.5.0'
   gem 'binding_of_caller', '0.8.0'
 end
 # END: Better Errors
 
-gem 'pry-rails', '0.3.6' # Improves the screen output in the Rails console
+gem 'pry-rails', '0.3.7' # Improves the screen output in the Rails console
 
 gem 'email_munger', '0.0.0' # Encodes email address to prevent harvesting by bots
 
@@ -143,7 +143,7 @@ gem 'timecop', '0.9.1', group: :testing # Changes current time, needed for testi
 gem 'kaminari', '1.1.1' # For pagination
 
 # Search engine for objects (such as users)
-gem 'ransack', '2.0.1'
+gem 'ransack', '2.1.0'
 
 # BEGIN: for sponsor logos
 gem 'carrierwave' # For uploading files

@@ -1,6 +1,12 @@
 require 'simplecov'
 SimpleCov.start :rails do
   add_filter '/test/'
+  add_filter '/app/controllers/admins/omniauth_callbacks_controller.rb'
+  add_filter '/app/controllers/users/omniauth_callbacks_controller.rb'
+  add_filter '/app/channels/application_cable/channel.rb'
+  add_filter '/app/channels/application_cable/connection.rb'
+  add_filter '/app/jobs/application_job.rb'
+  add_filter '/app/mailers/application_mailer.rb'
 end
 
 if ENV['CI'] == 'true'
@@ -13,13 +19,15 @@ require 'rails/test_help'
 require File.expand_path('../test/setup_objects.rb', __dir__)
 
 # BEGIN: use minitest-reporters
-require 'minitest/reporters'
-require 'rake_rerun_reporter'
-Minitest::Reporters.use!
+if ENV['CODECOV_TOKEN'].nil?
+  require 'minitest/reporters'
+  require 'rake_rerun_reporter'
+  Minitest::Reporters.use!
 
-reporter_options = { color: true, slow_count: 5, verbose: false, rerun_prefix: 'rm -f log/test.log && bundle exec' }
-Minitest::Reporters.use! [Minitest::Reporters::HtmlReporter.new,
-                          Minitest::Reporters::RakeRerunReporter.new(reporter_options)]
+  reporter_options = { color: true, slow_count: 5, verbose: false, rerun_prefix: 'rm -f log/test.log && bundle exec' }
+  Minitest::Reporters.use! [Minitest::Reporters::HtmlReporter.new,
+                            Minitest::Reporters::RakeRerunReporter.new(reporter_options)]
+end
 # END: use minitest-reporters
 
 class ActiveSupport::TestCase
