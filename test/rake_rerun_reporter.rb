@@ -62,6 +62,7 @@ module Minitest
       def print_rerun_command(test)
         message = rerun_message_for(test)
         return if message.nil? || message.strip == ''
+
         puts
         puts colored_for(result(test), message)
       end
@@ -83,6 +84,7 @@ module Minitest
 
         exception.backtrace.reverse_each do |ss|
           break if ss =~ /in .(assert|refute|flunk|pass|fail|raise|must|wont)/
+
           last_before_assertion = ss
           break if ss =~ /_test.rb\:/
         end

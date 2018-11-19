@@ -73,12 +73,14 @@ class ProjectsController < ApplicationController
 
   def may_edit_project
     return redirect_to root_url unless user_signed_in?
+
     @project = current_user.projects.find_by(id: params[:id])
     return redirect_to root_url if @project.nil?
   end
 
   def correct_user
     return false unless user_signed_in?
+
     current_user.id == Project.find(params[:id]).user_id
   end
   helper_method :correct_user

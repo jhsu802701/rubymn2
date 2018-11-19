@@ -63,7 +63,7 @@ class User < ApplicationRecord
   # BEGIN: constraints section
   before_save :downcase_email, :downcase_username
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
@@ -72,19 +72,19 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :first_name, presence: true, length: { maximum: 50 }
 
-  VALID_USERNAME_REGEX = /\A[\w+\-.]+\z/i
+  VALID_USERNAME_REGEX = /\A[\w+\-.]+\z/i.freeze
   validates :username, presence: true, length: { maximum: 255 },
                        format: { with: VALID_USERNAME_REGEX },
                        uniqueness: { case_sensitive: false }
   # END: constraints section
 
   # BEGIN: relationship section
-  has_many :active_relationships,  class_name:  'Relationship',
+  has_many :active_relationships,  class_name: 'Relationship',
                                    foreign_key: 'follower_id',
-                                   dependent:   :destroy
-  has_many :passive_relationships, class_name:  'Relationship',
+                                   dependent: :destroy
+  has_many :passive_relationships, class_name: 'Relationship',
                                    foreign_key: 'followed_id',
-                                   dependent:   :destroy
+                                   dependent: :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 

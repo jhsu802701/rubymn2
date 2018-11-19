@@ -71,6 +71,7 @@ class OpeningsController < ApplicationController
   # BEGIN: private section
   def may_view_opening
     return if user_signed_in? || admin_signed_in?
+
     flash[:alert] = 'You must be logged in to view job openings.'
     redirect_to(new_user_session_path)
   end
@@ -83,12 +84,14 @@ class OpeningsController < ApplicationController
 
   def may_edit_opening
     return redirect_to root_url unless user_signed_in?
+
     @opening = current_user.openings.find_by(id: params[:id])
     return redirect_to root_url if @opening.nil?
   end
 
   def correct_user
     return false unless user_signed_in?
+
     current_user.id == Opening.find(params[:id]).user_id
   end
   helper_method :correct_user
