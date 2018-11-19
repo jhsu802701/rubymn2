@@ -28,7 +28,7 @@ gem 'puma', '3.12.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.7'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '4.1.19'
+gem 'uglifier', '4.1.20'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -50,7 +50,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '3.10.0'
+  gem 'capybara', '3.11.1'
   gem 'selenium-webdriver', '3.14.1'
 end
 
@@ -75,7 +75,7 @@ group :development, :testing do
   gem 'brakeman', '4.3.1'
   gem 'bundler-audit', '0.6.0'
   gem 'gemsurance', '0.9.0'
-  gem 'rails_best_practices', '1.19.3'
+  gem 'rails_best_practices', '1.19.4'
   gem 'rubocop', '0.58.2' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
   gem 'sandi_meter', '1.2.0'
 end
@@ -83,7 +83,7 @@ end
 
 # Minitest
 gem 'minitest', '5.10.3', require: false, group: :testing
-gem 'minitest-reporters', '1.3.1', require: false, group: :testing # Adds special features to tests
+gem 'minitest-reporters', '1.3.5', require: false, group: :testing # Adds special features to tests
 
 # BEGIN: Capybara enhancements
 group :test do
@@ -93,7 +93,7 @@ end
 # END: Capybara enhancements
 
 # BEGIN: test coverage
-gem 'codecov', '0.1.13', require: false, group: :test
+gem 'codecov', '0.1.14', require: false, group: :test
 gem 'simplecov', '0.16.1', require: false, group: :test
 # END: test coverage
 
@@ -103,7 +103,7 @@ gem 'simplecov', '0.16.1', require: false, group: :test
 gem 'figaro', '1.1.1'
 gem 'line_containing', '0.1.1'
 gem 'remove_double_blank', '0.0.0'
-gem 'string_in_file', '1.0.0'
+gem 'string_in_file', '1.0.2'
 # END: gems used for setting up PostgreSQL in the development environment
 
 # BEGIN: for outline.sh

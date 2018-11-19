@@ -11,12 +11,9 @@ AllCops:
     - config/spring.rb
     - db/migrate/*
     - db/schema.rb
-    - mod*
-    - mod/*
-    - mod/*/*
-    - tmp/vulnerabilities/*
-    - tmp/vulnerabilities/lib/*
-    - tmp/vulnerabilities/spec/*
+    - mod/**/*
+    - tmp/**/*
+    - vendor/**/*
 # END: AllCops
 
 Bundler/OrderedGems:
