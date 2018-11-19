@@ -8,6 +8,6 @@ echo '----------------'
 echo 'rails db:migrate'
 rails db:migrate
 
-echo '----------'
-echo 'rails test'
-rails test
+echo '---------------------------'
+echo 'DISABLE_SPRING=1 rails test'
+DISABLE_SPRING=1 rails test
