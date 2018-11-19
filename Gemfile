@@ -37,7 +37,7 @@ gem 'coffee-rails', '4.2.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '5.2.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '2.7.0'
+gem 'jbuilder', '2.8.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -101,7 +101,7 @@ gem 'simplecov', '0.16.1', require: false, group: :test
 # You do not need these gems if you use SQLite in the development environment.
 # NOTE: Attempts to use "gem install" in the PostgreSQL setup scripts did not pan out.
 gem 'figaro', '1.1.1'
-gem 'line_containing', '0.1.1'
+gem 'line_containing', '0.1.2'
 gem 'remove_double_blank', '0.0.0'
 gem 'string_in_file', '1.0.2'
 # END: gems used for setting up PostgreSQL in the development environment
@@ -117,7 +117,7 @@ end
 # BEGIN: Better Errors
 # Provides more and better information in error pages
 group :development do
-  gem 'better_errors', '2.4.0'
+  gem 'better_errors', '2.5.0'
   gem 'binding_of_caller', '0.8.0'
 end
 # END: Better Errors
@@ -143,7 +143,7 @@ gem 'timecop', '0.9.1', group: :testing # Changes current time, needed for testi
 gem 'kaminari', '1.1.1' # For pagination
 
 # Search engine for objects (such as users)
-gem 'ransack', '2.0.1'
+gem 'ransack', '2.1.0'
 
 # BEGIN: for sponsor logos
 gem 'carrierwave' # For uploading files
