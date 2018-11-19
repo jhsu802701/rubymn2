@@ -13,13 +13,15 @@ require 'rails/test_help'
 require File.expand_path('../test/setup_objects.rb', __dir__)
 
 # BEGIN: use minitest-reporters
-require 'minitest/reporters'
-require 'rake_rerun_reporter'
-Minitest::Reporters.use!
+if ENV['CODECOV_TOKEN'].nil?
+  require 'minitest/reporters'
+  require 'rake_rerun_reporter'
+  Minitest::Reporters.use!
 
-reporter_options = { color: true, slow_count: 5, verbose: false, rerun_prefix: 'rm -f log/test.log && bundle exec' }
-Minitest::Reporters.use! [Minitest::Reporters::HtmlReporter.new,
-                          Minitest::Reporters::RakeRerunReporter.new(reporter_options)]
+  reporter_options = { color: true, slow_count: 5, verbose: false, rerun_prefix: 'rm -f log/test.log && bundle exec' }
+  Minitest::Reporters.use! [Minitest::Reporters::HtmlReporter.new,
+                            Minitest::Reporters::RakeRerunReporter.new(reporter_options)]
+end
 # END: use minitest-reporters
 
 class ActiveSupport::TestCase
