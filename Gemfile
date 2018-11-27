@@ -18,7 +18,7 @@ end
 gem 'ffi', '1.9.25'
 gem 'nokogiri', '1.8.5'
 gem 'pg', '1.1.3'
-gem 'rails', '5.2.1'
+gem 'rails', '5.2.1.1'
 ############################################
 # END: gems that take a long time to install
 ############################################
