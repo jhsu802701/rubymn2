@@ -50,7 +50,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '3.11.1'
+  gem 'capybara', '3.12.0'
   gem 'selenium-webdriver', '3.141.0'
 end
 
@@ -122,7 +122,7 @@ group :development do
 end
 # END: Better Errors
 
-gem 'pry-rails', '0.3.7' # Improves the screen output in the Rails console
+gem 'pry-rails', '0.3.8' # Improves the screen output in the Rails console
 
 gem 'email_munger', '0.0.0' # Encodes email address to prevent harvesting by bots
 
@@ -146,6 +146,6 @@ gem 'kaminari', '1.1.1' # For pagination
 gem 'ransack', '2.1.0'
 
 # BEGIN: for sponsor logos
-gem 'carrierwave' # For uploading files
-gem 'mini_magick' # For resizing images
+gem 'carrierwave', '1.2.3' # For uploading files
+gem 'mini_magick', '4.9.2' # For resizing images
 # END: for sponsor logos
