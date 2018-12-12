@@ -122,7 +122,7 @@ group :development do
 end
 # END: Better Errors
 
-gem 'pry-rails', '0.3.7' # Improves the screen output in the Rails console
+gem 'pry-rails', '0.3.8' # Improves the screen output in the Rails console
 
 gem 'email_munger', '0.0.0' # Encodes email address to prevent harvesting by bots
 
@@ -146,6 +146,6 @@ gem 'kaminari', '1.1.1' # For pagination
 gem 'ransack', '2.1.0'
 
 # BEGIN: for sponsor logos
-gem 'carrierwave' # For uploading files
-gem 'mini_magick' # For resizing images
+gem 'carrierwave', '1.2.3' # For uploading files
+gem 'mini_magick', '4.9.2' # For resizing images
 # END: for sponsor logos
