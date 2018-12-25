@@ -82,7 +82,7 @@ GEM
       mail
     capybara-slow_finder_errors (0.1.5)
       capybara (~> 3.0)
-    carrierwave (1.2.3)
+    carrierwave (1.3.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
@@ -103,7 +103,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.3)
+    concurrent-ruby (1.1.4)
     crass (1.0.4)
     debug_inspector (0.0.3)
     devise (4.5.0)
@@ -130,7 +130,7 @@ GEM
     git (1.5.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    i18n (1.2.0)
+    i18n (1.3.0)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.1)
     jbuilder (2.8.0)
@@ -345,7 +345,7 @@ DEPENDENCIES
   capybara (= 3.12.0)
   capybara-email (= 3.0.1)
   capybara-slow_finder_errors (= 0.1.5)
-  carrierwave (= 1.2.3)
+  carrierwave (= 1.3.0)
   codecov (= 0.1.14)
   coffee-rails (= 4.2.2)
   devise (= 4.5.0)
