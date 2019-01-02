@@ -76,7 +76,7 @@ group :development, :testing do
   gem 'bundler-audit', '0.6.0'
   gem 'gemsurance', '0.9.0'
   gem 'rails_best_practices', '1.19.4'
-  gem 'rubocop', '0.60.0' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
+  gem 'rubocop', '0.62.0' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
   gem 'sandi_meter', '1.2.0'
 end
 # END: gems for test_code.sh
@@ -126,7 +126,7 @@ gem 'pry-rails', '0.3.8' # Improves the screen output in the Rails console
 
 gem 'email_munger', '0.0.0' # Encodes email address to prevent harvesting by bots
 
-gem 'bootstrap-sass', '3.3.7' # Bootstrap styling
+gem 'bootstrap-sass', '3.4.0' # Bootstrap styling
 
 gem 'devise', '4.5.0' # Provides admin/user authentication
 
@@ -146,6 +146,6 @@ gem 'kaminari', '1.1.1' # For pagination
 gem 'ransack', '2.1.0'
 
 # BEGIN: for sponsor logos
-gem 'carrierwave', '1.2.3' # For uploading files
+gem 'carrierwave', '1.3.1' # For uploading files
 gem 'mini_magick', '4.9.2' # For resizing images
 # END: for sponsor logos
