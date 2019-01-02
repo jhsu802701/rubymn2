@@ -1,4 +1,4 @@
-ruby '2.5.0'
+ruby '2.6.0'
 
 ####################
 # BEGIN:initial gems
