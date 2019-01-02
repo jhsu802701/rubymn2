@@ -122,7 +122,7 @@ group :development do
 end
 # END: Better Errors
 
-gem 'pry-rails', '0.3.8' # Improves the screen output in the Rails console
+gem 'pry-rails', '0.3.9' # Improves the screen output in the Rails console
 
 gem 'email_munger', '0.0.0' # Encodes email address to prevent harvesting by bots
 
@@ -143,7 +143,7 @@ gem 'timecop', '0.9.1', group: :testing # Changes current time, needed for testi
 gem 'kaminari', '1.1.1' # For pagination
 
 # Search engine for objects (such as users)
-gem 'ransack', '2.1.0'
+gem 'ransack', '2.1.1'
 
 # BEGIN: for sponsor logos
 gem 'carrierwave', '1.3.1' # For uploading files
