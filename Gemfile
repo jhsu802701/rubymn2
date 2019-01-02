@@ -18,7 +18,7 @@ end
 gem 'ffi', '1.9.25'
 gem 'nokogiri', '1.9.1'
 gem 'pg', '1.1.3'
-gem 'rails', '5.2.1'
+gem 'rails', '5.2.2'
 ############################################
 # END: gems that take a long time to install
 ############################################
@@ -82,7 +82,7 @@ end
 # END: gems for test_code.sh
 
 # Minitest
-gem 'minitest', '5.10.3', require: false, group: :testing
+gem 'minitest', '5.11.3', require: false, group: :testing
 gem 'minitest-reporters', '1.3.5', require: false, group: :testing # Adds special features to tests
 
 # BEGIN: Capybara enhancements
