@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   # BEGIN: index
   # rubocop:disable Metrics/AbcSize
   def index
-    @search = User.search(params[:q].presence)
+    @search = User.ransack(params[:q].presence)
     # NOTE: The following line specifies the sort order.
     # This is reflected in the default sort criteria shown.
     # The user is free to remove these default criteria.

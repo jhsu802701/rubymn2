@@ -17,7 +17,7 @@ class OpeningsController < ApplicationController
 
   # rubocop:disable Metrics/AbcSize
   def index
-    @search = Opening.search(params[:q].presence)
+    @search = Opening.ransack(params[:q].presence)
     # NOTE: The following line specifies the sort order.
     # This is reflected in the default sort criteria shown.
     # The user is free to remove these default criteria.
