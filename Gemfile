@@ -128,7 +128,7 @@ gem 'email_munger', '0.0.0' # Encodes email address to prevent harvesting by bot
 
 gem 'bootstrap-sass', '3.4.0' # Bootstrap styling
 
-gem 'devise', '4.5.0' # Provides admin/user authentication
+gem 'devise', '4.6.1' # Provides admin/user authentication
 
 # BEGIN: gems used in db/seeds.rb
 group :test, :development do
