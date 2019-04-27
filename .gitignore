@@ -126,3 +126,5 @@ public/uploads/
 
 # Keep SimpleCov test results out of the source code
 coverage
+
+gemsurance_report.html
