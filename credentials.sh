@@ -52,9 +52,9 @@ if [ -z "$GIT_NAME" ]; then
   echo
 fi
 
-echo '------------'
-echo 'heroku login'
-heroku login
+echo '---------------'
+echo 'heroku login -i'
+heroku login -i
 
 echo '---------------'
 echo 'heroku keys:add'
