@@ -8,7 +8,7 @@ You should use a password management program like <a href='http://www.keepassx.o
 to create much better passwords AND store them in encrypted form.
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= render "users/shared/error_messages" %>
   <%= f.hidden_field :reset_password_token %>
 
   <div class="field">
