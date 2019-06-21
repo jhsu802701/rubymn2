@@ -63,7 +63,7 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
-    brakeman (4.3.1)
+    brakeman (4.5.1)
     builder (3.2.3)
     bundler-audit (0.6.0)
       bundler (~> 1.2)
@@ -340,7 +340,7 @@ DEPENDENCIES
   better_errors (= 2.5.0)
   binding_of_caller (= 0.8.0)
   bootstrap-sass (= 3.4.1)
-  brakeman (= 4.3.1)
+  brakeman (= 4.5.1)
   bundler-audit (= 0.6.0)
   byebug
   capybara (= 3.24.0)
