@@ -147,5 +147,5 @@ gem 'ransack', '2.1.1'
 
 # BEGIN: for sponsor logos
 gem 'carrierwave', '1.3.1' # For uploading files
-gem 'mini_magick', '4.9.2' # For resizing images
+gem 'mini_magick', '4.9.3' # For resizing images
 # END: for sponsor logos
