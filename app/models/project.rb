@@ -2,12 +2,12 @@
 #
 # Table name: projects
 #
-#  id              :bigint(8)        not null, primary key
+#  id              :bigint           not null, primary key
 #  title           :string
 #  source_code_url :string
 #  deployed_url    :string
 #  description     :text
-#  user_id         :bigint(8)
+#  user_id         :bigint
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
