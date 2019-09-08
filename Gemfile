@@ -108,7 +108,7 @@ gem 'string_in_file', '1.0.2'
 
 # BEGIN: for outline.sh
 group :development do
-  gem 'annotate', '2.7.4' # Adds comments listing parameters and the output of "rails routes"
+  gem 'annotate', '2.7.5' # Adds comments listing parameters and the output of "rails routes"
   gem 'railroady', '1.5.3' # Generates block diagrams
   gem 'rails-erd', '1.5.2' # Generates block diagrams
 end
