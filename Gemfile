@@ -133,7 +133,7 @@ gem 'devise', '4.6.2' # Provides admin/user authentication
 # BEGIN: gems used in db/seeds.rb
 group :test, :development do
   gem 'faker', '1.9.1' # Generates fake data used for seeding the database
-  gem 'ruby-progressbar', '1.10.0' # Provides a progress bar to be used during long loop actions
+  gem 'ruby-progressbar', '1.10.1' # Provides a progress bar to be used during long loop actions
 end
 # END: gems used in db/seeds.rb
 
