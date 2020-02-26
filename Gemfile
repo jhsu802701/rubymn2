@@ -94,7 +94,7 @@ end
 
 # BEGIN: test coverage
 gem 'codecov', '0.1.14', require: false, group: :test
-gem 'simplecov', '0.17.0', require: false, group: :test
+gem 'simplecov', '0.18.5', require: false, group: :test
 # END: test coverage
 
 # BEGIN: gems used for setting up PostgreSQL in the development environment
