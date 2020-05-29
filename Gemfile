@@ -140,7 +140,7 @@ end
 gem 'jquery-rails', '4.3.5' # Needed for dropdown menus
 gem 'timecop', '0.9.1', group: :testing # Changes current time, needed for testing the lock duration
 
-gem 'kaminari', '1.1.1' # For pagination
+gem 'kaminari', '1.2.1' # For pagination
 
 # Search engine for objects (such as users)
 gem 'ransack', '2.3.0'
