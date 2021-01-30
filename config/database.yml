@@ -1,26 +1,21 @@
-# POSTGRESQL DATABASE PARAMETERS:
-# Database name (development)
-# Database name (testing)
-# Database name (production)
-# Username 
-# Password
-# NOTE: All three databases use the same username and password.
-
 default: &default
   adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['POSTGRES_HOST'] %>
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  database: <%= ENV['POSTGRES_DB'] %>_development
   pool: 5
-  timeout: 5000
-  username: <%= ENV['var_db_rubymn2_username'] %>
-  password: <%= ENV['var_db_rubymn2_password'] %>
+  variables:
+    statement_timeout: 5000
 
 development:
   <<: *default
-  database: db_rubymn2_dev
 
 test:
   <<: *default
-  database: db_rubymn2_test
+  database: <%= ENV['POSTGRES_DB'] %>_test
 
 production:
   <<: *default
-  database: db_rubymn2_pro
+  database: <%= ENV['POSTGRES_DB'] %>_production

@@ -1,0 +1,43 @@
+#!/bin/bash
+
+DB_ROOT=$1
+DB_USERNAME=$2
+DB_PASSWORD=$3
+
+replace_string_in_file () {
+  STRING1=$1
+  STRING2=$2
+  FILE_TO_UPDATE=$3
+  sed -i "s/$STRING1/$STRING2/g" $FILE_TO_UPDATE
+}
+
+delete_between_strings_in_file () {
+  STRING1=$1
+  STRING2=$2
+  FILE_TO_UPDATE=$3
+  sed -i -n "/$STRING1/{p; :a; N; /$STRING2/!ba; s/.*\n//}; p" $FILE_TO_UPDATE
+}
+
+# Source:
+# https://stackoverflow.com/questions/15559359/insert-line-after-first-match-using-sed
+insert_line_after_string_in_file () {
+  STRING1=$1 # String in file
+  STRING2=$2 # Line to insert
+  FILE_TO_UPDATE=$3
+  sed -i "/$STRING1/a $STRING2" $FILE_TO_UPDATE
+}
+
+echo 'Configure config/database.yml'
+cp config/database.yml.docker config/database.yml
+
+echo 'Configure .env-docker/development/database'
+cp .env-docker/development/database-template .env-docker/development/database
+replace_string_in_file 'POSTGRES_DB_1' $DB_ROOT '.env-docker/development/database'
+replace_string_in_file 'POSTGRES_USER_1' $DB_USERNAME '.env-docker/development/database'
+replace_string_in_file 'POSTGRES_PASSWORD_1' $DB_PASSWORD '.env-docker/development/database'
+
+echo 'Configure init.sql'
+cp init.sql.template init.sql
+replace_string_in_file 'POSTGRES_USER_1' $DB_USERNAME 'init.sql'
+replace_string_in_file 'POSTGRES_PASSWORD_1' $DB_PASSWORD 'init.sql'
+chmod +x init.sql
