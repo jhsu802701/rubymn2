@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Checks for violations of the Ruby Style Guide, not recommended for legacy apps
+
+echo '----------------------'
+echo 'bundle install --quiet'
+bundle install --quiet
+
+echo '----------------------'
+echo 'bundle exec rubocop -D'
+bundle exec rubocop -D
