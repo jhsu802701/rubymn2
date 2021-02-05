@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Checks the quality of Rails code, not recommended for legacy apps
+
+echo '----------------------'
+echo 'bundle install --quiet'
+bundle install --quiet
+
+echo '----------------------------------'
+echo 'bundle exec rails_best_practices .'
+bundle exec rails_best_practices .

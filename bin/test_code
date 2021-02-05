@@ -34,8 +34,3 @@ bundle exec bundle-audit
 echo '----------------------'
 echo 'bundle exec rubocop -D'
 bundle exec rubocop -D
-
-# Checks the quality of Rails code, not recommended for legacy apps
-echo '----------------------------------'
-echo 'bundle exec rails_best_practices .'
-bundle exec rails_best_practices .

@@ -2,4 +2,6 @@
 
 docker/run bin/test_code
 
+docker/run bin/rbp
+
 docker/gemsurance
