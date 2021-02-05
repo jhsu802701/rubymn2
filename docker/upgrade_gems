@@ -9,11 +9,8 @@
 
 echo '-------------'
 echo 'bundle update'
-bundle update
+docker/run bundle update
 
-sh git_check.sh
+docker/git_check
 
-echo '----------------------------------------------------------'
-echo 'bundle exec gemsurance --output log/gemsurance_report.html'
-bundle exec gemsurance --output log/gemsurance_report.html
-echo 'The Gemsurance Report is at log/gemsurance_report.html .'
+docker/gemsurance
