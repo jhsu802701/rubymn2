@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# This script tests the controllers only.
+
+echo '-------------------------------------------'
+echo 'bundle exec rake test TEST=test/controllers'
+docker/run bundle exec rake test TEST=test/controllers
