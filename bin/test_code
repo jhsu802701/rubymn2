@@ -14,8 +14,3 @@ bundle install --quiet
 echo '---------------------------------------'
 echo 'bundle exec brakeman -Aq -w2 --no-pager'
 bundle exec brakeman -Aq -w2 --no-pager
-
-# Checks for compliance with Sandi Metz' four rules
-echo '-----------------------'
-echo 'bundle exec sandi_meter'
-bundle exec sandi_meter

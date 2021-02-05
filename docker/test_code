@@ -2,10 +2,12 @@
 
 docker/run bin/test_code
 
-docker/run bin/audit
+docker/sandi_meter
 
-docker/run bin/cop
+docker/audit
 
-docker/run bin/rbp
+docker/cop
+
+docker/rbp
 
 docker/gemsurance
