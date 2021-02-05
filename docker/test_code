@@ -2,6 +2,8 @@
 
 docker/run bin/test_code
 
+docker/run bin/audit
+
 docker/run bin/cop
 
 docker/run bin/rbp

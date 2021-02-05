@@ -4,6 +4,10 @@ d_mo='log/diagram-models'
 d_co='log/diagram-controllers.dot'
 d_gems='log/diagram-gems'
 
+echo '----------------------'
+echo 'bundle install --quiet'
+bundle install --quiet
+
 echo '---------------'
 echo 'Using rails-erd'
 bundle exec erd --attributes=foreign_keys,primary_keys,timestamps,inheritance,content --filetype=dot --filename=$d_mo --inheritance --notation=bachman
