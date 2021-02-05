@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# This script tests the models only.
+
+echo '--------------------------------------'
+echo 'bundle exec rake test TEST=test/models'
+docker/run bundle exec rake test TEST=test/models
