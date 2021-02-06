@@ -24,7 +24,7 @@ if ENV['CODECOV_TOKEN'].nil?
   require 'rake_rerun_reporter'
   Minitest::Reporters.use!
 
-  reporter_options = { color: true, slow_count: 5, verbose: false, rerun_prefix: 'rm -f log/test.log && bundle exec' }
+  reporter_options = { color: true, slow_count: 5, verbose: false, rerun_prefix: 'rm -f log/test.log && docker/run bundle exec' }
   Minitest::Reporters.use! [Minitest::Reporters::HtmlReporter.new,
                             Minitest::Reporters::RakeRerunReporter.new(reporter_options)]
 end
