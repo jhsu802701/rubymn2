@@ -11,20 +11,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-##############################################
-# BEGIN: gems that take a long time to install
-##############################################
-# Please pre-install the proper versions in the Docker image.
-gem 'ffi', '1.11.1'
-gem 'nokogiri', '1.10.4'
 gem 'pg', '1.1.4'
-gem 'rails', '5.2.3'
-############################################
-# END: gems that take a long time to install
-############################################
+gem 'rails', '5.2.4.5'
 
 # Use Puma as the app server
-gem 'puma', '4.1.0'
+gem 'puma', '5.2.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '6.0.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -72,7 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # BEGIN: gems for test_code.sh
 group :development, :testing do
-  gem 'brakeman', '4.6.1'
+  gem 'brakeman', '5.0.0'
   gem 'bundler-audit', '0.6.0'
   gem 'gemsurance', '0.9.0'
   gem 'rails_best_practices', '1.19.4'
@@ -140,12 +131,12 @@ end
 gem 'jquery-rails', '4.3.5' # Needed for dropdown menus
 gem 'timecop', '0.9.1', group: :testing # Changes current time, needed for testing the lock duration
 
-gem 'kaminari', '1.1.1' # For pagination
+gem 'kaminari', '1.2.1' # For pagination
 
 # Search engine for objects (such as users)
 gem 'ransack', '2.3.0'
 
 # BEGIN: for sponsor logos
-gem 'carrierwave', '2.0.1' # For uploading files
+gem 'carrierwave', '2.1.1' # For uploading files
 gem 'mini_magick', '4.9.5' # For resizing images
 # END: for sponsor logos
