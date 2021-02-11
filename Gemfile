@@ -93,7 +93,7 @@ end
 # END: Capybara enhancements
 
 # BEGIN: test coverage
-# gem 'codecov', '0.1.14', require: false, group: :test
+gem 'codecov', '0.4.3', require: false, group: :test
 gem 'simplecov', '0.17.0', require: false, group: :test
 # END: test coverage
 
