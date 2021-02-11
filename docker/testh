@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# This script tests the helpers and mailers only.
+
+echo '---------------------------------------'
+echo 'bundle exec rake test TEST=test/helpers'
+docker/run bundle exec rake test TEST=test/helpers
+
+echo '---------------------------------------'
+echo 'bundle exec rake test TEST=test/mailers'
+docker/run bundle exec rake test TEST=test/mailers

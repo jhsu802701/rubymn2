@@ -1,0 +1,13 @@
+#!/bin/bash
+
+docker/brakeman
+
+docker/sandi_meter
+
+docker/audit
+
+docker/cop
+
+docker/rbp
+
+docker/gemsurance

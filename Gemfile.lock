@@ -94,10 +94,8 @@ GEM
     choice (0.2.0)
     code_analyzer (0.4.8)
       sexp_processor
-    codecov (0.1.14)
-      json
-      simplecov
-      url
+    codecov (0.4.3)
+      simplecov (>= 0.15, < 0.22)
     coderay (1.1.2)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
@@ -320,7 +318,6 @@ GEM
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.6.0)
-    url (0.3.2)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -349,7 +346,7 @@ DEPENDENCIES
   capybara-email (= 3.0.1)
   capybara-slow_finder_errors (= 0.1.5)
   carrierwave (= 2.0.1)
-  codecov (= 0.1.14)
+  codecov (= 0.4.3)
   coffee-rails (= 5.0.0)
   devise (= 4.7.1)
   email_munger (= 0.0.0)
@@ -394,4 +391,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   1.17.3
+   1.17.2

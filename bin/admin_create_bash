@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo '**********************'
+echo 'Entering rails console'
+bundle exec rails runner "eval(File.read 'bin/admin_create_ruby')"
