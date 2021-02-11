@@ -12,7 +12,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'pg', '1.1.4'
-gem 'rails', '5.2.3'
+gem 'rails', '5.2.4.5'
 
 # Use Puma as the app server
 gem 'puma', '4.1.0'
