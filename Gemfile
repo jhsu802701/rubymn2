@@ -11,17 +11,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-##############################################
-# BEGIN: gems that take a long time to install
-##############################################
-# Please pre-install the proper versions in the Docker image.
-gem 'ffi', '1.11.1'
-gem 'nokogiri', '1.10.4'
 gem 'pg', '1.1.4'
 gem 'rails', '5.2.3'
-############################################
-# END: gems that take a long time to install
-############################################
 
 # Use Puma as the app server
 gem 'puma', '4.1.0'
