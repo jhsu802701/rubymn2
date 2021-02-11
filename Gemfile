@@ -146,6 +146,6 @@ gem 'kaminari', '1.1.1' # For pagination
 gem 'ransack', '2.3.0'
 
 # BEGIN: for sponsor logos
-gem 'carrierwave', '2.0.1' # For uploading files
+gem 'carrierwave', '2.1.1' # For uploading files
 gem 'mini_magick', '4.9.5' # For resizing images
 # END: for sponsor logos
