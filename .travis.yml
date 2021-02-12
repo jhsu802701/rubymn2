@@ -23,3 +23,10 @@ script:
   - bundle exec rake test
   - bundle exec rubocop -D
   - bundle exec rails_best_practices .
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  app: rubymn2
+  on:
+    repo: jhsu802701/rubymn2
