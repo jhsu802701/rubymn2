@@ -7,4 +7,4 @@ FILENAME=$3
 # This script replaces incidences of one string (STR1) with another (STR2)
 # within a file (FILENAME).
 
-sed -i "s/$STR1/$STR2/g" $FILE_TO_UPDATE
+sed -i "s/$STR1/$STR2/g" "$FILENAME"
