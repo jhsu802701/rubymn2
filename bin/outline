@@ -4,6 +4,9 @@ d_mo='log/diagram-models'
 d_co='log/diagram-controllers.dot'
 d_gems='log/diagram-gems'
 
+docker/replace_sif "# gem 'railroady'" "gem 'railroady'" 'Gemfile'
+docker/replace_sif "# gem 'rails-erd'" "gem 'rails-erd'" 'Gemfile'
+
 echo '----------------------'
 echo 'bundle install --quiet'
 bundle install --quiet
@@ -29,6 +32,13 @@ gem install ruby-graphviz
 echo '-----------------------------------------------------'
 echo "Drawing gem dependency diagram ($d_gems.png)"
 bundle viz --file=$d_gems --version
+
+docker/replace_sif "gem 'railroady'" "# gem 'railroady'" 'Gemfile'
+docker/replace_sif "gem 'rails-erd'" "# gem 'rails-erd'" 'Gemfile'
+
+echo '----------------------'
+echo 'bundle install --quiet'
+bundle install --quiet
 
 echo '*************************'
 echo 'bin/outline OUTPUT FILES:'

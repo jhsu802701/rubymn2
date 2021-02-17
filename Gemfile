@@ -100,8 +100,8 @@ gem 'string_in_file', '1.0.2'
 # BEGIN: for docker/outline
 group :development do
   gem 'annotate', '2.7.5' # Adds comments listing parameters and the output of "rails routes"
-  gem 'railroady', '1.5.3' # Generates block diagrams of controllers
-  gem 'rails-erd', '1.5.2' # Generates block diagram of models
+  # gem 'railroady' # Generates block diagrams of controllers
+  # gem 'rails-erd' # Generates block diagram of models
 end
 # END: for docker/outline
 
