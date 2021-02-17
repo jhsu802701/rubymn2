@@ -61,7 +61,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # END: initial gems
 ###################
 
-# BEGIN: gems for test_code.sh
+# BEGIN: gems for docker/test_code
 group :development, :testing do
   # gem 'brakeman'
   # gem 'bundler-audit'
@@ -70,7 +70,7 @@ group :development, :testing do
   gem 'rubocop', '0.74.0' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
   # gem 'sandi_meter'
 end
-# END: gems for test_code.sh
+# END: gems for docker/test_code
 
 # Minitest
 gem 'minitest', '5.14.3', require: false, group: :testing
@@ -97,13 +97,13 @@ gem 'remove_double_blank', '0.0.0'
 gem 'string_in_file', '1.0.2'
 # END: gems used for setting up PostgreSQL in the development environment
 
-# BEGIN: for outline.sh
+# BEGIN: for docker/outline
 group :development do
   gem 'annotate', '2.7.5' # Adds comments listing parameters and the output of "rails routes"
-  gem 'railroady', '1.5.3' # Generates block diagrams
-  gem 'rails-erd', '1.5.2' # Generates block diagrams
+  gem 'railroady', '1.5.3' # Generates block diagrams of controllers
+  gem 'rails-erd', '1.5.2' # Generates block diagram of models
 end
-# END: for outline.sh
+# END: for docker/outline
 
 # BEGIN: Better Errors
 # Provides more and better information in error pages
