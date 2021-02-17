@@ -68,7 +68,7 @@ group :development, :testing do
   # gem 'gemsurance'
   gem 'rails_best_practices', '1.20.0'
   gem 'rubocop', '0.74.0' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
-  gem 'sandi_meter', '1.2.0'
+  # gem 'sandi_meter'
 end
 # END: gems for test_code.sh
 
