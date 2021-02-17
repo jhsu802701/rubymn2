@@ -1,5 +1,7 @@
 #!/bin/bash
 
+docker/replace_sif "# gem 'bundler-audit'" "gem 'bundler-audit'" 'Gemfile'
+
 echo '----------------------'
 echo 'bundle install --quiet'
 bundle install --quiet
@@ -13,3 +15,9 @@ bundle exec bundle-audit update
 echo '------------------------'
 echo 'bundle exec bundle-audit'
 bundle exec bundle-audit
+
+docker/replace_sif "gem 'bundler-audit'" "# gem 'bundler-audit'" 'Gemfile'
+
+echo '----------------------'
+echo 'bundle install --quiet'
+bundle install --quiet
