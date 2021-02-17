@@ -1,5 +1,7 @@
 #!/bin/bash
 
+docker/replace_sif "# gem 'brakeman'" "gem 'brakeman'" 'Gemfile'
+
 echo '----------------------'
 echo 'bundle install --quiet'
 bundle install --quiet
@@ -11,3 +13,9 @@ bundle install --quiet
 echo '---------------------------------------'
 echo 'bundle exec brakeman -Aq -w2 --no-pager'
 bundle exec brakeman -Aq -w2 --no-pager
+
+docker/replace_sif "gem 'brakeman'" "# gem 'brakeman'" 'Gemfile'
+
+echo '----------------------'
+echo 'bundle install --quiet'
+bundle install --quiet

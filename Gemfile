@@ -63,7 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # BEGIN: gems for test_code.sh
 group :development, :testing do
-  gem 'brakeman', '5.0.0'
+  # gem 'brakeman'
   # gem 'bundler-audit'
   gem 'gemsurance', '0.9.0'
   gem 'rails_best_practices', '1.20.0'
