@@ -5,7 +5,7 @@
 FROM ruby:RUBY_VERSION
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    NODE_VERSION=12.18.2
+    NODE_VERSION=14.15.5
 
 RUN sed -i '/deb-src/d' /etc/apt/sources.list && \
     apt-get update && \
