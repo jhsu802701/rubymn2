@@ -100,7 +100,7 @@ end
 # Provides more and better information in error pages
 group :development do
   gem 'better_errors', '2.9.1'
-  gem 'binding_of_caller', '0.8.0'
+  gem 'binding_of_caller', '1.0.0'
 end
 # END: Better Errors
 
