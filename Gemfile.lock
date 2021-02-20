@@ -58,7 +58,7 @@ GEM
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
     bindex (0.8.1)
-    binding_of_caller (0.8.0)
+    binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
@@ -308,7 +308,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (= 3.1.1)
   better_errors (= 2.9.1)
-  binding_of_caller (= 0.8.0)
+  binding_of_caller (= 1.0.0)
   bootstrap-sass (= 3.4.1)
   byebug
   capybara (= 3.35.3)
