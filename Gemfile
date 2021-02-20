@@ -67,7 +67,7 @@ group :development, :testing do
   # gem 'bundler-audit'
   # gem 'gemsurance'
   gem 'rails_best_practices', '1.20.0'
-  gem 'rubocop', '0.74.0' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
+  gem 'rubocop', '1.10.0' # Checks for violations of the Ruby Style Guide, not recommended for legacy apps
   # gem 'sandi_meter'
 end
 # END: gems for docker/test_code
