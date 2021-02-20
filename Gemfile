@@ -120,7 +120,7 @@ end
 # END: gems used in db/seeds.rb
 
 gem 'jquery-rails', '4.4.0' # Needed for dropdown menus
-gem 'timecop', '0.9.1', group: :testing # Changes current time, needed for testing the lock duration
+gem 'timecop', '0.9.4', group: :testing # Changes current time, needed for testing the lock duration
 
 gem 'kaminari', '1.2.1' # For pagination
 
