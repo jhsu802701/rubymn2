@@ -27,14 +27,14 @@ This file specifies the value of the environment variable POSTGRES_HOST.
 * Note that this file is EXCLUDED from the repository.  Instead, the docker/build script copies the "Dockerfile-template" file and fills in the Ruby version of this app as specified in the .ruby-version file.
 
 # The docker-compose.yml File
-  ### The "web" Docker Container (Ruby on Rails)
-    * This is based on the Dockerfile.
-    * This depends on the "database" Docker container (PostgreSQL).
-    * This relies on the ".env-docker/development/database" and ".env-docker/development/web" files for setting the environment variables.
-  ### The "database" Docker Container (PostgreSQL)
-    * This is based on a PostgreSQL Docker image.
-    * This uses the ".env-docker/development/database" file to specify the values of environment variables.
-    * It specifies that the init.sql file in the host system is automatically copied to /docker-entrypoint-initdb.d/init.sql in the Docker container.
+### The "web" Docker Container (Ruby on Rails)
+* This is based on the Dockerfile.
+* This depends on the "database" Docker container (PostgreSQL).
+* This relies on the ".env-docker/development/database" and ".env-docker/development/web" files for setting the environment variables.
+### The "database" Docker Container (PostgreSQL)
+* This is based on a PostgreSQL Docker image.
+* This uses the ".env-docker/development/database" file to specify the values of environment variables.
+* It specifies that the init.sql file in the host system is automatically copied to /docker-entrypoint-initdb.d/init.sql in the Docker container.
 
 # PostgreSQL Database Container Startup Actions
 * The "database" Docker container has a built-in docker-entrypoint.sh script that automatically runs upon startup.
