@@ -78,7 +78,7 @@ GEM
       mail
     capybara-slow_finder_errors (0.1.5)
       capybara (~> 3.0)
-    carrierwave (2.1.1)
+    carrierwave (2.2.0)
       activemodel (>= 5.0.0)
       activesupport (>= 5.0.0)
       addressable (~> 2.6)
@@ -311,7 +311,7 @@ DEPENDENCIES
   capybara (= 3.35.3)
   capybara-email (= 3.0.2)
   capybara-slow_finder_errors (= 0.1.5)
-  carrierwave (= 2.1.1)
+  carrierwave (= 2.2.0)
   codecov (= 0.5.0)
   coffee-rails (= 5.0.0)
   devise (= 4.7.3)
