@@ -5,9 +5,8 @@ services:
     build: .
     volumes:
       - .:/home/winner/myapp
-      - bundle_path:/home/winner/bundle
     environment:
-      - BUNDLE_PATH=/home/winner/bundle/vendor
+      - BUNDLE_PATH=/home/winner/myapp/tmp/bundle
       - BUNDLE_APP_CONFIG=/home/winner/myapp/.bundle
     user: winner
     command:
@@ -44,5 +43,4 @@ services:
       - "15432:5432"
 
 volumes:
-  bundle_path:
   db_data:
