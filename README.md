@@ -26,7 +26,7 @@ Docker should be installed on your local machine
 ### Other Important Scripts
 * Enter the command "docker/git_check" before "git add" and "git commit".  This runs the tests, Rubocop, Brakeman, Annotate, and certain other tools.  The docker/git_check script is a sanity check to allow you to make sure to commit quality working code only.
 * Enter "docker/nuke" to destroy the Docker image, container, and networks.
-* Enter "docker/nuke" to destroy the Docker container but leave the base image in place.
+* Enter "docker/nukec" to destroy the Docker container but leave the base image in place.
 * Enter "docker/sandbox" to run the Rails sandbox.
 * Enter "docker/testc" to run the controller tests only.  Enter "docker/testcl" to run the docker/testc script plus RuboCop and Rails Best Practices.
 * Enter "docker/testh" to run the helper and mailer tests only.  Enter "docker/testhl" to run the docker/testh script plus RuboCop and Rails Best Practices.
