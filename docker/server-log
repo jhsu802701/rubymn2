@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo '--------------------------'
-echo 'rm -f /tmp/pids/server.pid'
-rm -f /tmp/pids/server.pid
+echo '-------------------------'
+echo 'rm -f tmp/pids/server.pid'
+rm -f tmp/pids/server.pid
 
 echo '-------------------'
 echo 'docker-compose down'
