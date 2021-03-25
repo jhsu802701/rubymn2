@@ -1,5 +1,5 @@
 #!/bin/bash
-set +e
+set -e
 
 # BEGIN: PostgreSQL setup
 exec_pg_setup () {
