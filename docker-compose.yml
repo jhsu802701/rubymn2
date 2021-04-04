@@ -38,7 +38,6 @@ services:
       - .env-docker/development/database
     volumes:
       - db_data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "15432:5432"
 

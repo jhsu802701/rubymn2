@@ -12,7 +12,6 @@ exec_pg_setup () {
 
 exec_pg_setup 'config/database.yml'
 exec_pg_setup '.env-docker/development/database'
-exec_pg_setup 'init.sql'
 # END: PostgreSQL setup
 
 # BEGIN: Get Ruby version

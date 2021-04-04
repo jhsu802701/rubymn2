@@ -130,5 +130,4 @@ coverage
 gemsurance_report.html
 
 Dockerfile
-init.sql
 .env-docker/development/database
