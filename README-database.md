@@ -33,6 +33,6 @@ This file specifies the value of the environment variable POSTGRES_HOST.
 
 # PostgreSQL Database Container Startup Actions
 * The "database" Docker container has a built-in docker-entrypoint.sh script that automatically runs upon startup.
-* The environment variables POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB, and POSTGRES_HOST_AUTH_METHOD are used for creating the database.  Note that 3 of these 4 environment variables are specified in the ".env-docker/development/database" file.
+* The docker-entrypoint.sh script uses the environment variables POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB, and POSTGRES_HOST_AUTH_METHOD are used for creating a user and database.  Note that 3 of these 4 environment variables are specified in the ".env-docker/development/database" file.
 * If a value for POSTGRES_PASSWORD is provided, there is no need to provide a value for POSTGRES_HOST_AUTH_METHOD.
 * If the value of POSTGRES_HOST_AUTH_METHOD is set to "trust", there is no need to provide a value for POSTGRES_PASSWORD.  Thus, POSTGRES_HOST_AUTH_METHOD needs to be set to "trust" if the config/database.yml file of a Rails app does not specify a password for the development or test environments.
