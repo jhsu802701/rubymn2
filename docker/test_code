@@ -2,8 +2,6 @@
 
 docker/brakeman
 
-docker/sandi_meter
-
 docker/audit
 
 docker/cop
