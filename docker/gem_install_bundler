@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+# NOTE: This script is intended for use in Docker.
+# The version number requires occasional updates.
+
+echo '-------------------'
+echo 'gem install bundler'
+docker/run gem install bundler
