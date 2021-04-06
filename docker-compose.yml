@@ -8,6 +8,7 @@ services:
     environment:
       - BUNDLE_PATH=/home/winner/myapp/tmp/bundle
       - BUNDLE_APP_CONFIG=/home/winner/myapp/.bundle
+      - GEM_HOME=/home/winner/myapp/tmp/gem_home
     user: winner
     command:
       - bundle
