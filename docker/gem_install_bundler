@@ -1,9 +1,8 @@
 #!/bin/bash
 set -e
 
-# NOTE: This script is intended for use in Docker.
-# The version number requires occasional updates.
+BUNDLER_VERSION=`awk '/BUNDLED WITH/{getline;print;}' Gemfile.lock`
 
-echo '-------------------'
-echo 'gem install bundler'
-docker/run gem install bundler
+echo '---------------------------------------'
+echo "gem install bundler -v $BUNDLER_VERSION"
+docker/run gem install bundler -v $BUNDLER_VERSION
