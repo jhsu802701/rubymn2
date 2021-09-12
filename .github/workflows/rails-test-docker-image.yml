@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Get environment varialbes
+      run: env
     - name: Specify the database parameters in advance
       run: docker/pg_setup_2 'rubymn2_database' 'rubymn2_user' 'rubymn2_password'
     - name: Build the Docker image
