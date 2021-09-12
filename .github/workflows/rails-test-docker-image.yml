@@ -14,15 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Specify the database parameters in advance
+      run: docker/pg_setup_2 'rubymn2_database' 'rubymn2_user' 'rubymn2_password'
     - name: Build the Docker image
-      run: docker-compose build
-    - name: Set up bundler
-      run: docker/gem_install_bundler
-    - name: bundle install
-      run: docker/bundle_install
-    - name: Set up database
-      run: docker/run bundle exec rake db:create db:migrate db:test:prepare
-    - name: Database migration
-      run: docker/migrate
-    - name: Run test suite
-      run: docker/run bundle exec rake test
+      run: docker/build-log
+    - name: Run the test suite in the Docker image
+      run: docker/test-log
