@@ -1,0 +1,28 @@
+# Based on
+# https://github.com/javanag/imagefy/blob/master/rails-test-docker-compose.yml
+
+name: Run Rails tests using Docker Compose
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker-compose build
+    - name: Set up bundler
+      run: docker/gem_install_bundler
+    - name: bundle install
+      run: docker/bundle_install
+    - name: Set up database
+      run: docker/run bundle exec rake db:create db:migrate db:test:prepare
+    - name: Database migration
+      run: docker/migrate
+    - name: Run test suite
+      run: docker/run bundle exec rake test
