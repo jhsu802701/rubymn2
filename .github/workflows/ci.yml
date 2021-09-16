@@ -17,6 +17,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+      - name: Show Ruby version
+        run: ruby -v
       - name: bundle install
         run: bundle install
       - name: Run tests
