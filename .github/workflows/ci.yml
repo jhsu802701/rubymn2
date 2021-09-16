@@ -17,16 +17,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Set up Ruby
+      - name: Set up Ruby and run bundle install
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6.6
           bundler-cache: true
       - name: Show Ruby version
         run: ruby -v
-      - name: bundle install
-        run: bundle install
-      - name: Run tests
+      - name: Prepare database and run tests
         env:
           RAILS_ENV: test
-        run: bundle exec rake db:create db:migrate db:test:prepare
+          POSTGRES_USER=agent007
+          POSTGRES_PASSWORD=BondJamesBond
+          POSTGRES_DB=rubymn2
+        run: | 
+          bundle exec rake db:create db:migrate db:test:prepare
+          bundle exec rake test
