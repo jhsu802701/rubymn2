@@ -17,14 +17,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Select the correct Ruby version
-        run: |
-          cp .ruby-version tmp/.ruby-version-process
-          sed -i.bak "s|ruby-||g" tmp/.ruby-version-process
-          rm tmp/.ruby-version-process.bak
-          RUBY_VERSION_HERE=`cat tmp/.ruby-version-process`
-          rm tmp/.ruby-version-process
-          rbenv use $RUBY_VERSION_HERE
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6.6
+          bundler-cache: true
       - name: Show Ruby version
         run: ruby -v
       - name: bundle install
