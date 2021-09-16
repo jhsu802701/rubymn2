@@ -11,9 +11,10 @@ jobs:
       postgres:
         image: postgres:latest
         env:
+          POSTGRES_HOST: database
+          POSTGRES_DB: rubymn2_db
           POSTGRES_USER: agent007
           POSTGRES_PASSWORD: BondJamesBond
-          POSTGRES_DB: rubymn2_db
 
     steps:
       - uses: actions/checkout@v1
@@ -26,10 +27,11 @@ jobs:
         run: ruby -v
       - name: Prepare database and run tests
         env:
-          RAILS_ENV=test
-          # POSTGRES_HOST=database
-          # POSTGRES_DB=rubymn2_db
-          # POSTGRES_USER=agent007
+          RAILS_ENV: test
+          POSTGRES_HOST: database
+          POSTGRES_DB: rubymn2_db
+          POSTGRES_USER: agent007
+          POSTGRES_PASSWORD: BondJamesBond
         run:
           bundle exec rake db:create db:migrate db:test:prepare
           bundle exec rake test
