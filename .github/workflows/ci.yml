@@ -24,7 +24,7 @@ jobs:
           rm tmp/.ruby-version-process.bak
           RUBY_VERSION_HERE=`cat tmp/.ruby-version-process`
           rm tmp/.ruby-version-process
-          rvm use $RUBY_VERSION_HERE
+          rbenv use $RUBY_VERSION_HERE
       - name: Show Ruby version
         run: ruby -v
       - name: bundle install
