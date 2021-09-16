@@ -26,10 +26,10 @@ jobs:
         run: ruby -v
       - name: Prepare database and run tests
         env:
-          RAILS_ENV=test
-          POSTGRES_HOST=database
-          POSTGRES_DB=rubymn2_db
-          POSTGRES_USER=agent007
+          # RAILS_ENV=test
+          # POSTGRES_HOST=database
+          # POSTGRES_DB=rubymn2_db
+          # POSTGRES_USER=agent007
         run:
           bundle exec rake db:create db:migrate db:test:prepare
           bundle exec rake test
