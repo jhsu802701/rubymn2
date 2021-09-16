@@ -17,6 +17,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+      - name: bundle install
+        run: bundle install
       - name: Run tests
         env:
           RAILS_ENV: test
