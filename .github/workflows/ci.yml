@@ -28,7 +28,7 @@ jobs:
         env:
           RAILS_ENV: test
           POSTGRES_USER=agent007
+          POSTGRES_USER=BondJamesBond
           POSTGRES_DB=rubymn2
-        run: | 
+        run:
           bundle exec rake db:create db:migrate db:test:prepare
-          bundle exec rake test
