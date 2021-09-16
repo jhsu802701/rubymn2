@@ -18,6 +18,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+      - name: Install dependent libraries
+        run: sudo apt-get install -y libpq-dev
       - name: Set up Ruby and run bundle install
         uses: ruby/setup-ruby@v1
         with:
