@@ -34,6 +34,6 @@ jobs:
           POSTGRES_DB: rubymn2_db
           POSTGRES_USER: agent007
           POSTGRES_PASSWORD: BondJamesBond
-        run:
+        run: |
           bundle exec rake db:create db:migrate db:test:prepare
           bundle exec rake test
