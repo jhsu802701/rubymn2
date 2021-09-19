@@ -20,7 +20,7 @@ require 'rails/test_help'
 require File.expand_path('../test/setup_objects.rb', __dir__)
 
 # BEGIN: use minitest-reporters
-if ENV['CODECOV_TOKEN'].nil?
+if ENV['CI'].nil?
   require 'minitest/reporters'
   require 'rake_rerun_reporter'
   Minitest::Reporters.use!
