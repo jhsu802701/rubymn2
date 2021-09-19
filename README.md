@@ -2,7 +2,6 @@
 
 [![CI](https://github.com/jhsu802701/rubymn2/actions/workflows/ci.yml/badge.svg)](https://github.com/jhsu802701/rubymn2/actions/workflows/ci.yml)
 [![security](https://hakiri.io/github/jhsu802701/rubymn2/main.svg)](https://hakiri.io/github/jhsu802701/rubymn2/main)
-[![Maintainability](https://api.codeclimate.com/v1/badges/14e118799467367be0aa/maintainability)](https://codeclimate.com/github/jhsu802701/rubymn2/maintainability)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d1724f3182ef4b1bae334c2d7153cc90)](https://www.codacy.com/gh/jhsu802701/rubymn2/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jhsu802701/rubymn2&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/jhsu802701/rubymn2/branch/main/graph/badge.svg?token=Nf8iU7WWTR)](https://codecov.io/gh/jhsu802701/rubymn2)
 
