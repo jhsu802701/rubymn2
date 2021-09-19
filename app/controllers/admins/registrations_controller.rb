@@ -15,10 +15,6 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    flash[:alert] = 'Admin sign-ups are disabled.'
-    redirect_to root_path
-  end
   # def create
   #   super
   # end
