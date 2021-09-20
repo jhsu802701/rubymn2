@@ -37,7 +37,7 @@ class SponsorCreateTest < ActionDispatch::IntegrationTest
                                   visible: false)
     assert page.has_css?('h1', text: 'Add Sponsor')
     click_button('Submit')
-    
+
     assert page.has_text?('The form contains 1 error.')
     assert page.has_text?("Name can't be blank")
     assert page.has_css?('title', text: full_title('Add Sponsor'),
