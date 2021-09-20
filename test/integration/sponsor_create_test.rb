@@ -31,7 +31,21 @@ class SponsorCreateTest < ActionDispatch::IntegrationTest
     login_as(@a1, scope: :admin)
     visit sponsors_path
 
+    # Add invalid sponsor
+    click_on 'Add Sponsor'
+    assert page.has_css?('title', text: full_title('Add Sponsor'),
+                                  visible: false)
+    assert page.has_css?('h1', text: 'Add Sponsor')
+    click_button('Submit')
+
+    assert page.has_text?('The form contains 1 error.')
+    assert page.has_text?("Name can't be blank")
+    assert page.has_css?('title', text: full_title('Add Sponsor'),
+                                  visible: false)
+    assert page.has_css?('h1', text: 'Add Sponsor')
+
     # Add current sponsor
+    visit sponsors_path
     click_on 'Add Sponsor'
     assert page.has_css?('title', text: full_title('Add Sponsor'),
                                   visible: false)
