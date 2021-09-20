@@ -31,7 +31,24 @@ class SponsorEditTest < ActionDispatch::IntegrationTest
     login_as(@a1, scope: :admin)
     visit edit_sponsor_path(@sponsor1)
 
+    # Edit current sponsor (unsuccessful)
+    assert page.has_css?('title', text: full_title('Edit Sponsor'),
+                                  visible: false)
+    assert page.has_css?('h1', text: 'Edit Sponsor')
+    fill_in('Name', with: '')
+    click_button('Submit')
+    assert page.has_text?('The form contains 1 error.')
+    assert page.has_text?("Name can't be blank")
+    visit sponsor_path(@sponsor1)
+    assert page.has_css?('title', text: full_title('Blessed Buy'), visible: false)
+    assert page.has_css?('h1', text: 'Current Sponsor: Blessed Buy')
+    assert_text '(612) 555-0101'
+    assert_text 'THE place to buy the new Galaxy Wars merchandise'
+    assert_text 'example@blessedbuy.com'
+    assert page.has_link?('http://www.blessedbuy.com', href: 'http://www.blessedbuy.com')
+
     # Edit current sponsor
+    visit edit_sponsor_path(@sponsor1)
     assert page.has_css?('title', text: full_title('Edit Sponsor'),
                                   visible: false)
     assert page.has_css?('h1', text: 'Edit Sponsor')
