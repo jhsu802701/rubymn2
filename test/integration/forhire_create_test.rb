@@ -31,10 +31,24 @@ class ForhireCreateTest < ActionDispatch::IntegrationTest
     check_no_create_button
   end
 
+  # rubocop:disable Metrics/BlockLength
   test 'user without forhire profile can successfully add forhire' do
     login_as(@u7, scope: :user)
-    visit forhires_path
 
+    # Add invalid for hire profile
+    visit forhires_path
+    click_on 'Add For Hire Profile'
+    assert page.has_css?('title', text: full_title('Add Your For Hire Profile'),
+                                  visible: false)
+    assert page.has_css?('h1', text: 'Add Your For Hire Profile')
+    click_button('Submit')
+    assert page.has_text?('The form contains 3 errors.')
+    assert page.has_text?("Description can't be blank")
+    assert page.has_text?("Email can't be blank")
+    assert page.has_text?("Title can't be blank")
+
+    # Add valid for hire profile
+    visit forhires_path
     click_on 'Add For Hire Profile'
     assert page.has_css?('title', text: full_title('Add Your For Hire Profile'),
                                   visible: false)
@@ -57,4 +71,5 @@ class ForhireCreateTest < ActionDispatch::IntegrationTest
     assert_text 'ernst_stavro_blofeld@example.com'
     assert_text 'I am out to take over the world!'
   end
+  # rubocop:enable Metrics/BlockLength
 end
