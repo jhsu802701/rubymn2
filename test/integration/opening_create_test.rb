@@ -22,10 +22,23 @@ class OpeningCreateTest < ActionDispatch::IntegrationTest
     check_no_create_button
   end
 
+  # rubocop:disable Metrics/BlockLength
   test 'user can successfully add opening' do
     login_as(@u7, scope: :user)
-    visit openings_path
 
+    # Invalid job opening
+    visit openings_path
+    click_on 'Add Job Opening'
+    click_button('Submit')
+    assert page.has_text?('The form contains 2 errors.')
+    assert page.has_text?("Description can't be blank")
+    assert page.has_text?("Title can't be blank")
+    assert page.has_css?('title', text: full_title('Add Job Opening'),
+                                  visible: false)
+    assert page.has_css?('h1', text: 'Add Job Opening')
+
+    # Valid job opening
+    visit openings_path
     click_on 'Add Job Opening'
     assert page.has_css?('title', text: full_title('Add Job Opening'),
                                   visible: false)
@@ -46,4 +59,5 @@ class OpeningCreateTest < ActionDispatch::IntegrationTest
     assert_text 'Death Trap Builder'
     assert_text 'Build death traps that will kill 007!'
   end
+  # rubocop:enable Metrics/BlockLength
 end
