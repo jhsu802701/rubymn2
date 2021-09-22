@@ -26,10 +26,27 @@ class ProjectCreateTest < ActionDispatch::IntegrationTest
     check_no_create_button
   end
 
+  # rubocop:disable Metrics/BlockLength
   test 'user can successfully add project' do
     login_as(@u13, scope: :user)
-    visit projects_path
 
+    # Add invalid project
+    visit projects_path
+    click_on 'Add Project'
+    assert page.has_css?('title', text: full_title('Add Project'),
+                                  visible: false)
+    assert page.has_css?('h1', text: 'Add Project')
+    click_button('Submit')
+
+    assert page.has_text?('The form contains 2 errors.')
+    assert page.has_text?("Description can't be blank")
+    assert page.has_text?("Title can't be blank")
+    assert page.has_css?('title', text: full_title('Add Project'),
+                                  visible: false)
+    assert page.has_css?('h1', text: 'Add Project')
+
+    # Add valid project
+    visit projects_path
     click_on 'Add Project'
     assert page.has_css?('title', text: full_title('Add Project'),
                                   visible: false)
@@ -56,4 +73,5 @@ class ProjectCreateTest < ActionDispatch::IntegrationTest
     assert page.has_link?('http://www.smokeyandthebandit.com',
                           href: 'http://www.smokeyandthebandit.com')
   end
+  # rubocop:enable Metrics/BlockLength
 end
