@@ -31,10 +31,35 @@ class ProjectEditTest < ActionDispatch::IntegrationTest
     check_no_edit_button
   end
 
+  # rubocop:disable Metrics/BlockLength
   test 'correct user can successfully edit project' do
     login_as(@u3, scope: :user)
-    visit edit_project_path(@p2)
 
+    # Invalid project
+    visit edit_project_path(@p2)
+    assert page.has_css?('title', text: full_title('Edit Project'),
+                                  visible: false)
+    fill_in('Title', with: '')
+    click_button('Submit')
+
+    assert page.has_text?('The form contains 1 error.')
+    assert page.has_text?("Title can't be blank")
+
+    visit project_path(@p2)
+    assert page.has_css?('title',
+                         text: full_title('The Man with the Golden Gun'),
+                         visible: false)
+    assert page.has_css?('h1', text: 'Project: The Man with the Golden Gun')
+    assert_text 'Get the Solex Agitator from Scaramanga.'
+    assert_text 'Source Code URL:'
+    assert_text 'Deployed URL:'
+    assert page.has_link?('https://github.com/rmoore/scaramanga',
+                          href: 'https://github.com/rmoore/scaramanga')
+    assert page.has_link?('http://www.scaramanga.com',
+                          href: 'http://www.scaramanga.com')
+
+    # Valid project
+    visit edit_project_path(@p2)
     assert page.has_css?('title', text: full_title('Edit Project'),
                                   visible: false)
     fill_in('Title', with: 'A View To A Kill')
@@ -53,4 +78,5 @@ class ProjectEditTest < ActionDispatch::IntegrationTest
     assert page.has_link?('http://www.aviewtoakill.com',
                           href: 'http://www.aviewtoakill.com')
   end
+  # rubocop:enable Metrics/BlockLength
 end
