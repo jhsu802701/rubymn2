@@ -46,9 +46,11 @@ class Admin < ApplicationRecord
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
       where(conditions.to_h).where(['lower(username) = :value OR lower(email) = :value', { value: login.downcase }]).first
+    # :nocov:
     elsif conditions._key?(:username) || conditions.key?(:email)
       where(conditions.to_h).first
     end
+    # :nocov:
   end
   # END: needed to login
 
