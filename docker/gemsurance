@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# Checks for outdated and insecure gems
-
-docker/run bin/gemsurance

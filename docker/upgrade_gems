@@ -13,4 +13,4 @@ docker/run bundle update
 
 docker/git_check
 
-docker/gemsurance
+docker/bundle_outdated

@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+echo '----------------------'
+echo 'BEGIN: bundle outdated'
+echo '----------------------'
+docker/run bundle outdated
+echo '--------------------'
+echo 'END: bundle outdated'
+echo '--------------------'
