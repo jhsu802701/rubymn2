@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Use this script for upgrading Bundler.
+# This updates the Bundler version specified in Gemfile.lock
+
+echo '-------------------'
+echo 'gem install bundler'
+docker/run gem install bundler
+
+echo '-----------------------'
+echo 'bundle update --bundler'
+docker/run bundle update --bundler
+
+docker/git_check
+
+docker/bundle_outdated
